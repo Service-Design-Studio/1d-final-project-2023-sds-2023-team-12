@@ -1,0 +1,32 @@
+<div id="<%= dom_id post %>">
+  <p>
+    <strong>Full name:</strong>
+    <%= post.full_name %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%= post.age %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= post.location %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= post.description %>
+  </p>
+
+  <p>
+    <strong>Special note:</strong>
+    <%= post.special_note %>
+  </p>
+
+  <p>
+    <strong>Image data:</strong>
+    <%= image_tag post.image_url if post.image%>
+  </p>
+
+</div>
