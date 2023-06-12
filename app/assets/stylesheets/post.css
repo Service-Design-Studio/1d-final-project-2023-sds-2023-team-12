@@ -1,0 +1,110 @@
+.title_index_post{
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+
+/* Show case all post */
+
+.try{
+    margin: 5px auto;
+}
+
+ .image_project{
+    display: block;
+    width: 100%;
+    height: 400px;
+    position: relative;
+ }
+
+ /* .col_content{
+    padding: 10px;
+ } */
+
+ .image_project img{
+    display: block;
+    width: 100%;
+    height: 100%;
+ }
+
+ .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.644);
+    padding: 10px;
+    color: black;
+    opacity: 0;
+    transition: all 0.5s;
+ }
+
+ .project_showcase .bottom p:first-of-type{
+    margin: 15px 0px;
+    color: #717171;
+    font-weight: 600;
+    font-size: 21px;
+ }
+
+ .col_component{
+    padding: 0 10px;
+    transition: all 0.6s;
+ }
+
+ .bottom span{
+    margin-right: 10px;
+    /* font-weight: 600; */
+ }
+
+ .col_component:hover .overlay{
+    opacity: 1;
+ }
+
+ .col_component:hover{
+     box-shadow: 0px 1px 8px 0px rgb(158 158 158 / 75%);
+ }
+
+
+
+
+
+/* <p>
+    <strong>Full name:</strong>
+    <%= post.full_name %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%= post.age
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= post.location %>
+  </p>
+
+  <p> %>
+    <strong>Description:</strong>
+    <%= post.description %>
+  </p>
+
+  <p>
+    <strong>Special note:</strong>
+    <%= post.special_note %>
+  </p>
+
+  <p>
+    <strong>Image data:</strong>
+    <%= image_tag post.image_url if post.image%>
+  </p>
+
+  <p>
+      <%= link_to "Show this post", post %>
+  </p>
+
+</div> */

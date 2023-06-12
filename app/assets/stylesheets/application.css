@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "page";
+
+ /* GLOBAL */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+ }
+ 
+ body {
+    color: #717171;
+    font-family: 'Roboto Condensed', sans-serif;
+ }
+
+ 

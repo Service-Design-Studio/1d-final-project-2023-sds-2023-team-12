@@ -36,7 +36,7 @@
     <%= form.text_field :special_note %>
   </div>
 
-  <div>
+  <div hidden>
     <%= form.label :user_id, style: "display: block"  %>
     <%= form.number_field :user_id, value: current_user.id %>
   </div>
