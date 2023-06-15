@@ -1,3 +1,4 @@
+<%# Do not modify this from line 2 to 13 - Louis %>
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
@@ -10,6 +11,9 @@
       </ul>
     </div>
   <% end %>
+  
+
+  <h1 class="new_post_test">Cebas</h1>
 
   <div>
     <%= form.label :full_name, style: "display: block" %>
