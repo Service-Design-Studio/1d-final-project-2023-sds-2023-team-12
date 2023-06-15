@@ -1,3 +1,4 @@
+<div class="container_fix">
 <h1 class="log_in_header">Sign up</h1>
 
 <div class="centralize-form">
@@ -33,10 +34,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "signup-field" %>
     </div>
 
-    <div class="actions">
+    <div class="actions d-flex justify-content-center sign_up_cover">
       <%= f.submit "Sign up", class: "signup-button" %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
+</div>
 </div>

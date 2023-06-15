@@ -19,7 +19,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     unless user_signed_in?
-      redirect_to new_user_session_path
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path(), notice: "You have not sign in, please sign in!", alert: "Got alert"}
+      end
     else
       @post = Post.new
     end
