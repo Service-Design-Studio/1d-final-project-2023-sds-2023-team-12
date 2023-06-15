@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 /* Cephas code for log in */
 /* ###### Your code start here ###### */
 .log_in_test{
@@ -12,6 +14,153 @@
     color: red;
     font-size: 30px;
 }
+
+.log_in_header{
+    font-family: 'Montserrat', sans-serif;
+    color: #e53e3e;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;;
+	margin-top: 15px;
+}
+
+.container {
+	background-color: #f6f5f7;
+    opacity: 1.0;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 400px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.centralize-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.login-label {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-size: 20px;
+    font-weight: normal;;
+	margin: 0;
+}
+  
+.login-field {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 0;
+    width: 400px;
+    font-size: 20px;
+  }
+
+.form {
+	background-color: #ffacac;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+.remember-me-label {
+    font-size: 16px; /* Adjust the font size as desired */
+    color: #000000; /* Set the color to black */
+  }
+
+.login-button {
+    border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+}
+
+.login-button {
+    border-radius: 20px;
+    border: 1px solid #e53e3e;
+    background-color: #e53e3e;
+    color: #FFFFFF;
+    font-size: 15px; /* Adjust the font size as desired */
+    font-weight: bold;
+    padding: 12px 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  
+.login-button:hover {
+    transform: scale(1.05); /* Adjust the scale factor for hover effect */
+  }
+  
+.login-button:focus {
+    outline: none;
+  }
+
+.signup-label {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-size: 20px;
+    font-weight: normal;;
+	margin: 0;
+}
+  
+.signup-field {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 0;
+    width: 400px;
+    font-size: 20px;
+  }
+
+.signup-button {
+    border-radius: 20px;
+    border: 1px solid #e53e3e;
+    background-color: #e53e3e;
+    color: #FFFFFF;
+    font-size: 15px; /* Adjust the font size as desired */
+    font-weight: bold;
+    padding: 12px 30px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  
+.signup-button:hover {
+    transform: scale(1.05); /* Adjust the scale factor for hover effect */
+  }
+  
+.signup-button:focus {
+    outline: none;
+  }
 
 /* ###### End here ######### */
 
