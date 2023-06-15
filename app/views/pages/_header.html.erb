@@ -15,9 +15,15 @@
                 <%= link_to "Show Cases", posts_path, class: "nav-link active" %>
         </li>
 
+<%if user_signed_in? %>
         <li class="nav-item nav_item">
+        <%= link_to "Report Case", new_user_post_path(current_user), class: "nav-link active" %>
+        </li>
+<%else%>
+<li class="nav-item nav_item">
         <%= link_to "Report Case", new_post_path, class: "nav-link active" %>
         </li>
+<%end%>
 
         <li class="nav-item nav_item">
         <%= link_to "AI Feature", ai_feature_path, class: "nav-link active" %>
@@ -32,11 +38,11 @@
        
 
           <li class="nav-item nav_item my_case bg-warning">
-        <%= link_to "My Cases", ai_feature_path, class: "nav-link active" %>
+        <%= link_to "My Cases", user_posts_path(current_user), class: "nav-link active" %>
         </li>
 
         <li class="nav-item nav_item profile bg-success">
-        <%= link_to "Profile", edit_user_registration_path, class: "nav-link active" %>
+        <%= link_to "Profile",  edit_user_registration_path({user_id: current_user.id}), class: "nav-link active" %>
         </li>
 
         <li class="nav-item nav_item profile bg-danger">

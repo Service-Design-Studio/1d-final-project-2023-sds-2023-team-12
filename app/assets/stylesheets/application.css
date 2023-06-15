@@ -28,4 +28,7 @@
     font-family: 'Roboto Condensed', sans-serif;
  }
 
- 
+ .animate__animated.animate__fadeIn {
+   --animate-duration: 1.75s;
+   --animate-repeat: 0;
+ }

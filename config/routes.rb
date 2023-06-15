@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   get "/report_case", to: "pages#report"
   get "/show_all_cases", to: "pages#show_all"
   get "/ai_feature", to: "pages#ai_feature"
+  get "/user/:id/edit", to: "devise/registrations#edit"
+
+  resources :users do
+    resources :posts 
+  end
 end

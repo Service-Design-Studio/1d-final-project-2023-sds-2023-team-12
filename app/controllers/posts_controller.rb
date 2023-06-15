@@ -3,7 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    if !params.key?(:user_id)
+      @posts = Post.all
+    else
+      @posts = User.find_by(id: params[:user_id]).posts
+    end
+
+
   end
 
   # GET /posts/1 or /posts/1.json
@@ -15,7 +21,7 @@ class PostsController < ApplicationController
     unless user_signed_in?
       redirect_to new_user_session_path
     else
-    @post = Post.new
+      @post = Post.new
     end
   end
 

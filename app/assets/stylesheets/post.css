@@ -1,15 +1,32 @@
-.title_index_post{
-    margin-top: 15px;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 40px;
+body{
+   background-color: #F4F6F6   ;
 }
 
+
+.title_index_post{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 43px;
+    
+}
+
+.project_showcase{
+   margin-bottom: 50px;
+}
 
 /* Show case all post */
 
 .try{
     margin: 5px auto;
+    /* border-radius: 20px !important; */
+    /* margin-bottom: 10px !important; */
+}
+
+.col_component{
+   background-color: #FDFEFE;
+   box-shadow: 0px 1px 8px 2px rgba(158, 158, 158, 0.75);
+   /* border-radius: 20px; */
 }
 
  .image_project{
@@ -37,7 +54,7 @@
     width: 100%;
     height: 100%;
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.644);
+    background-color: rgba(33, 18, 18, 0.607);
     padding: 10px;
     color: black;
     opacity: 0;
@@ -51,8 +68,12 @@
     font-size: 21px;
  }
 
+ .col_content{
+   padding-bottom: 10px;
+ }
+
  .col_component{
-    padding: 0 10px;
+    /* padding: 0 10px; */
     transition: all 0.6s;
  }
 
@@ -66,45 +87,78 @@
  }
 
  .col_component:hover{
-     box-shadow: 0px 1px 8px 0px rgb(158 158 158 / 75%);
+     box-shadow: 0px 3px 8px 0px rgba(158, 158, 158, 0.564);
+     transform: scale(1.05);
  }
 
+ .bottom{
+   padding-left: 20px;
+   margin-bottom: 15px;
+   color: #34495E;
+ }
 
+ .bottom_item{
+   margin-top: 5px;
+   margin-bottom: 5px;
+ }
 
+ .bottom p:nth-of-type(4){
+   margin-top: 15px;
+   border: 0px solid none;
+ }
 
+ .button_class{
+   padding: 5px;
+   padding-left: 10px;
+   padding-right: 10px;
+   border-style: none ;
+   border-radius: 10px;
+   background-color: #34495E;
+   color: #F39C12;
+   transition: all 0.5s;
+ }
 
-/* <p>
-    <strong>Full name:</strong>
-    <%= post.full_name %>
-  </p>
+ .a_tag{
+   text-decoration: none;
+   color: #F39C12;
+   font-weight: 600;
+   transition: all 0.5s;
+ }
 
-  <p>
-    <strong>Age:</strong>
-    <%= post.age
-  </p>
+ .small_icon{
+   margin-right: 5px;
+   font-size: 15px;
+ }
+ 
+ .button_class:hover{
+   background-color: #F39C12;
+   color: #34495E;
+   transform: scale(1.1);
+ }
 
-  <p>
-    <strong>Location:</strong>
-    <%= post.location %>
-  </p>
+ .button_class:hover .a_tag{
+   color: #34495E;
+ }
 
-  <p> %>
-    <strong>Description:</strong>
-    <%= post.description %>
-  </p>
+ .note_bottom{
+   margin-right: 5px;
+ }
 
-  <p>
-    <strong>Special note:</strong>
-    <%= post.special_note %>
-  </p>
+ .bottom p:nth-of-type(1){
+   font-size: 28px !important;
+   color: #34495E !important;
+ }
 
-  <p>
-    <strong>Image data:</strong>
-    <%= image_tag post.image_url if post.image%>
-  </p>
+.user_item{
+   margin-right: 5px;
+}
 
-  <p>
-      <%= link_to "Show this post", post %>
-  </p>
+/* FOR OVERLAY */
+.col_content .overlay{
+   padding: 35px;
+   font-size: 25px;
+   color: white;
+   padding-top: 70px;
+   
+}
 
-</div> */
