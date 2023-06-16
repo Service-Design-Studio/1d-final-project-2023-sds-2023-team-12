@@ -37,7 +37,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully created." }
+       ## format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,6 +58,11 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def detail
+    @post=Post.find_by(id: params[:id])
+    render "_pdetail"
   end
 
   # DELETE /posts/1 or /posts/1.json
