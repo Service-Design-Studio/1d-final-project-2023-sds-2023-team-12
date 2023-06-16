@@ -80,6 +80,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # Yixuan
   # Add Cucumber for behavior-driven development
   gem 'cucumber-rails', require: false
   # Even thought database_cleaner is not mandatory, it is highly recommended for cleaning the database between tests. 
