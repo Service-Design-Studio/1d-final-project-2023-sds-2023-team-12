@@ -12,57 +12,63 @@
     </div>
   <% end %>
   
-<div class="centralize-form">
-  <h1 class="report_header">Please fill in the details:</h1>
+<div class="container_fix">
+  <h1 class="report_header">Report a Case</h1>
 
-  <div>
-    <%= form.label :full_name, style: "display: block", class:"report-label" %>
-    <%= form.text_field :full_name, class:"report-field" %>
+  <div class="row">
+
+    <div class="column">
+      <p>here will be photo</p>
+    </div>
+
+    <div class="column">
+      <div>
+        <%= form.label :full_name, style: "display: block", class:"report-label" %>
+        <%= form.text_field :full_name, class:"report-field" %>
+      </div>
+
+      <div>
+        <%= form.label :age, style: "display: block", class:"report-label" %>
+        <%= form.number_field :age, class:"report-field" %>
+      </div>
+
+      <div>
+        <%= form.label :location, style: "display: block", class:"report-label" %>
+        <%= form.text_field :location, class:"report-field" %>
+      </div>
+
+      <div>
+        <%= form.label :description, style: "display: block", class:"report-label" %>
+        <%= form.text_field :description, class:"description-field" %>
+      </div>
+
+      <div>
+        <%= form.label :special_note, style: "display: block", class:"report-label" %>
+        <%= form.text_field :special_note, class:"report-field" %>
+      </div>
+
+      <div hidden>
+        <%= form.label :user_id, style: "display: block", class:"report-label"  %>
+        <%= form.number_field :user_id, value: current_user.id, class:"report-field" %>
+      </div>
+
+      <div class="time-input-container">
+        <form action="/action_page.php">
+        <label for="missingtime", class="TimeMissing-label">Time of Missing:</label>
+        <input type="datetime-local" id="missingtime" name="missingtime">
+        </form>
+      </div>
+
+      <div>
+        <%= form.label :image, style: "display: block" %>
+        <%= image_tag form.object.image_url if form.object.cached_image_data %>
+    <%= form.hidden_field :image, value: form.object.cached_image_data %>
+        <%= form.file_field :image %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :age, style: "display: block", class:"report-label" %>
-    <%= form.number_field :age, class:"report-field" %>
-  </div>
-
-  <div>
-    <%= form.label :location, style: "display: block", class:"report-label" %>
-    <%= form.text_field :location, class:"report-field" %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block", class:"report-label" %>
-    <%= form.text_field :description, class:"report-field" %>
-  </div>
-
-  <div>
-    <%= form.label :special_note, style: "display: block", class:"report-label" %>
-    <%= form.text_field :special_note, class:"report-field" %>
-  </div>
-
-  <div hidden>
-    <%= form.label :user_id, style: "display: block", class:"report-label"  %>
-    <%= form.number_field :user_id, value: current_user.id, class:"report-field" %>
-  </div>
-
-<div class="time-input-container">
-  <form action="/action_page.php">
-  <label for="missingtime", class="TimeMissing-label">Time of Missing:</label>
-  <input type="datetime-local" id="missingtime" name="missingtime">
-  </form>
-</div>
-
-
-<div class="left-form">
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= image_tag form.object.image_url if form.object.cached_image_data %>
- <%= form.hidden_field :image, value: form.object.cached_image_data %>
-    <%= form.file_field :image %>
-  </div>
-
-
-  <div>
+  <div class="middle-button"> 
     <%= form.submit %>
   </div>
 <% end %>
