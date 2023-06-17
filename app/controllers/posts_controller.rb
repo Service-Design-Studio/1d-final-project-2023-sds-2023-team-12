@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully created." }
+        format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully created, click on show cases to see your case" }
        ## format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
+        format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully updated, click on show cases to see your case" }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,6 +62,8 @@ class PostsController < ApplicationController
 
   def detail
     @post=Post.find_by(id: params[:id])
+    @user_id=@post.user_id
+    @user=User.find_by(id: @post.user_id)
     render "_pdetail"
   end
 
@@ -70,7 +72,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to posts_url, notice: "Post was successfully destroyed, we are happy that you have found your loved ones" }
       format.json { head :no_content }
     end
   end
@@ -83,6 +85,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image)
+      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time)
     end
 end

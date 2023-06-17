@@ -23,10 +23,22 @@ body{
     /* margin-bottom: 10px !important; */
 }
 
+.your_case{
+   background-color: #ABEBC6  !important;
+}
+
 .col_component{
    background-color: #FDFEFE;
    box-shadow: 0px 1px 8px 2px rgba(158, 158, 158, 0.75);
    /* border-radius: 20px; */
+}
+
+.time_went_missing{
+   margin-top: 15px;
+   margin-bottom: 15px !important;
+   color: #E74C3C;
+   font-weight: 700;
+   font-size: 20px;
 }
 
  .image_project{
@@ -355,8 +367,26 @@ body{
   overflow: hidden;
 }
 
+.contact_person_detail{
+   margin-bottom: 15px;
+   font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
 .contain_image{
    padding: 50px;
+   padding-top: 20px;
+}
+
+.contain_info{
+   padding-top: 23px;
 }
 
 .contain_image img{
@@ -365,12 +395,79 @@ body{
    height: 100%;
 }
 
+.missing_case_headers{
+   font-size: 30px !important;
+   font-weight: 500 !important;
+   color: #e53e3e !important;
+}
+
+.missing_case_content{
+   color: #717171;
+}
+
 .col_for_image{
    padding: 10px;
 }
 
 .missing_case_detail_title{
    text-align: center;
+   font-family: sans-serif;
    color: #e53e3e;
    margin-top: 15px;
+   font-weight: 500;
+}
+
+.missing_case_headers{
+   font-family: sans-serif;
+   font-weight: bold;
+   color: #000000;
+}
+
+.missing_case_content{
+   color: #000000;
+   font-size: 0.8em;
+}
+
+/* FOR EDIT POST PAGE */
+.edit_post_image{
+   padding-top: 100px;
+}
+.edit_post_image img{
+   display: block;
+   width: 100%;
+   height: 80%;
+}
+
+/* For detail page */
+.button_for_two_bottom{
+   margin-top: 50px;
+   padding-left: 350px;
+   margin-bottom: 20px;
+}
+.button_for_two_bottom button{
+   margin-right: auto;
+   border-radius: 20px;
+   border: 1px solid #FF4B2B;
+   background-color: #FF4B2B;
+   color: #FFFFFF;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 12px 45px;
+   letter-spacing: 1px;
+   transition: all 0.5s;
+}
+.button_for_two_bottom button a{
+   text-decoration: none;
+   color: white !important;
+   transition: all 0.5s;
+}
+.button_for_two_bottom button:hover{
+   background-color: white;
+   border-color: #e53e3e;
+   transform: scale(1.03);
+}
+
+.button_for_two_bottom button:hover a{
+   color: red !important;
+   font-weight: 700;
 }

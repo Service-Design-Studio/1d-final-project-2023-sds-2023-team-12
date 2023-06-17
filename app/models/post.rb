@@ -8,5 +8,6 @@ class Post < ApplicationRecord
     validates :description, presence: true
     validates :special_note, presence: true
     validates :image_data, presence: true
+    validates :missing_time, presence: true
 
 end

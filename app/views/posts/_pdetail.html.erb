@@ -9,23 +9,37 @@
     </div>
 <div class="col-sm-6 contain_info">
 
-    <h3>Full name<h3>
-    <p class=""><%=@post.full_name%></p>
+<h3 class="contact_person_detail">Posted by: <%=@user.full_name %> , Contact number: <%= @user.mobile_phone%></h3>
 
-    <h3>Age<h3>
-    <p class=""><%=@post.age%></p>
+    <h3 class="missing_case_headers">Full name<h3>
+    <p class="missing_case_content"><%=@post.full_name%></p>
 
-    <h3>Location<h3>
-    <p class="">Full name: <%=@post.location%></p>
+    <h3 class="missing_case_headers">Age<h3>
+    <p class="missing_case_content"><%=@post.age%></p>
 
-    <h3>Descriptione<h3>
-    <p class=""><%=@post.description%></p>
+    <h3 class="missing_case_headers">Location<h3>
+    <p class="missing_case_content"><%=@post.location%></p>
 
-    <h3>Special Note<h3>
-    <p class=""><%=@post.description%></p>
+    <h3 class="missing_case_headers">Description<h3>
+    <p class="missing_case_content"><%=@post.description%></p>
 
-    <h3>Missing Time<h3>
-    <p class=""><%=@post.description%></p>
+    <h3 class="missing_case_headers">Special Note<h3>
+    <p class="missing_case_content"><%=@post.special_note%></p>
+
+    <h3 class="missing_case_headers">Missing Time<h3>
+    <p class="missing_case_content"><%= @post.missing_time.to_fs(:rfc822)%></p>
+
+<% if current_user.id == @user_id %>
+
+    <div class="button_for_two_bottom">
+    <button>
+    <%= link_to "EDIT", edit_user_post_path(current_user,@post)%>
+    </button>
+    <button>
+    <%= link_to "DELETE", user_post_path(current_user,@post),data: {turbo_method: :delete}%>
+    </button>
+    </div>
+<%end%>
 
 </h3>
 <div>
