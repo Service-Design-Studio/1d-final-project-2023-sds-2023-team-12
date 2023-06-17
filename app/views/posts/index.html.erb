@@ -1,6 +1,10 @@
 
-<h1 class="title_index_post">All Active Missing Cases</h1>
+<% if params[:user_id]%>
+<h1 class="title_index_post">My Cases</h1>
 
+<% else %>
+  <h1 class="title_index_post">All Active Missing Cases</h1>
+<%end%>
 <%# <%= params.inspect %>
 
 <div id="posts" class="project_showcase row">

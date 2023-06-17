@@ -14,15 +14,20 @@
   <% end %>
 
   
-<div class="container_fix_advanced">
-  <h1 class="report_header">Report Case</h1>
+<div class="container_fix_advanced animate__animated animate__fadeInUp">
+<%# <%= params.inspect%> 
+<% if params[:controller]=="posts" and params[:action]=="edit" %>
+  <h1 class="report_header">Edit Case</h1>
 
+  <% else %>
+  <h1 class="report_header">Create Case</h1>
+<%end%>
   <div class="row">
 
     <div class="column post_image_ne">
       <div class="new_post_image">
-      <div>
-      <img>
+      <div class="edit_post_image">
+        <%= image_tag @post.image_url if @post.image%>
       </div>
       </div>
     </div>
@@ -78,7 +83,9 @@
 
   <div class="middle-button"> 
     <%= form.submit class: "login-button" %>
+    <%# <% link_to "Update Post", show_post_detail_path(post), class: "login_button"%> 
   </div>
+
 
   <%# <%= link_to "Create Post", new_user_post_path, class: "button_submit_post login-button", data: {turbo_method: :post}%> 
 

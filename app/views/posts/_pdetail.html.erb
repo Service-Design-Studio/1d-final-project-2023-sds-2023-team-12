@@ -22,10 +22,22 @@
     <p class="missing_case_content"><%=@post.description%></p>
 
     <h3 class="missing_case_headers">Special Note<h3>
-    <p class="missing_case_content"><%=@post.description%></p>
+    <p class="missing_case_content"><%=@post.special_note%></p>
 
     <h3 class="missing_case_headers">Missing Time<h3>
     <p class="missing_case_content"><%=@post.description%></p>
+
+<% if current_user.id == @user_id %>
+
+    <div class="button_for_two_bottom">
+    <button>
+    <%= link_to "EDIT", edit_user_post_path(current_user,@post)%>
+    </button>
+    <button>
+    <%= link_to "DELETE", user_post_path(current_user,@post),data: {turbo_method: :delete}%>
+    </button>
+    </div>
+<%end%>
 
 </h3>
 <div>

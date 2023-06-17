@@ -1,3 +1,33 @@
+<% if user_signed_in? and post.user_id == current_user.id %>
+
+<div class="col-sm-4 try animate__animated animate__fadeInUp">
+    <div id="<%= dom_id post %>" class="col_component your_case">
+                    <div class="col_content">
+                    <div class="image_project">
+                        <%# <img src="./img/image 2.png" alt=""> %>
+                        <%= image_tag post.image_url if post.image%>
+                        <div class="overlay">
+                            <p class="">Description: <%=post.description%></p>
+                            <p class="">Age: <%=post.age%></p>
+                        </div>
+                    </div>
+
+                    <div
+                    class="bottom">
+                      <p class="bottom_item"><%=post.full_name%></p>
+                      <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.special_note%></p>
+                      <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
+                      <p class="bottom_item">
+                      <button class="button_class"><i class="fa-solid fa-circle-info small_icon"></i>
+                      <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
+                      </p>
+                </div>
+</div>
+</div>
+</div>
+
+<%else%>
+
 <div class="col-sm-4 try animate__animated animate__fadeInUp">
     <div id="<%= dom_id post %>" class="col_component">
                     <div class="col_content">
@@ -23,6 +53,9 @@
 </div>
 </div>
 </div>
+
+
+<%end%>
 
 
 
