@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/show_all_cases", to: "pages#show_all"
   get "/ai_feature", to: "pages#ai_feature"
   get "/user/:id/edit", to: "devise/registrations#edit"
+  get "/post/:id/detail", to: "posts#detail", as: "show_post_detail"
 
   resources :users do
     resources :posts 

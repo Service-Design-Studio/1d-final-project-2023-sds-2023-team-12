@@ -1,0 +1,32 @@
+<%# Do not modify this from line 2 to 13 - Louis %>
+<%# <div class="alert alert-danger alert-dismissible fade show animate__animated animate__fadeInDown" role="alert"> %>
+<div class="container_detail row animate__animated  animate__fadeInUp">
+<h1 class="missing_case_detail_title">Missing Case Detail</h1>
+    <div class="col-sm-6 col_for_image">
+        <div class="contain_image">
+        <%= image_tag @post.image_url if @post.image%>
+    </div>
+    </div>
+<div class="col-sm-6 contain_info">
+
+    <h3>Full name<h3>
+    <p class=""><%=@post.full_name%></p>
+
+    <h3>Age<h3>
+    <p class=""><%=@post.age%></p>
+
+    <h3>Location<h3>
+    <p class="">Full name: <%=@post.location%></p>
+
+    <h3>Descriptione<h3>
+    <p class=""><%=@post.description%></p>
+
+    <h3>Special Note<h3>
+    <p class=""><%=@post.description%></p>
+
+    <h3>Missing Time<h3>
+    <p class=""><%=@post.description%></p>
+
+</h3>
+<div>
+
