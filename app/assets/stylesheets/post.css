@@ -371,6 +371,18 @@ body{
 
 .missing_case_detail_title{
    text-align: center;
+   font-family: sans-serif;
    color: #e53e3e;
    margin-top: 15px;
+}
+
+.missing_case_headers{
+   font-family: sans-serif;
+   font-weight: bold;
+   color: #000000;
+}
+
+.missing_case_content{
+   color: #000000;
+   font-size: 0.8em;
 }
