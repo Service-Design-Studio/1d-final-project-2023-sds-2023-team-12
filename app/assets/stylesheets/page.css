@@ -3,7 +3,9 @@
    padding: 20px !important;
    font-size: 22px;
    margin-bottom: 10px;
-   background-color: #34495E !important;
+   /* background-color: #34495E !important; */
+   background-color: #FDEDEC !important;
+   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .nav_item{
    margin-left: 15px;
@@ -13,44 +15,60 @@
 
 .nav_item a{
    transition: all 0.7s;
+   color: #D30001 !important;
+   font-weight: 700;
 }
 
 .nav_item:hover{
    border: none;
-   background-color: white !important;
+   background-color: #D30001 !important;
    border-radius: 5px;
    transition: 0.7s;
 }
 
 .nav_item:hover a{
-   color: #34495E !important;
+   color: white !important;
    font-weight: 700;
 }
 
 .nav_move{
-   margin-left: 1300px;
+   /* margin-left: 1100px; */
    margin-right: 5px;
 }
 
 .sign_in{
    margin-left: 5px;
-   background-color: #2ECC71;
+   /* background-color: #2ECC71; */
    padding-left: 7px;
    padding-right: 7px;
+   border-color: #D30001;
+   border-radius: 5px;
+   border-style: solid;
+   border-width: 1px;
 }
-
+.last_try{
+   margin-left: auto;
+   margin-right: 0;
+}
 .sign_up{
-   background-color: #F1C40F;
+   border-color: #D30001;
+   border-radius: 5px;
+   border-style: solid;
+   border-width: 1px;
    padding-left: 7px;
    padding-right: 7px;
 }
 .nav_move_in{
-   margin-left: 1100px;
+   /* margin-left: 900px; */
 }
 
 .my_case,.profile,.sign_up{
    padding-left: 5px;
    padding-right: 5px;
+   border-color: #D30001;
+   border-radius: 5px;
+   border-style: solid;
+   border-width: 1px;
 }
 
 /* THIS SECTION FOR CAROUSEL */
@@ -66,129 +84,61 @@
 
 
 /* CAROUSEL */
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption p:nth-of-type(1) {
-   color: #fbbd61;
-   font-size: 0.875rem;
-   letter-spacing: 2px;
-   margin: 0px;
-
-   animation-duration: 2s;
-}
-
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption p:nth-of-type(2) {
-   font-size: 2.5rem;
-   letter-spacing: 3px;
-   margin-bottom: 10px;
-
-   animation-duration: 2s;
-}
-
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption p:nth-of-type(3) {
-   font-size: 1.125rem;
-   margin-bottom: 20px;
-
-   animation-duration: 2s;
-}
-
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption .span1 {
-   width: 48px;
-   height: 48px;
-   border-radius: 50%;
-   border: 2px solid white;
-   font-size: 0.8rem;
+.title_for_home_page{
+   width: 90%;
+   margin: auto;
+   margin-top: 70px;
+   margin-bottom: 50px;
+   color: #D30001;
+   font-size: 78px;
+   font-weight: 800;
+   line-height: 80px;
    text-align: center;
-   line-height: 48px;
-   margin-right: 8px;
-   display: inline-block;
-
-   animation-duration: 2s;
+   font-family: 'Calibre', Sans-Serif;
 }
 
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption .button {
-   padding: 12px 24px;
-   border: none;
-   border-radius: 30px;
-   font-size: 0.8rem;
-   letter-spacing: 4px;
-   color: white;
-   background: linear-gradient(to right, #fbbd61, #ec7532);
-   outline: none;
-   position: relative;
-   overflow: hidden;
-   animation-duration: 2s;
+.our_aim{
+   padding-top: 20px;
+   font-size: 39px;
+   letter-spacing: 2px;
+   line-height: 44px;
+   color: #261B23;
+   text-align: center;
 }
 
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption .button span {
-   padding: 0;
-   border: none;
-   font-size: 0.8rem;
-   letter-spacing: 4px;
-   color: white;
-   position: relative;
-   z-index: 3;
+.our_aim span{
+   font-weight: 700;
 }
 
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption .button::before {
-   transform: skewX(30deg) translateX(-103%);
-   background-color: #ec7532;
-   content: "";
-   width: 110%;
-   height: 100%;
-   display: inline-block;
-   position: absolute;
-   top: 0;
-   left: 0;
+.two_options_for_home_page{
+   margin-top: 60px;
+}
+
+.two_options_for_home_page button{
+   border-style: none;
+   border-radius: 5px;
+   background-color: #E6B0AA ;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   letter-spacing: 1px;
+   margin-left: 20px;
+   margin-right: 20px;
+   padding-left: 30px;
+   padding-right: 30px;
+   font-size: 20px;
+   font-weight: 700;
    transition: all 0.5s;
-   z-index: 2;
 }
 
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption button:hover::before {
-   transform: translateX(-10%) skewX(30deg);
-
+.two_options_for_home_page button a{
+   transition: all 0.5s;
 }
 
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption button:hover .nana {
-   font-weight: 600;
+.two_options_for_home_page button:hover{
+   background-color: #D30001;
+   transform: scale(1.08);
 }
 
-.cinema__carousel .carousel-inner .carousel-item .carousel-caption {
-   text-align: left;
-   top: 60%;
-   left: 50%;
-   transform: translate(-97%, -50%);
-}
-
-.cinema__carousel .carousel-indicators {
-   justify-content: start;
-   padding-left: 15px;
-   bottom: 10%;
-}
-
-
-.cinema__carousel .carousel-indicators button {
-   width: 10px;
-   height: 10px;
-   border-radius: 50%;
-   border: 2px solid white;
-   opacity: 1;
-   box-sizing: border-box;
-   background: transparent;
-}
-
-.cinema__carousel .carousel-indicators button.active {
-   background: white;
-}
-
-.cinema__carousel .carousel-inner .carousel-item {
-   position: relative;
-}
-
-
-.cinema__carousel .carousel-inner .carousel-item .overlay {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: linear-gradient(to top, black, transparent);
+.two_options_for_home_page button:hover a{
+   color: white;
 }
