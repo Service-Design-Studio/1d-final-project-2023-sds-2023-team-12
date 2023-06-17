@@ -33,6 +33,14 @@ body{
    /* border-radius: 20px; */
 }
 
+.time_went_missing{
+   margin-top: 15px;
+   margin-bottom: 15px !important;
+   color: #E74C3C;
+   font-weight: 700;
+   font-size: 20px;
+}
+
  .image_project{
     display: block;
     width: 100%;
@@ -359,6 +367,19 @@ body{
   overflow: hidden;
 }
 
+.contact_person_detail{
+   margin-bottom: 15px;
+   font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
 .contain_image{
    padding: 50px;
    padding-top: 20px;
@@ -421,6 +442,7 @@ body{
 .button_for_two_bottom{
    margin-top: 50px;
    padding-left: 350px;
+   margin-bottom: 20px;
 }
 .button_for_two_bottom button{
    margin-right: auto;

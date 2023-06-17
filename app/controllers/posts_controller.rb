@@ -63,6 +63,7 @@ class PostsController < ApplicationController
   def detail
     @post=Post.find_by(id: params[:id])
     @user_id=@post.user_id
+    @user=User.find_by(id: @post.user_id)
     render "_pdetail"
   end
 
@@ -84,6 +85,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image)
+      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time)
     end
 end

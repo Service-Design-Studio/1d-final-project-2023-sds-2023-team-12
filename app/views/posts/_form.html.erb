@@ -63,12 +63,23 @@
         <%= form.number_field :user_id, value: current_user.id, class:"report-field" %>
       </div>
 
-      <div class="time-input-container post_item time_item">
+      <%# <div class="time-input-container post_item time_item">
         <form action="/action_page.php">
-        <label for="missingtime", class="TimeMissing-label report-label mb-1">Time of Missing:</label>
-        <input type="datetime-local" id="missingtime" name="missingtime">
+             <label for="missingtime", class="TimeMissing-label report-label mb-1">Time of Missing:</label>
+            <input type="datetime-local" id="missingtime" name="missingtime">
+        </form>
+      </div> %>
+
+        <div class="time-input-container post_item time_item">
+        <form action="/action_page.php">
+          <%= form.label :missing_time, style: "display: block", class:"TimeMissing-label report-label mb-1" %>
+          <%= form.datetime_local_field :missing_time, class:"report-field" %>
+
+             <%# <label for="missingtime", class="TimeMissing-label report-label mb-1">Time of Missing:</label>
+            <input type="datetime-local" id="missingtime" name="missingtime"> %>
         </form>
       </div>
+
 
       <div class="post_item">
         <%= form.label :image, style: "display: block", class: "report-label mb-1" %>

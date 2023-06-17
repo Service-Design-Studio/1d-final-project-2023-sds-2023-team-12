@@ -9,6 +9,8 @@
     </div>
 <div class="col-sm-6 contain_info">
 
+<h3 class="contact_person_detail">Posted by: <%=@user.full_name %> , Contact number: <%= @user.mobile_phone%></h3>
+
     <h3 class="missing_case_headers">Full name<h3>
     <p class="missing_case_content"><%=@post.full_name%></p>
 
@@ -25,7 +27,7 @@
     <p class="missing_case_content"><%=@post.special_note%></p>
 
     <h3 class="missing_case_headers">Missing Time<h3>
-    <p class="missing_case_content"><%=@post.description%></p>
+    <p class="missing_case_content"><%= @post.missing_time.to_fs(:rfc822)%></p>
 
 <% if current_user.id == @user_id %>
 
