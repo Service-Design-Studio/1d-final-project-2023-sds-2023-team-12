@@ -1,5 +1,5 @@
-<div class="col-sm-4 try animate__animated animate__fadeIn">
-<div id="<%= dom_id post %>" class="col_component">
+<div class="col-sm-4 try animate__animated animate__fadeInUp">
+    <div id="<%= dom_id post %>" class="col_component">
                     <div class="col_content">
                     <div class="image_project">
                         <%# <img src="./img/image 2.png" alt=""> %>
@@ -17,7 +17,7 @@
                       <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
                       <p class="bottom_item">
                       <button class="button_class"><i class="fa-solid fa-circle-info small_icon"></i>
-                      <%= link_to "More details...",post,class: "a_tag" %></button>
+                      <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
                       </p>
                 </div>
 </div>

@@ -1,8 +1,9 @@
 <%# Do not modify this from line 2 to 13 - Louis %>
-<%= form_with(model: post) do |form| %>
+<%# <div class="alert alert-danger alert-dismissible fade show animate__animated animate__fadeInDown" role="alert"> %>
+
+<%= form_with(model: post) do |form|%>
   <% if post.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
         <% post.errors.each do |error| %>
@@ -11,65 +12,75 @@
       </ul>
     </div>
   <% end %>
+
   
-<div class="container_fix">
-  <h1 class="report_header">Report a Case</h1>
+<div class="container_fix_advanced">
+  <h1 class="report_header">Report Case</h1>
 
   <div class="row">
 
-    <div class="column">
-      <p>here will be photo</p>
+    <div class="column post_image_ne">
+      <div class="new_post_image">
+      <div>
+      <img>
+      </div>
+      </div>
     </div>
 
     <div class="column">
-      <div>
-        <%= form.label :full_name, style: "display: block", class:"report-label" %>
+      <div class="post_item">
+        <%= form.label :full_name, style: "display: block", class:"report-label mb-1" %>
         <%= form.text_field :full_name, class:"report-field" %>
       </div>
 
-      <div>
-        <%= form.label :age, style: "display: block", class:"report-label" %>
+      <div class="post_item">
+        <%= form.label :age, style: "display: block", class:"report-label mb-1" %>
         <%= form.number_field :age, class:"report-field" %>
       </div>
 
-      <div>
-        <%= form.label :location, style: "display: block", class:"report-label" %>
+      <div class="post_item">
+        <%= form.label :location, style: "display: block", class:"report-label mb-1" %>
         <%= form.text_field :location, class:"report-field" %>
       </div>
 
-      <div>
-        <%= form.label :description, style: "display: block", class:"report-label" %>
+      <div class="post_item">
+        <%= form.label :description, style: "display: block", class:"report-label mb-1" %>
         <%= form.text_field :description, class:"description-field" %>
       </div>
 
-      <div>
-        <%= form.label :special_note, style: "display: block", class:"report-label" %>
+      <div class="post_item">
+        <%= form.label :special_note, style: "display: block", class:"report-label mb-1" %>
         <%= form.text_field :special_note, class:"report-field" %>
       </div>
 
       <div hidden>
-        <%= form.label :user_id, style: "display: block", class:"report-label"  %>
+        <%= form.label :user_id, style: "display: block", class:"report-label mb-1"  %>
         <%= form.number_field :user_id, value: current_user.id, class:"report-field" %>
       </div>
 
-      <div class="time-input-container">
+      <div class="time-input-container post_item time_item">
         <form action="/action_page.php">
-        <label for="missingtime", class="TimeMissing-label">Time of Missing:</label>
+        <label for="missingtime", class="TimeMissing-label report-label mb-1">Time of Missing:</label>
         <input type="datetime-local" id="missingtime" name="missingtime">
         </form>
       </div>
 
-      <div>
-        <%= form.label :image, style: "display: block" %>
+      <div class="post_item">
+        <%= form.label :image, style: "display: block", class: "report-label mb-1" %>
         <%= image_tag form.object.image_url if form.object.cached_image_data %>
-    <%= form.hidden_field :image, value: form.object.cached_image_data %>
+        <%= form.hidden_field :image, value: form.object.cached_image_data %>
         <%= form.file_field :image %>
+ 
       </div>
+
     </div>
   </div>
 
   <div class="middle-button"> 
-    <%= form.submit %>
+    <%= form.submit class: "login-button" %>
   </div>
+
+  <%# <%= link_to "Create Post", new_user_post_path, class: "button_submit_post login-button", data: {turbo_method: :post}%> 
+
 <% end %>
 </div>
