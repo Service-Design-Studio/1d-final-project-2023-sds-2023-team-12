@@ -29,7 +29,11 @@
         <%= link_to "AI Feature", ai_feature_path, class: "nav-link active" %>
         </li>
 
+        </ul>
+
         <%# FOR USER AUTHENTIFICATION %>
+        <ul class="navbar-nav last_try d-flex justify-content-end">
+
 
         <% if user_signed_in?%>
 
@@ -37,15 +41,15 @@
 
        
 
-          <li class="nav-item nav_item my_case bg-warning">
+          <li class="nav-item nav_item my_case">
         <%= link_to "My Cases", user_posts_path(current_user), class: "nav-link active" %>
         </li>
 
-        <li class="nav-item nav_item profile bg-success">
+        <li class="nav-item nav_item profile">
         <%= link_to "Profile",  edit_user_registration_path({user_id: current_user.id}), class: "nav-link active" %>
         </li>
 
-        <li class="nav-item nav_item profile bg-danger">
+        <li class="nav-item nav_item profile">
          <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link active", data: {
                     turbo_method: :delete}  %>                    
         </li>
@@ -63,7 +67,6 @@
 
     
       </ul>
-
     </div>
   </div>
 </nav>

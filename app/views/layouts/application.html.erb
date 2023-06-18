@@ -35,14 +35,22 @@
   <body>
 
   <%= render "pages/header" %>
+
+  <% if params[:controller]=="pages" and params[:action]=="index1"%>
+   <% if notice %>
+    <%= render "layouts/alerts" %>
+  <% end %>
+
+    <%= yield %>
+  <%else%>
   
   <div class="container">
 
   <% if notice %>
     <%= render "layouts/alerts" %>
   <% end %>
-
     <%= yield %>  
+  <%end%>
 
   <div>
 
