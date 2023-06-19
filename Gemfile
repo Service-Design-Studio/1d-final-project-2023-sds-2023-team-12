@@ -86,4 +86,8 @@ group :test do
   gem 'cucumber-rails'
   # Even thought database_cleaner is not mandatory, it is highly recommended for cleaning the database between tests. 
   gem 'database_cleaner'
+  # May need in future?
+  # gem 'capybara-rails'
+  # gem 'capybara-rspec'
+  # gem 'rack_session_access'
 end
