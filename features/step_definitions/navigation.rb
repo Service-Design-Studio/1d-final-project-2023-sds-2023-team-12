@@ -25,12 +25,21 @@ end
 # For [ Given I am on the page with path: 'home' ] and [ Given I am on the page with path: 'report_case' ]
 Given 'I am on the page with path: {string}' do |path|
     # Navigate to the provided path specified by {string}
-    visit(path)
+    if path =='home'
+        visit "/"
+    else
+        visit(path)
+    end
 end
 
-Given 'I am logged in' do 
+And 'I am logged in' do 
     # Simulate the presence of a logged-in user in the Rails application.
-    session[:user_id] = 1
+    test_email = "testing@email.com"
+    test_password = "123456"
+    visit "new_user_session"
+    fill_in "Email", with: test_username
+    fill_in "Password", with: test_password
+    click_button "Log in"
 end
 
 # For [ When I click on 'Report Case' ]
@@ -40,8 +49,9 @@ When 'I click on {string}' do |buttonName|
 end
 
 # For [ Then I should be redirected to the page with path :'report_case' ]
-Then 'I should be redirected to the page with path {string}' do |action|
+Then 'I should be redirected to the page with path: {string}' do |path|
     # Check if the current path matches the provided path using the 'expect' assertion.
+<<<<<<< HEAD
     expect(current_path).to eq "/#{action}"
 end
 
@@ -69,3 +79,7 @@ end
 Then 'I should be redirected to the page with path: {string}' do |path|
     expect(current_path).to eq(path)
 end 
+=======
+    expect(current_path).to eq "/#{path}"
+end
+>>>>>>> 53fc7fe0ce577086ec8ce46298c0c7a6289bb6ff
