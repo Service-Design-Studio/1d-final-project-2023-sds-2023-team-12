@@ -13,3 +13,10 @@ Feature: Navigating to the Report Case Page
         And I am logged in
         When I click on 'Report Case'
         Then I should be redirected to the page with path: 'report_case'
+
+# Sad path in navigating report page (Ayu)
+    Scenario: Navigating to report_case #user is not logged in 
+        Given I am not logged in 
+        And on the page with path: 'home'
+        When I select 'Report Case' on the 'Navigation Bar'
+        Then I should be redirected to the page with path: "login"
