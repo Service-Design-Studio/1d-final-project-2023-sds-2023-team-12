@@ -58,3 +58,7 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# Loads the Capybara integration for `rack_session_access`.
+require 'rack_session_access/capybara'
+
+

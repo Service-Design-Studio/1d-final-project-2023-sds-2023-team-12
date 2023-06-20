@@ -1,0 +1,6 @@
+How to run Cucumber test?
+
+1. Enter the root directory of this project via the terminal.
+2. Enter command 'bundle exec cucumber' and everything in the feature file will automatically run.
+3. It will show number of features passed, as well as number of steps failed, passed, skipped or undefined.
+   There will also be a report that we can download for the cucumber test results.

@@ -89,5 +89,5 @@ group :test do
   # May need in future?
   # gem 'capybara-rails'
   # gem 'capybara-rspec'
-  # gem 'rack_session_access'
+  gem 'rack_session_access'
 end
