@@ -3,12 +3,13 @@
 
 
 Feature: Navigating to the Report Case Page
-
+    
   # Happy Path in navigating to report page (Yixuan)
   Scenario: Navigating to report_case #user is logged in
     Given I am on the page with path: 'home'
     And I am logged in
-    When I click on 'report-case'
+    Then I should see 'Report Case' button
+    When I click on 'Report Case' button
     Then I should be redirected to the page with path: 'report_case'
 
   # Sad path in navigating report page (Ayu)

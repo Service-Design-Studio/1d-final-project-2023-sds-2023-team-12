@@ -62,7 +62,7 @@ gem 'image_processing', '~> 1.12', '>= 1.12.2'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'capybara'
+  gem 'capybara', '>= 3.26'
 end
 
 group :development do
@@ -78,10 +78,9 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
+  #gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  # Yixuan
   # Add Cucumber for behavior-driven development
   gem 'cucumber-rails'
   # Even thought database_cleaner is not mandatory, it is highly recommended for cleaning the database between tests. 

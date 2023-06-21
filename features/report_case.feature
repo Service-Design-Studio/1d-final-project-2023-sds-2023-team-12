@@ -3,13 +3,10 @@
 
 Feature: As a user I want to fill up the form to report a missing person
 
-  # Happy Path in filling up all the mandatory fields in report page (Yixuan)
-  Scenario: User is logged in and fills up the form with all mandatory fields
+  Scenario Outline: Creating a new report in report_case page with a complete form
     Given I am on the page with path: 'report_case'
-    When I fill the form with the datas:
-      | Full Name | Age | Location | Description                    | Special note | Missing time          | images     |
-      | John Doe  | 28  | Tampines | Wearing a blue shirt and jeans | Autistic     | 12/06/2023 10:30 AM   | image.jpg  |
-    When I click on 'Create Post'
+    When I fill the form with the datas
+    When I click on 'Create Post' button
     Then I should see a message 'Post was successfully created, click on show cases to see your case'
     Then I should be redirected to the page with path: 'show_post_detail'
  

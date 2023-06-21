@@ -62,3 +62,14 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 require 'rack_session_access/capybara'
 
 
+#require 'capybara/cucumber'
+#require 'selenium-webdriver'
+
+#Capybara.configure do |config|
+  # Can change the `:selenium_chrome_headless` to `:selenium` if you want to see the browser while the tests are running.
+  #config.default_driver = :selenium
+  #config.app_host = 'http://localhost:3000'
+  #config.default_max_wait_time = 10
+#end
+
+

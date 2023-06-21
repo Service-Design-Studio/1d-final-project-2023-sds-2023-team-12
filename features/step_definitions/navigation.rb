@@ -10,6 +10,10 @@ Given 'I am on the page with path: {string}' do |path|
     end
 end
 
+Given 'I am on the home page' do
+    visit 'http://localhost:3000'
+end
+
 And 'I am logged in' do 
     # Simulate the presence of a logged-in user in the Rails application.
 
@@ -24,7 +28,10 @@ And 'I am logged in' do
     # Using RackSessionAccess
     user = User.create!(email: 'test@example.com', password: '123456')
     set_session(:user_id, user.id)
+
+    #page.set_rack_session(user_id: 1)
 end
+
 
 # For [ Then I should be redirected to the page with path :'report_case' ]
 Then 'I should be redirected to the page with path: {string}' do |path|
@@ -44,10 +51,6 @@ Given 'I am not logged' do
     #Add code to ensure user is not logged in, idk how to do yet
 end
 
-#Given 'I am on the page with path: {string}' do |path|
-    #visit(path)
-#end
-
 #When I select 'Report Case' on the 'Navigation Bar'
 When 'I select {string} on the {string}' do |path|
     within(element) do
@@ -55,18 +58,7 @@ When 'I select {string} on the {string}' do |path|
     end
 end
 
-#Then I should be redirected to the page with path: "login"
-#Then 'I should be redirected to the page with path: {string}' do |path|
-    #expect(current_path).to eq(path)
-#end 
-
-
-#Identifying if a person if a person is logged in/not logged in
-
-#Given I am on the page with path: 'Home'
-#Given 'I am on the page with path: {string}' do |path|
-    #visit(path)
-#end
+# Identifying if a person a logged in (Ayu)
 
 #Then I should see the login button on the 'navbar'
 Then 'I should see the login button on {string}' do |element|
