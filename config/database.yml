@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: db/postgresql
+
+  pool: 5
+  timeout: 5000
+  username: <%= ENV.fetch("PRODUCTION_DB_USERNAME") { nil } %>
+  password: <%#= Rails.application.credentials.gcp[:db_password] %>
+  host: <%= ENV.fetch("PRODUCTION_DB_URL") { nil } %>
