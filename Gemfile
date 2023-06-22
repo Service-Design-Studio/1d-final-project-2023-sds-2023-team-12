@@ -5,12 +5,10 @@ ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
+gem "dotenv-rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -33,8 +31,6 @@ gem "jbuilder"
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
-
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -50,6 +46,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Use sqlite3 as the database for Active Record
+gem "sqlite3", "~> 1.4"
 
 gem 'shrine', '~> 3.4'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
@@ -73,6 +71,12 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+
+# Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later, only in production will we use pg
+group :production do
+  gem 'pg', '~> 1.5.3' # for gcloud deployment
 end
 
 group :test do
