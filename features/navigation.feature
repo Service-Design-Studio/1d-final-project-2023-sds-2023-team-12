@@ -19,6 +19,9 @@ Feature: Navigating to the Report Case Page
     When I select 'Report Case' on the 'navbar'
     Then I should be redirected to the page with path: "login"
 
+
+
+# Ignore for now
 # By Ayu (but it just affect testing at the moment as we are not using it yet)
 #Feature: Ensuring user is not logged in
   #Scenario: User is not logged in
