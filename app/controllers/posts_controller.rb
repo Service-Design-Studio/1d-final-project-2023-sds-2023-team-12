@@ -4,9 +4,10 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     if !params.key?(:user_id)
+      # NADA YOUR CODE GO HERE #  
+      
       @posts = Post.all
     else
-      # NADA YOUR CODE GO HERE #  
       @posts = User.find_by(id: params[:user_id]).posts
     end
 

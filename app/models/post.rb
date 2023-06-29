@@ -10,4 +10,6 @@ class Post < ApplicationRecord
     validates :image_data, presence: true
     validates :missing_time, presence: true
 
+
+  
 end
