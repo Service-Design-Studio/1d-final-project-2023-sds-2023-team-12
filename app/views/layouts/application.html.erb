@@ -36,9 +36,11 @@
 
   <%= render "pages/header" %>
 
-  <% if params[:controller]=="pages" and params[:action]=="index1"%>
+  <% if params[:controller]=="posts" and params[:action]=="index" and !params.has_key?(:user_id)%>
    <% if notice %>
+   <div class="container">
     <%= render "layouts/alerts" %>
+    <div>
   <% end %>
 
     <%= yield %>

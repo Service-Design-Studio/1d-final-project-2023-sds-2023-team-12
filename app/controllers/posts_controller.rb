@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     if !params.key?(:user_id)
       @posts = Post.all
     else
+      # NADA YOUR CODE GO HERE #  
       @posts = User.find_by(id: params[:user_id]).posts
     end
 

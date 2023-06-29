@@ -1,16 +1,51 @@
 
+<%= params.inspect %>
+
 <% if params[:user_id]%>
+
 <h1 class="title_index_post">My Cases</h1>
 
+<div id="posts" class="project_showcase row">
+
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+
+</div>
+
 <% else %>
+
   <h1 class="title_index_post">All Active Missing Cases</h1>
+
+  <div class="width_ninety_for_filter row">
+
+    <div class="for_filter col-3">
+    <div class="filter_content">
+
+     <%# NADA - YOUR CODE HERE %>
+    <h2>For filtering<h2>
+    <p>Content of filtering<p>
+    
+    </div>
+
+   
+
+    </div>
+
+    <div class="for_all_cases col-9">
+
+      <div id="posts" class="project_showcase row">
+          <% @posts.each do |post| %>
+              <%= render post %>
+          <% end %>
+      </div>
+
+    </div>
+  </div>
+
 <%end%>
+
 <%# <%= params.inspect %>
 
-<div id="posts" class="project_showcase row">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    
-  <% end %>
-</div>
+
 
