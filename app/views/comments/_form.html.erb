@@ -1,0 +1,44 @@
+<%= form_with(model: comment) do |form| %>
+
+
+  <% if comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="body_form_comment">
+    <%# <%= form.label :body, style: "display: block" %> 
+    <%= form.text_area :body, placeholder: "Enter your message here" %>
+  </div>
+
+
+  <div hidden>
+    <%= form.label :user_id, style: "display: block" %>
+    <% if current_user %>
+    <%= form.number_field :user_id, value: current_user.id %>
+    <% end %>
+  </div>
+
+   <div hidden>
+    <%= form.label :post_id, style: "display: block" %>
+    <% if params[:action]=="edit" %>
+        <%= form.number_field :post_id, value: params[:post_id] %>
+    <% else %>
+    <%= form.number_field :post_id, value: params[:id] %>
+    <% end %>
+  </div>
+
+  <div class="submit_button_comment">
+    <%= form.submit %>
+  </div>
+
+
+<% end %>
+

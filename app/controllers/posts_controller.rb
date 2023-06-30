@@ -66,7 +66,9 @@ class PostsController < ApplicationController
     @post=Post.find_by(id: params[:id])
     @user_id=@post.user_id
     @user=User.find_by(id: @post.user_id)
-    render "_pdetail"
+    @comments=Comment.where(post_id: params[:id])
+    @comment = Comment.new
+    render "pdetail"
   end
 
   # DELETE /posts/1 or /posts/1.json

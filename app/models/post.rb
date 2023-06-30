@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
     belongs_to :user
+    has_many :comments
     include ImageUploader::Attachment(:image)
 
     validates :full_name, presence: true
@@ -10,6 +11,7 @@ class Post < ApplicationRecord
     validates :image_data, presence: true
     validates :missing_time, presence: true
 
-
-  
+    def self.retrieve_user_id post_id
+        return Post.find_by(id: post_id).user_id
+    end
 end

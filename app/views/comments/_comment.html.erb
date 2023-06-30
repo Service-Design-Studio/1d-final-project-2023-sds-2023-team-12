@@ -1,0 +1,47 @@
+<div id="<%= dom_id comment %>" class="mt-2 animate__animated  animate__fadeInUp">
+
+  <div class="first_line_comment row">
+
+        <div class="image_of_commenter col-1">
+            <img src="https://robohash.org/<%=comment.user_id%>" alt="image-description">
+        </div>
+
+        <div class="col-11">
+        <div class="comment_content">
+            <div class="title_comment_content d-flex justify-content-start">
+              <p class="full_name">
+                  <%= User.retrieve_user_name comment%>
+              </p>
+              
+              <div class="for_timing">
+              <p class="timimg">
+                  Posted at: <%= comment.created_at.to_fs(:rfc822).to_s[0..25] %> 
+              </p>
+              </div>
+
+            </div>
+
+              <p class="actual_content">
+                  <%= comment.body %>
+              </p>
+              </div>
+
+          <% if current_user and current_user.id==comment.user_id%>
+  <div class="edit_delete_comment d-flex justify-content-start">
+     <%= link_to "Edit",  edit_post_comment_path(params[:id],comment.id), class: "edit_comment" %> 
+     <%= button_to "Delete", comment, method: :delete ,class: "delete_comment" %>
+  </div>
+<% elsif current_user and (Post.retrieve_user_id params[:id]) == current_user.id  %>
+  <div class="edit_delete_comment d-flex justify-content-start">
+     <%= button_to "Delete", comment, method: :delete ,class: "delete_comment" %>
+  </div>
+  <% end %>
+        </div>
+
+
+  </div>
+  
+
+
+
+</div>

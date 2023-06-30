@@ -378,13 +378,13 @@ body{
 
 .contact_person_detail{
    margin-bottom: 15px;
-   font-size: 20px;
-    border-radius: 20px;
+   font-size: 25px;
+    /* border-radius: 20px;
     border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color: #FFFFFF;
+    background-color: #FF4B2B; */
+    color: #B7950B;
     font-weight: bold;
-    padding: 12px 45px;
+    padding-right: 12px;
     letter-spacing: 1px;
     font-style: italic;
 }
@@ -480,6 +480,21 @@ body{
    color: red !important;
    font-weight: 700;
 }
+
+
+
+/* *************************************** */
+/*  For Public Contribution */
+.title_public_contribution{
+   margin-top: 25px;
+   margin-bottom: 15px;
+   color: black;
+}
+
+
+
+
+
 
 /* *************************** */
 /* <%# NADA - YOUR CODE HERE %> */

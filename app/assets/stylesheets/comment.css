@@ -1,0 +1,104 @@
+
+
+.for_bottom{
+    margin-bottom: 150px;
+ }
+ 
+ .image_of_commenter img{
+    width: 100%;
+ }
+ 
+ .comment_content{
+    background-color: #FDEDEC;
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 20px;
+ }
+ 
+ .comment_content .full_name{
+    font-size: 28px;
+    font-weight: 500;
+    color: #D30001;
+    margin-right: 40px;
+ }
+
+ .comment_content .timing{
+    margin-left: 30px !important;
+    color: #D30001 !important;
+ }
+
+ .for_timing{
+    margin-top: 7px;
+    font-style: italic;
+ }
+
+ .actual_content{
+    color: black;
+    font-size: 20px;
+ }
+
+ .edit_delete_comment{
+    margin-top: 3px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+ }
+
+ .edit_comment{
+    margin-right: 10px;
+    color: #34495E;
+    transition: all 0.5s;
+ }
+
+ .delete_comment{
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    color: #34495E;
+ }
+
+ .edit_comment:hover{
+    color: #D30001;
+    font-weight: 700;
+ }
+
+ 
+ .delete_comment:hover{
+    color: #D30001;
+    font-weight: 700;
+ }
+
+ .body_form_comment{
+    border-radius: 15px;
+ }
+
+.body_form_comment textarea{
+    width: 100%;
+    border-color: black;
+    border-radius: 15px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.submit_button_comment{
+    margin-top: 10px;
+}
+
+.submit_button_comment input{
+    margin-right: auto;
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+
+.submit_button_comment input:hover{
+    background-color: white;
+    border-color: #e53e3e;
+    transform: scale(1.03);
+    color: #e53e3e;
+}

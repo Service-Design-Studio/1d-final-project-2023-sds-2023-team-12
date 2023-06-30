@@ -5,6 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+  has_many :comments
+
+  def self.retrieve_user_name comment
+    @user=User.find_by(id: comment.user_id)
+    return @user.full_name
+  end
 
   protected
 
