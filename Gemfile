@@ -3,15 +3,23 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+#db 
+gem "sqlite3", "~> 1.4"
+gem 'pg'
+
+
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
-gem "dotenv-rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+
+
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 4.3.5"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -31,6 +39,8 @@ gem "jbuilder"
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -46,8 +56,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
 
 gem 'shrine', '~> 3.4'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
@@ -60,7 +68,9 @@ gem 'image_processing', '~> 1.12', '>= 1.12.2'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'capybara', '>= 3.26'
+  #gem "sqlite3", "~> 1.4"
+
+
 end
 
 group :development do
@@ -74,23 +84,18 @@ group :development do
   # gem "spring"
 end
 
-
-# Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later, only in production will we use pg
 group :production do
-  gem 'pg', '~> 1.5.3' # for gcloud deployment
+  #gem 'pg' # for gcloud deployment
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  #gem "capybara"
+  gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # Yixuan
   # Add Cucumber for behavior-driven development
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   # Even thought database_cleaner is not mandatory, it is highly recommended for cleaning the database between tests. 
   gem 'database_cleaner'
-  # May need in future?
-  # gem 'capybara-rails'
-  # gem 'capybara-rspec'
-  gem 'rack_session_access'
 end
