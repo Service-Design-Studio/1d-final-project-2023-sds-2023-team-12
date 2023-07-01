@@ -23,9 +23,20 @@
     <div class="filter_content">
 
      <%# NADA - YOUR CODE HERE %>
-    <h2>For filtering<h2>
-    <h1>Try something<h1>
-    <p>Content of filtering<p>
+
+
+    <h4>Age</h4>
+    <%= form_tag(posts_path, method: :get) do %>
+      <% Post::AGE_CATEGORIES.each do |category, _range| %>
+        <%= check_box_tag "age_categories[]", category %>
+        <%= label_tag category.to_s, category.capitalize %><br>
+      <% end %>
+      <%= submit_tag "Filter" %>
+    <% end %>
+
+     
+     <%# NADA - YOUR CODE ENDS HERE %>
+    
     
     </div>
 

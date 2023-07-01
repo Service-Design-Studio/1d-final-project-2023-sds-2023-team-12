@@ -3,11 +3,18 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    if !params.key?(:user_id)
-      # NADA YOUR CODE GO HERE #  
-      
+    if !params.key?(:user_id) # show all cases
       @posts = Post.all
-    else
+      # NADA YOUR CODE GO HERE #  
+      if params[:age_categories].present?
+        age_cag_list = params[:age_categories]
+        @posts = @posts.select { |post| age_cag_list.include?(post.age_category.to_s) }
+      end
+
+      # NADA YOUR CODE ENDS HERE # 
+      #@posts = Post.all
+    
+    else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
 
