@@ -5,14 +5,15 @@ class PostsController < ApplicationController
   def index
     if !params.key?(:user_id) # show all cases
       @posts = Post.all
-      # NADA YOUR CODE GO HERE #  
+
+      ### age filter ### 
       if params[:age_categories].present?
         age_cag_list = params[:age_categories]
         @posts = @posts.select { |post| age_cag_list.include?(post.age_category.to_s) }
       end
 
-      # NADA YOUR CODE ENDS HERE # 
-      #@posts = Post.all
+      ### age filter  ###
+      
     
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts

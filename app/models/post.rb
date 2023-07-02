@@ -22,7 +22,7 @@ class Post < ApplicationRecord
         youth: (13..20),
         adult: (21..50),
         senior: (51..)
-      }.freeze
+      }.freeze  
 
     def self.all_age_cag
         distinct.pluck(:AGE_CATEGORIES)
@@ -33,7 +33,7 @@ class Post < ApplicationRecord
     end
 
 
-    def self.with_age_filter(age_cag_list) ##todo: to define age_cag_list in view later
+    def self.with_age_filter(age_cag_list) 
         if age_cag_list.nil?
             all
         else
@@ -41,5 +41,5 @@ class Post < ApplicationRecord
         end
     end
 
-    ##### FOR SEARCH FILTER #####
+    ###
 end
