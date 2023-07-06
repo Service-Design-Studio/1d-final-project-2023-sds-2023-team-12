@@ -73,6 +73,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    @post.comments.destroy_all
     @post.destroy
 
     respond_to do |format|
