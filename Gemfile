@@ -47,7 +47,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+#gem "sqlite3", "~> 1.4"
 
 gem 'shrine', '~> 3.4'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
@@ -57,10 +57,20 @@ gem 'image_processing', '~> 1.12', '>= 1.12.2'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'jquery-rails'
+gem 'haml'
+#gem 'protected_attributes'
+gem 'activemodel', '~> 7.0.5'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'capybara', '>= 3.26'
+  gem 'capybara'
+  gem 'byebug'
+  gem 'database_cleaner'
+  gem 'sqlite3'
+  gem 'launchy'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -82,15 +92,9 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  #gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  # Add Cucumber for behavior-driven development
-  gem 'cucumber-rails'
-  # Even thought database_cleaner is not mandatory, it is highly recommended for cleaning the database between tests. 
-  gem 'database_cleaner'
-  # May need in future?
-  # gem 'capybara-rails'
-  # gem 'capybara-rspec'
-  gem 'rack_session_access'
+  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails-training-wheels'
+
 end

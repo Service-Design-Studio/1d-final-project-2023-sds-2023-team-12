@@ -16,9 +16,10 @@
         </li>
 
 <%if user_signed_in? %>
-        <li class="nav-item nav_item">
-        <%= link_to "Report Case", new_user_post_path(current_user), class: "nav-link active",  id: 'report_case' %>
-        </li>
+        <%= link_to new_user_post_path(current_user), class: "Header_buttons nav-link active" do %>
+          <button class="Header_buttons">Report Case</button>
+        <% end %>
+        
 <%else%>
 <li class="nav-item nav_item">
         <%= link_to "Report Case", new_post_path, class: "nav-link active" %>

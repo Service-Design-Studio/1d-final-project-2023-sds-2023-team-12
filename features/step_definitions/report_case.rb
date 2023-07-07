@@ -1,38 +1,27 @@
-# Implement the step definitions based on feature file "report_case.rb"
+When ('I press the {string} button') do |button|
+    click_button button
+  end
 
-# Happy Path in filling up all the mandatory fields in report page
-# Yixuan's part
-
-Given 'I am on the Report Case page' do
-    visit 'http://localhost:3000/users/1/posts/new'
+When("I fill {string} with data") do |form_name, table|
+  case form_name
+  when '_form'
+    data = table.raw
+  # Access the individual values using indexing
+    full_name = data[1][1]
+    age = data[2][1]
+    location = data[3][1]
+    description = data[4][1]
+    special_note = data[5][1]
+    missing_time = data[6][1]
+    images = data[7][1]
+  
+  # Use the extracted values to fill the form or perform the desired actions
+    fill_in 'Full Name', with: full_name
+    fill_in 'Age', with: age
+    fill_in 'Location', with: location
+    fill_in 'Description', with: description
+    fill_in 'Special note', with: special_note
+    fill_in 'Missing Time', with: missing_time
+    attach_file('Images', images)
+  end
 end
-
-# For [ When I fill the form with the datas: ]
-When 'I fill the form with the datas' do
-    fill_in 'post[full_name]', with: 'John Doe'
-    fill_in 'age', with: '28'
-    fill_in 'location', with: 'Tampines'
-    fill_in 'description', with: 'Wearing a blue shirt and jeans'
-    fill_in 'special_note', with: 'Autistic'
-    fill_in 'missing_time', with: 'Sat, 17 Jun 2023 21:33:00.000000000 UTC +00:00'
-end
-
-# For [ When I click on 'Report Case' ]
-When 'I click on {string} button' do |buttonName|
-    # The button or link specified by {string} will be clicked.
-    # click_link_or_button is a capybara feature
-    click_link_or_button buttonName
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
