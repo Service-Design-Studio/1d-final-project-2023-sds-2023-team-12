@@ -59,7 +59,7 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 # Loads the Capybara integration for `rack_session_access`.
-#require 'rack_session_access/capybara'
+require 'rack_session_access/capybara'
 
 
 #require 'capybara/cucumber'
