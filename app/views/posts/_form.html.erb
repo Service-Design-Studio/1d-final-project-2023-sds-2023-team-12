@@ -33,10 +33,10 @@
     </div>
 
     <div class="column">
-      <div class="post_item">
-        <%= form.label :full_name, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :full_name, class:"report-field" %>
-      </div>
+     <div class="post_item">
+      <label for="full_name" class="report-label mb-1">Full name</label>
+      <input type="text" id="full_name" name="full_name" class="report-field" autofocus autocomplete="full name">
+    </div>
 
       <div class="post_item">
         <%= form.label :age, style: "display: block", class:"report-label mb-1" %>
