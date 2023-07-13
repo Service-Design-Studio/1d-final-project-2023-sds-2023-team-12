@@ -29,3 +29,7 @@ Scenario: Check Report Case page features after log in
     Then I should see a message 'Special Note'
     Then I should see a message 'Missing Time'
 
+Scenario: Check Show Case page features after log in
+    Given I am on the page with path: '/post/6/detail'
+    Then I should see 'Create Comment' button
+
