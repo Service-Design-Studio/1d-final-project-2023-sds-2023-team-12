@@ -77,7 +77,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed, we are happy that you have found your loved ones" }
+      format.html { redirect_to user_posts_path(current_user), notice: "Post was successfully destroyed, we are happy that you have found your loved ones" }
       format.json { head :no_content }
     end
   end
