@@ -35,7 +35,7 @@ ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
 # Redirect Rails log to STDOUT for Cloud Run to capture
 ENV RAILS_LOG_TO_STDOUT=true
-ENV SECRET_KEY_BASE=vdl4jXpVoeWqhEa5e7x1ESjv5/8c6koVukg9F1LwAqGp3KZMZ0toc/IybzNq3x1X4MZ+kUJ2sWJ8jk6pvhLiLtsSh66cAtnEdHNQf/kxy8fhFk/eqzETT+YP2cfg0nB7iJUDhDkCfJguTGfdEl+SS6Dypgx9PEtYS4tNubObOOX/3VJGP//jmaj/7EA4tk9V+fAOKjz3ZLDWTi9uvm4B4OU60E35u3C/yDYsq3eo9tGmrbcD9eZdqDNhr6fydwFdSMznFQg5b5SrzZHGaj4/FLEbI05NVYQjHtPtISRCPP2meHCc9JCH/Sd6DjIfhJVNRQDgOAnBL+YtR2eKA2To8mqt/sYqu8wV9Fgl8tT4lez85oYO5KM/2cL5FeZoBbyDqFfnoI4XQKq+X7wWJmVIxKBurUF8k38cdDGE--ds1hC/SpcSLUhrCj--jbJhPUalCWw9RauB4hs6Fw==
+ENV SECRET_KEY_BASE=ZBA4uUaUKepIAVWt+ru9thbwJtCAC9J93ZZH5Hp/28U4+FtikmqZSekoKOe5lQp46b5v+1Wtk9LbyfcnMngoMZ1fQPRq5ZfTiFVE9daUgBAa/vCaNNI3o/+JGcvTVAratsYCcjvZ68T8XVFDRFvnWBRRthDNzvM9qblmeUURYVqxo688Po06kS/AVoV83T39n1tIGghdRhWS9IjIUB9cWra6ywBiSZzrFOkPZye7L9NAKNQvfO+bBLGV5UrayDaD3Oix1R7UVJ++DTI1q2hRbW55WmCdhaH1WWKUMW8IflT7ChoYHgHhY2KJHv9FiAT65dr0aLsRF0z+04uWtiJeWoHjH3deZJi0IYXQRyqrqMjXIfbnO56HBE070RdtKbCqQ4KI5pSfO0ighxrv241Q4pW9qM+/zHikK/e6HSZsXY0d9M5xRSlDqMssMhl5SGYXh4kvQGLBt7ZaGGeQzt2TYPlrZXpRvLMSN7yysN7fkIQEAZv/D1EonQIGr2lI--sE3J9t8RNvT6EDtp--vFsaVznU4E8vf83WgXZ6GQ==
 
 # pre-compile Rails assets with master key
 RUN bundle exec rake assets:precompile
@@ -43,9 +43,9 @@ RUN bundle exec rake assets:precompile
 
 ENV RAILS_ENV=production
 
-RUN bundle exec rake db:create
-RUN bundle exec rake db:migrate
-RUN bundle exec rake db:seed
+# RUN bundle exec rake db:create
+# RUN bundle exec rake db:migrate
+# RUN bundle exec rake db:seed
 
 EXPOSE 8080
 RUN chmod u+x bin/rails
