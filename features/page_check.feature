@@ -30,6 +30,7 @@ Scenario: Check Report Case page features after log in
     Then I should see a message 'Missing Time'
 
 Scenario: Check Show Case page features after log in
-    Given I am on the page with path: '/post/6/detail'
+    Given I am on the page with path: 'show_post_detail_path(@comment.post_id)'
     Then I should see 'Create Comment' button
+    
 

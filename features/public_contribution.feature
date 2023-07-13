@@ -7,34 +7,41 @@ Scenario: Navigating to a specific case from the Show Cases page
     Given I am on the page with path: 'posts'
     And I am logged in
     When I press the "More details..." button 
-    Then I should be redirected to the page with path: ""
+    Then I should be redirected to the page with path: 'show_post_detail_path(@comment.post_id)'
 
 Scenario: Creating a comment on a specific page
-    Given I am on the page with path: ""
+    Given I am on the page with path: 'show_post_detail_path(@comment.post_id)'
     When I fill in "" with 'I saw one person that look like your missing loved one'
-    And I press the "Create Comment" button
+    And I press the 'Create Comment' button
     Then I should see the comment 'I saw one person that look like your missing loved one'
-    And I should see a pop up "Comment was successfully created"
+    And I should see a pop up 'Comment was successfully created'
 
 Scenario: Unsuccessfully creating a comment
-    Given I am on the page with path: ""
+    Given I am on the page with path: 'show_post_detail_path(@comment.post_id)'
     When I fill in "" with ''
     And I press the "Create Comment" button
     Then I should see a pop up "Comment can not be empty"
 
 Scenario: Deleting a comment
-    Given I am on the page with path: ""
+    Given I am on the page with path: 'show_post_detail_path(@comment.post_id)'
     And there is a comment "I saw one person that look like your missing loved one"
     When I press the "Delete" button contained in "" 
     Then I should not see the comment "I saw one person that look like your missing loved one"
     And I should see a pop up "Comment was successfully destroyed." 
     
 Scenario Updating a comment: 
-    Given I am on the page with path: ""
+    Given I am on the page with path: 'show_post_detail_path(@comment.post_id)'
     And there is a comment "I saw one person that look like your missing loved one"
     When I press the "Edit" button contained in ""
     And I update the comment "I saw that person that look like your missing loved one"
     And I press the "Update Comment" button 
     Then I should see "I saw that person that look like your missing loved one"
     And I should see a pop up "Comment was successfully updated."
+
+Scenario: Creating a comment on a specific page but I am not logged in
+    Given I am on the page with path: 'show_post_detail_path(@comment.post_id)'
+    When I fill in "" with 'I saw one person that look like your missing loved one'
+    And I press the 'Create Comment' button
+    Then I should be redirected to the page with path: "login"
+
     

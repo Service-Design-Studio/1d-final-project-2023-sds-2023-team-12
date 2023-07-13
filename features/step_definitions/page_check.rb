@@ -11,3 +11,4 @@ end
 Then 'I should see {string} button' do |buttonName|
     page.has_button?(buttonName)
 end
+
