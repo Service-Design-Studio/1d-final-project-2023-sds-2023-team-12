@@ -1,13 +1,12 @@
 include Warden::Test::Helpers
 require "rake"
-require 'zip'
 
 module CapybaraHelper
   PAGE_MAP = {
     # General
     "Home": "/",
     "Show All Posts": "/posts",
-    "Post Detail": "/post/1/detail",
+    "Log In": "/users/sign_in",
     "Admin Home": "/admin",
     # Upload resource
     "Database": "/admin/uploads",
@@ -25,7 +24,7 @@ module CapybaraHelper
     "AMADEUS": "amadeus-button",
     "Home": "home-button",
     "More details": "more-detail-button",
-    "Sign In": "sign-in-button",
+    "Log in": "login-button",
     "Sign Out": "sign-out-button",
     "Actions": "actions-button",
     "Back to Home": "back-to-home-button",
