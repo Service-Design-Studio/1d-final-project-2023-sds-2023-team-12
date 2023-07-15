@@ -70,6 +70,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+  gem 'sqlite3'
 end
 
 group :development do
