@@ -25,14 +25,28 @@
      <%# NADA - YOUR CODE HERE %>
 
 
-    <h4>Age</h4>
+    <%# AGE FILTERING %>
+    
     <%= form_tag(posts_path, method: :get) do %>
+      <h5>Age</h5>
       <% Post::AGE_CATEGORIES.each do |category, _range| %>
         <%= check_box_tag "age_categories[]", category %>
         <%= label_tag category.to_s, category.capitalize %><br>
       <% end %>
+
+      <h5>Sort By</h5>
+      <%= check_box_tag :sort_by_recent, 1 %>
+      <%= label_tag :sort_by_recent, "Most Recently Missing" %>
+      <br>
+      
       <%= submit_tag "Filter" %>
     <% end %>
+
+
+
+    <%# Sort by most recently missing%>
+    
+
 
      
      <%# NADA - YOUR CODE ENDS HERE %>

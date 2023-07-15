@@ -9,10 +9,20 @@ class PostsController < ApplicationController
       ### age filter ### 
       if params[:age_categories].present?
         age_cag_list = params[:age_categories]
-        @posts = @posts.select { |post| age_cag_list.include?(post.age_category.to_s) }
+        ##age categories is a virtual attr thus you need to use select
+        filtered_post_ids = @posts.select { |post| age_cag_list.include?(post.age_category.to_s) }.pluck(:id)
+        ##however, we want a query selection that returns an activerecord selection, so we need to use .where method instead, so we use a placeholder to select the ids
+        @posts = @posts.where(id: filtered_post_ids)
       end
 
       ### age filter  ###
+
+      ### sort by missing time 
+      if params[:sort_by_recent].present?
+        @posts = @posts.order(missing_time: :desc)
+      end
+
+      ###
       
     
     else # show your cases cases
