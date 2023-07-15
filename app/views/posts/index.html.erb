@@ -25,8 +25,13 @@
      <%# NADA - YOUR CODE HERE %>
 
 
-    <%# AGE FILTERING %>
+    <%# SEARCH FILTERING %>
+    <%= form_tag(posts_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
+      <%= submit_tag "Search" %>
+    <% end %>
     
+    <%# AGE FILTERING %>
     <%= form_tag(posts_path, method: :get) do %>
       <h5>Age</h5>
       <% Post::AGE_CATEGORIES.each do |category, _range| %>

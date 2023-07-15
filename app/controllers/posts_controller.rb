@@ -3,6 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    if params[:search].present?
+      search_query = params[:search].split(/\s+/).join(" & ")
+      @posts = Post.where("MATCH(posts.full_name, posts.location, posts.description, posts.special_note) AGAINST (? IN BOOLEAN MODE)", search_query)
+    else
+      @posts = Post.all
+    end
+
     if !params.key?(:user_id) # show all cases
       @posts = Post.all
 
