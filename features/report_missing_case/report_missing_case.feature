@@ -4,23 +4,48 @@ Feature: Creating a report for a missing person
   I want to fill up, edit, delete and close a case
   So that I can report a case of a missing person
 
-# Background: There are already missing people cases and I want to add my own case
+Background: I want to report a missing case when i am already logged in
+  Given I am logged in
+  And I am on the "Home" page
+  Then I click on "Report Case" button in navigation bar
+  Then I should see "Create Case"
 
-Scenario: navigating to report case page and I am logged in
-    Given I am on the "Home" page
-    And I am logged in
-    When I press the 'Report Case' button
-    Then I should be redirected to the page with path: 'report_case'
+@happy_path
+Scenario: Report a new case will correct and valid information 
+  Given I should see "Create Case"
+  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image
+  When I fill in "Full name" field with "David"
+  And I fill in "Age" field with "34"
+  And I fill in "Location" field with "Changi"
+  And I fill in "Description" field with "Wearing a red T shirt"
+  And I fill in "Special note" field with "elderly"
+  And I fill in "Missing time" field with "Sat, 17 Jun 2023 21:33:00 +0000"
+  And I fill in "image" field with valid image
+  And I click on the "Create Post" button
+  Then I should see "Missing Case Detail"
+  And I should see "Welcome Public Contribution"
+  And I should see notification "Post was successfully created, click on show cases to see your case"
 
-# Scenario: Reporting a missing person successfully
-#   Given I am on the page with path: 'report_case'
-#   When I fill '_form' with data
-#   | Full Name | John Doe |
-#   | Age | 8 |
-#   | Location | Tampines |
-#   |Description | Wearing a blue shirt |
-#   |Special note | Has Autism |
-#   |Missing Time | Sat, 17 Jun 2023 21:33:00 +0000 |
-#   | Images | image.jpg |
 
+@sad_path
+Scenario: Report a new case will invalid information
+  Given I should see "Create Case"
+  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image  
+  When I fill in "Full name" field with ""
+  And I fill in "Age" field with "34"
+  And I fill in "Location" field with "Changi"
+  And I fill in "Description" field with "Wearing a red T shirt"
+  And I fill in "Special note" field with "elderly"
+  And I fill in "Missing time" field with "Sat, 17 Jun 2023 21:33:00 +0000"
+  And I fill in "image" field with valid image
+  And I click on the "Create Post" button
+  Then I should not see "Missing Case Detail"
+  And I should not see "Welcome Public Contribution"
+  And I should see notification "Full name field can not leave blank"
 
+Scenario: Report a new case while I have yet to logged in 
+  Given I am not logged in 
+  And I am on the "Home" page
+  Then I click on "Report Case" button in navigation bar
+  Then I should be redirected to the "Log In" page
+  And I should see notification "You have not sign in, please sign in!"

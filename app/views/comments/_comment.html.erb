@@ -28,12 +28,12 @@
 
           <% if current_user and current_user.id==comment.user_id%>
   <div class="edit_delete_comment d-flex justify-content-start">
-     <%= link_to "Edit",  edit_post_comment_path(params[:id],comment.id), class: "edit_comment" %> 
-     <%= button_to "Delete", comment, method: :delete ,class: "delete_comment" %>
+     <%= link_to "Edit",  edit_post_comment_path(params[:id],comment.id), class: "edit_comment edit-comment-button" %> 
+     <%= button_to "Delete", comment, method: :delete ,class: "delete_comment delete-comment-button" %>
   </div>
 <% elsif current_user and (Post.retrieve_user_id params[:id]) == current_user.id  %>
   <div class="edit_delete_comment d-flex justify-content-start">
-     <%= button_to "Delete", comment, method: :delete ,class: "delete_comment" %>
+     <%= button_to "Delete", comment, method: :delete ,class: "delete_comment delete-comment-button" %>
   </div>
   <% end %>
         </div>

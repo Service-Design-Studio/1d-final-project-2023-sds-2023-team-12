@@ -7,7 +7,7 @@ module CapybaraHelper
     "Home": "/",
     "Show All Posts": "/posts",
     "Log In": "/users/sign_in",
-    "Admin Home": "/admin",
+    "Report Case": "/admin",
     # Upload resource
     "Database": "/admin/uploads",
     "New Upload": "/admin/uploads/new",
@@ -19,17 +19,20 @@ module CapybaraHelper
     "New Category": "/admin/categories/new",
   }
 
+  POST_FORM_FIELD={"Full name" => "David", "Age" => "34", "Location" => "Changi", "Description" => "Wearing a red T shirt", "Special note" => "elderly", "Missing time" => "Sat, 17 Jun 2023 21:33:00 +0000"}
+
+
+
   BUTTON_MAP = {
     # General
-    "AMADEUS": "amadeus-button",
     "Home": "home-button",
-    "More details": "more-detail-button",
+    "More details...": "more-detail-button",
     "Log in": "login-button",
     "Sign Out": "sign-out-button",
-    "Actions": "actions-button",
-    "Back to Home": "back-to-home-button",
-    "Delete": "delete-button",
-    "Return": "return-button",
+    "Create Post": "create-post-button",
+    "Create Comment": "create-comment-button",
+    "Delete": "delete-comment-button",
+    "Edit": "edit-comment-button",
     "Cancel": "cancel-button",
     # Upload resource
     "Database": "database-button",
