@@ -41,5 +41,16 @@ class Post < ApplicationRecord
         end
     end
 
+    #full text search
+    def self.search(query)
+        if query.present?
+          where("full_name LIKE :query OR location LIKE :query OR description LIKE :query OR special_note LIKE :query", query: "%#{query}%")
+        else
+          all
+        end
+      end
+
     ###
+
+
 end
