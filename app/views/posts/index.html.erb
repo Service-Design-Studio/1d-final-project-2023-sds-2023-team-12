@@ -40,8 +40,10 @@
       <% end %>
 
       <h5>Sort By</h5>
-      <%= check_box_tag :sort_by_recent, 1 %>
-      <%= label_tag :sort_by_recent, "Most Recently Missing" %>
+
+
+      <%= select_tag :sort_by, options_for_select([['Most Recently Posted', 'recently_posted'],['Most Recently Missing', 'recently_missing'], ['Alphabetical Order', 'alphabetical']]), prompt: 'Sort By' %>
+
       <br>
       
       <%= submit_tag "Filter" %>
@@ -49,7 +51,6 @@
 
 
 
-    <%# Sort by most recently missing%>
     
 
 

@@ -3,10 +3,9 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    @posts = Post.all
     if params[:search].present?
       @posts = Post.search(params[:search])
-    else
-      @posts = Post.all
     end
 
     if !params.key?(:user_id) # show all cases
@@ -21,22 +20,32 @@ class PostsController < ApplicationController
         @posts = @posts.where(id: filtered_post_ids)
       end
 
-      ### age filter  ###
+      
+      #sort by dropdown
+      sort_by = params[:sort_by]
+      case sort_by
 
-      ### sort by missing time 
-      if params[:sort_by_recent].present?
+      when 'alphabetical'
+        @posts = @posts.order(full_name: :asc)
+      when 'recently_posted'
+        @posts = @posts.order(created_at: :desc)
+      when 'recently_missing'
         @posts = @posts.order(missing_time: :desc)
+
+      
       end
 
-      ###
-      
-    
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
-
-
   end
+  
+
+  
+
+
+
+
 
   # GET /posts/1 or /posts/1.json
   def show
