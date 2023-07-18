@@ -7,3 +7,13 @@
 <%= notice %>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+
+<% if flash.include?(:for_view_api) and flash[:for_view_api].any? %> 
+<div class="alert alert-success alert-dismissible fade show animate__animated animate__fadeInDown notification" role="alert">
+  <% flash[:for_view_api].each_pair do |key,value| %>
+  <%=  value  %>
+  <% end %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+</div>
+<% end %>

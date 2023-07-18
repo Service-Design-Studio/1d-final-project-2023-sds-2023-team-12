@@ -261,7 +261,11 @@ body{
    height: 100px;
    word-wrap: break-word;
    font-size: 20px;
+   height: 160px;
+ }
 
+ .special-note-field{
+   height: 100px;
  }
 
  .post_image_new{
@@ -405,7 +409,7 @@ body{
 }
 
 .missing_case_headers{
-   font-size: 30px !important;
+   font-size: 26px !important;
    font-weight: 500 !important;
    color: #e53e3e !important;
 }
@@ -439,7 +443,7 @@ body{
 
 /* FOR EDIT POST PAGE */
 .edit_post_image{
-   padding-top: 100px;
+   padding-top: 190px;
 }
 .edit_post_image img{
    display: block;
