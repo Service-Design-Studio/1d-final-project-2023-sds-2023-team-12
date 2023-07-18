@@ -38,8 +38,13 @@ class PostsController < ApplicationController
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
+
+    # Storing selected filters to keep state persistent
+    @selected_age_categories = params[:age_categories] || []
+    @sort_by = params[:sort_by] || 'recently_posted'
+
   end
-  
+
 
   
 
