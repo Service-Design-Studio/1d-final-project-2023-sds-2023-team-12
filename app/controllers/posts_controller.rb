@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     if !params.key?(:user_id)
       # NADA YOUR CODE GO HERE #  
-      
+     
       @posts = Post.all
     else
       @posts = User.find_by(id: params[:user_id]).posts
@@ -39,7 +39,28 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully created, click on show cases to see your case" }
+        for_view=Hash.new
+        output_from_api_description=response_from_api_call(@post.description)
+        output_from_api_note=response_from_api_call(@post.special_note)
+
+
+        unless output_from_api_description[:soure_language] == "en"
+          flash[:test2]=output_from_api_description[:source_language]
+          flash[:test1]=return_country_base_on_code(output_from_api_description[:source_language])
+          @post.update(description: output_from_api_description[:translatedText])
+          @post.save
+          for_view[:description]="Description has been translated from #{return_country_base_on_code(output_from_api_description[:source_language])} to English \n"
+          flash[:help]=1
+        end
+
+        unless output_from_api_note[:soure_language] == "en"
+          @post.update(special_note: output_from_api_note[:translatedText])
+          @post.save
+          for_view[:note]="Special Note has been translated from #{return_country_base_on_code(output_from_api_note[:source_language])} to English"
+        end
+
+        flash[:for_view_api]=for_view
+        format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully created, click on show cases to see your case"}
        ## format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
@@ -90,6 +111,31 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time)
+      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time,:avatar)
     end
+
+  private
+  def get_most_recent_image_id(bucket_name)
+    storage = Google::Cloud::Storage.new
+    bucket = storage.bucket(bucket_name)
+
+    # List all objects in the bucket
+    blobs = bucket.files
+
+    # Sort the blobs by their creation time in descending order (most recent first)
+    sorted_blobs = blobs.sort_by { |blob| blob.created_at }.reverse
+
+    # Get the ID (name) of the most recently added image
+    if sorted_blobs.any?
+      most_recent_blob = sorted_blobs.first
+      return most_recent_blob.name
+    else
+      return nil
+    end
+  end
+
+
+  private
+
+
 end

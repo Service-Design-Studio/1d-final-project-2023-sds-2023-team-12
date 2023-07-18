@@ -61,6 +61,9 @@ gem 'haml'
 #gem 'protected_attributes'
 gem 'activemodel', '~> 7.0.5'
 
+# google cloud storage gem
+gem "google-cloud-storage", "~> 1.11", require: false
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
