@@ -1,5 +1,15 @@
 <%# Do not modify this from line 2 to 13 - Louis %>
 <%# <div class="alert alert-danger alert-dismissible fade show animate__animated animate__fadeInDown" role="alert"> %>
+
+<% if flash[:help] == 1%> 
+  <% flash[:for_view_api].each_pair do |key,value| %>
+  <div class="alert alert-warning alert-dismissible fade show animate__animated animate__fadeInDown notification" role="alert">
+  <%=  value  %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  <% end %>
+<% end %>
+
 <div class="container_detail row animate__animated  animate__fadeInUp">
 <h1 class="missing_case_detail_title">Missing Case Detail</h1>
     <div class="col-sm-6 col_for_image">
@@ -7,27 +17,31 @@
         <%= image_tag @post.image_url if @post.image%>
     </div>
     </div>
+
+    <%# Gcloud test %>
+    <%# <%= image_tag(@post.avatar, width: 200) if @post.avatar.attached? %> 
+
 <div class="col-sm-6 contain_info">
 
 <h3 class="contact_person_detail">Posted by: <%=@user.full_name %> , Contact number: <%= @user.mobile_phone%></h3>
 
     <h3 class="missing_case_headers">Full name<h3>
-    <p class="missing_case_content"><%=@post.full_name%></p>
+    <p class="missing_case_content pe-3"><%=@post.full_name%></p>
 
     <h3 class="missing_case_headers">Age<h3>
-    <p class="missing_case_content"><%=@post.age%></p>
+    <p class="missing_case_content pe-3"><%=@post.age%></p>
 
     <h3 class="missing_case_headers">Location<h3>
-    <p class="missing_case_content"><%=@post.location%></p>
+    <p class="missing_case_content pe-3"><%=@post.location%></p>
 
     <h3 class="missing_case_headers">Description<h3>
-    <p class="missing_case_content"><%=@post.description%></p>
+    <p class="missing_case_content pe-5"><%=@post.description%></p>
 
     <h3 class="missing_case_headers">Special Note<h3>
-    <p class="missing_case_content"><%=@post.special_note%></p>
+    <p class="missing_case_content pe-5"><%=@post.special_note%></p>
 
     <h3 class="missing_case_headers">Missing Time<h3>
-    <p class="missing_case_content"><%= @post.missing_time.to_fs(:rfc822)%></p>
+    <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
 
 <% if current_user and current_user.id == @user_id %>
 

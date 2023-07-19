@@ -8,23 +8,11 @@ module CapybaraHelper
     "Show All Posts": "/posts",
     "Log In": "/users/sign_in",
     "Report Case": "/admin",
-    # Upload resource
-    "Database": "/admin/uploads",
-    "New Upload": "/admin/uploads/new",
-    # Tag resource
-    "Tag List": "/admin/tags",
-    "New Tag": "/admin/tags/new",
-    # Category resource
-    "Category Bank": "/admin/categories",
-    "New Category": "/admin/categories/new",
   }
 
   POST_FORM_FIELD={"Full name" => "David", "Age" => "34", "Location" => "Changi", "Description" => "Wearing a red T shirt", "Special note" => "elderly", "Missing time" => "Sat, 17 Jun 2023 21:33:00 +0000"}
 
-
-
   BUTTON_MAP = {
-    # General
     "Home": "home-button",
     "More details...": "more-detail-button",
     "Log in": "login-button",
@@ -34,19 +22,6 @@ module CapybaraHelper
     "Delete": "delete-comment-button",
     "Edit": "edit-comment-button",
     "Cancel": "cancel-button",
-    # Upload resource
-    "Database": "database-button",
-    "Back to Database": "back-to-database-button",
-    "New Upload": "new-upload-button",
-    "Delete this Upload": "delete-this-upload-button",
-    # Tag resource
-    "Tag List": "tag-list-button",
-    "New Tag": "new-tag-button",
-    "Back to Tag List": "back-to-tag-list-button",
-    # Category resource
-    "Category Bank": "category-list-button",
-    "New Category": "new-category-button",
-    "Back to Category Bank": "back-to-category-list-button",
   }
 
   FORM_BUTTON_MAP = {
@@ -56,17 +31,6 @@ module CapybaraHelper
     "Add Category": "add-category-button",
   }
 
-  ARTICLES_ARRAY = [
-    "Russia's economy in for a bumpy ride as sanctions bite - BBC News",
-    "Russia sentences US teacher to 14 years for cannabis smuggling - BBC News",
-    "Chinese drone firm DJI pauses operations in Russia and Ukraine - BBC News",
-    "Combat drones_ We are in a new era of warfare - here's why - BBC News",
-    "How many Ukrainian refugees are there and where have they gone_ - BBC News",
-    "Ukraine war_ Thousands of civilians trapped in Severodonetsk - BBC News",
-  ]
-
-  TAG_ARRAY = %w[ cut economy noise russia sanction basketball drug fogel russia star dji drone product russia use
-attack drone technology use warfare kyiv refugee russia ukraine ukrainians azot control plant russia severodonetsk ]
 
   def capybara_get_article_idx(article_name)
     CapybaraHelper::ARTICLES_ARRAY.index(article_name) + 1
@@ -78,10 +42,6 @@ attack drone technology use warfare kyiv refugee russia ukraine ukrainians azot 
 
   def capybara_upload_zip(zip_name)
     if zip_name != ""
-      # capybara_login("admin123@admin.com", "admin123")
-      # visit '/admin/uploads/new'
-      # attach_file(Rails.root + "app/assets/test_zip/#{zip_name}")
-      # find("#upload-button").click
       Zip::File.open(Rails.root + "app/assets/test_zip/#{zip_name}") do |zip_file|
         zip_file.each do |entry|
           if entry.file? && entry.name.end_with?(".pdf")

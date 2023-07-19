@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
+    # has_one_attached :avatar 
+
     include ImageUploader::Attachment(:image)
 
     validates :full_name, presence: true

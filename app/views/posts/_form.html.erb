@@ -45,17 +45,21 @@
 
       <div class="post_item">
         <%= form.label :location, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :location, class:"report-field" %>
+        <%= form.text_area :location, class:"report-field" %>
+      </div>
+
+      <div class="post_item mt-5">
+        <p class="pe-5" style="font-style: italic;">For Description and Special Note, you can write in any languague, our app will take care of the translation<p>
       </div>
 
       <div class="post_item">
         <%= form.label :description, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :description, class:"description-field" %>
+        <%= form.text_area  :description, class:"description-field" %>
       </div>
 
       <div class="post_item">
         <%= form.label :special_note, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :special_note, class:"report-field" %>
+        <%= form.text_area :special_note, class:"report-field special-note-field" %>
       </div>
 
       <div hidden>
@@ -86,8 +90,12 @@
         <%= image_tag form.object.image_url if form.object.cached_image_data %>
         <%= form.hidden_field :image, value: form.object.cached_image_data %>
         <%= form.file_field :image %>
- 
       </div>
+
+      <%# Gcloud storage %>
+      <%# <div class="field">
+      <%= form.file_field :avatar %>
+      <%# </div> %> 
 
     </div>
   </div>
