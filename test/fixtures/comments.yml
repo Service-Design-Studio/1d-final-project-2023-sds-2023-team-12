@@ -1,7 +1,27 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Sample data for comments
+# Fixture data and references to posts(:one), posts(:two), users(:one), and users(:two)
+
 one:
-  body: MyText
+  body: This is a comment
+   # This means this comment is posted by user one from test/fixtures/users.yml
+   # on post one from test/fixtures/posts.yml
+  post: <%= posts(:one) %>
+  user: <%= users(:one) %>
 
 two:
-  body: MyText
+  body: Another comment
+  # This means this comment is posted by user two from test/fixtures/users.yml
+  # on post two from test/fixtures/posts.yml
+  post: <%= posts(:two) %>
+  user: <%= users(:two) %>
+
+three:
+  body: nil
+  # This means this comment is posted by user three from test/fixtures/users.yml
+  # on post two from test/fixtures/posts.yml
+  post: <%= posts(:three) %>
+  user: <%= users(:three) %>
+
+
