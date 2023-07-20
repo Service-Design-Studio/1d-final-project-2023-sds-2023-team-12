@@ -44,7 +44,7 @@ class PostsController < ApplicationController
         output_from_api_note=response_from_api_call(@post.special_note)
 
 
-        unless output_from_api_description[:soure_language] == "en"
+        unless (output_from_api_description[:source_language] == 'en')
           flash[:test2]=output_from_api_description[:source_language]
           flash[:test1]=return_country_base_on_code(output_from_api_description[:source_language])
           @post.update(description: output_from_api_description[:translatedText])
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
           flash[:help]=1
         end
 
-        unless output_from_api_note[:soure_language] == "en"
+        unless (output_from_api_note[:source_language] == "en")
           @post.update(special_note: output_from_api_note[:translatedText])
           @post.save
           for_view[:note]="Special Note has been translated from #{return_country_base_on_code(output_from_api_note[:source_language])} to English"

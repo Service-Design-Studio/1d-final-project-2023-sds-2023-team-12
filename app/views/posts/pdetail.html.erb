@@ -1,12 +1,15 @@
 <%# Do not modify this from line 2 to 13 - Louis %>
 <%# <div class="alert alert-danger alert-dismissible fade show animate__animated animate__fadeInDown" role="alert"> %>
 
+
 <% if flash[:help] == 1%> 
   <% flash[:for_view_api].each_pair do |key,value| %>
+
   <div class="alert alert-warning alert-dismissible fade show animate__animated animate__fadeInDown notification" role="alert">
   <%=  value  %>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+
   <% end %>
 <% end %>
 
