@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
-    # has_one_attached :avatar 
+    has_one_attached :avatar 
 
     include ImageUploader::Attachment(:image)
 
@@ -10,7 +10,7 @@ class Post < ApplicationRecord
     validates :location, presence: true
     validates :description, presence: true
     validates :special_note, presence: true
-    validates :image_data, presence: true
+    # validates :image_data, presence: true
     validates :missing_time, presence: true
 
     def self.retrieve_user_id post_id

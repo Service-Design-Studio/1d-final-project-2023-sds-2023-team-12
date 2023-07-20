@@ -87,17 +87,19 @@
 
       <div class="post_item">
         <%= form.label :image, style: "display: block", class: "report-label mb-1" %>
-        <%= image_tag form.object.image_url if form.object.cached_image_data %>
-        <%= form.hidden_field :image, value: form.object.cached_image_data %>
-        <%= form.file_field :image %>
+        <%# <%= image_tag form.object.image_url if form.object.cached_image_data %>
+        <%# <%= form.hidden_field :image, value: form.object.cached_image_data %> 
+        <%# <%= form.file_field :image %> 
+        <%= form.file_field :avatar %>
       </div>
 
       <%# Gcloud storage %>
-      <%# <div class="field">
-      <%= form.file_field :avatar %>
-      <%# </div> %> 
+      <div class="field">
+      <%# <%= form.file_field :avatar %> 
+      </div> 
 
     </div>
+
   </div>
 
   <div class="middle-button"> 
