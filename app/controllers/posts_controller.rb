@@ -44,7 +44,7 @@ class PostsController < ApplicationController
         output_from_api_note=response_from_api_call(@post.special_note)
 
 
-        unless output_from_api_description[:soure_language] == "en"
+        unless output_from_api_description[:source_language] == "en"
           flash[:test2]=output_from_api_description[:source_language]
           flash[:test1]=return_country_base_on_code(output_from_api_description[:source_language])
           @post.update(description: output_from_api_description[:translatedText])
@@ -103,6 +103,40 @@ class PostsController < ApplicationController
     end
   end
 
+  def keyword_extractor
+    # take data from form
+    # description = params[:description]
+    # special_note = params[:special_note]
+
+    description = "We are seeking your assistance in locating Sarah Anderson, a 32-year-old Caucasian woman with a height of 5'6 and a slim build. She has shoulder-length, wavy brown hair, hazel eyes, a small birthmark on her right cheek, and a tattoo of a rose on her left wrist. At the time of her disappearance, Sarah was wearing a dark blue jacket, a white t-shirt with a floral pattern, blue jeans, and brown boots. She had a black backpack with a red stripe. If you have any information about Sarahs whereabouts, please contact her sister, Emily, at [Phone number]. Its essential to note that Sarah has a severe peanut allergy and always carries an epinephrine auto-injector with her. She is also susceptible to anxiety and may exhibit signs of distress in unfamiliar situations. Your assistance in this matter is crucial, and we urge you to contact the authorities or use the provided contact number with any relevant information that could help locate Sarah Anderson promptly."
+    special_note = "test this is a special note"
+
+    # prepare data to send to flask ai microservice, preparing as text
+    data = "#{description}\n#{special_note}"
+
+    # set URL for flask microservice, this may change from running locally to cloud
+    flask_microservice_url = 'http://localhost:5000/process-text'
+
+    # prepare request to the Flask microservice
+    uri = URI("#{flask_microservice_url}") # creates URI object representing the microservice endpoint
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, { 'Content-Type' => 'text/json' }) #create new HTTP Post request to specific URI path
+    request.body = data
+
+    response = http.request(request)
+
+    # Handle response from Flask microservice
+    if response.is_a?(Net::HTTPSuccess)
+      result = response.body.to_json() 
+      puts result # this returns as"{\n  \"result\": \"Caucasian, 5'6, slim build, shoulder-length.\"\n}\n" 
+    else
+      error_message = 'Connection to OpenAI failed'
+
+      render plain: error_message
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -113,6 +147,9 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time,:avatar)
     end
+
+    # AI feature
+
 
   private
   def get_most_recent_image_id(bucket_name)

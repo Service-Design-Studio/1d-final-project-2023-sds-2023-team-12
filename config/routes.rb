@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/ai_feature", to: "pages#ai_feature"
   get "/user/:id/edit", to: "devise/registrations#edit"
   get "/post/:id/detail", to: "posts#detail", as: "show_post_detail"
+  get "/apitest", to: "posts#keyword_extractor"
 
   resources :users do
     resources :posts 

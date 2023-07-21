@@ -46,7 +46,11 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# OpenAI gem
+gem "openai"
 
+# webmock gem for api testing
+gem "webmock"
 
 gem 'shrine', '~> 3.4'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
@@ -77,7 +81,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
-  gem 'sqlite3'
 end
 
 group :development do
