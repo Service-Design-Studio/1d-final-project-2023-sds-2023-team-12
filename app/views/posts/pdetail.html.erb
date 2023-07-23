@@ -46,6 +46,9 @@
     <h3 class="missing_case_headers">Missing Time<h3>
     <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
 
+    <h3 class="missing_case_headers">Reward<h3>
+    <p class="missing_case_content pe-5 reward_info"><i class="fa-solid fa-coins reward_coins"></i><%=@post.reward%> SGD</p>
+
 <% if current_user and current_user.id == @user_id %>
 
     <div class="button_for_two_bottom">
