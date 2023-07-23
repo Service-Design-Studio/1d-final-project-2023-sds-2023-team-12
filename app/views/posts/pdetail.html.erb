@@ -38,10 +38,10 @@
     <p class="missing_case_content pe-3"><%=@post.location%></p>
 
     <h3 class="missing_case_headers">Description<h3>
-    <p class="missing_case_content pe-5"><%=@post.description%></p>
+    <p class="missing_case_content pe-5"><%=@post.store_description%></p>
 
     <h3 class="missing_case_headers">Special Note<h3>
-    <p class="missing_case_content pe-5"><%=@post.special_note%></p>
+    <p class="missing_case_content pe-5"><%=@post.store_special_note%></p>
 
     <h3 class="missing_case_headers">Missing Time<h3>
     <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
