@@ -10,7 +10,9 @@ module CapybaraHelper
     "Report Case": "/admin",
   }
 
-  POST_FORM_FIELD={"Full name" => "David", "Age" => "34", "Location" => "Changi", "Description" => "Wearing a red T shirt", "Special note" => "elderly", "Missing time" => "Sat, 17 Jun 2023 21:33:00 +0000"}
+  POST_FORM_FIELD_POST_DETAIL={"Full name" => "David", "Age" => "34", "Location" => "Changi", "Description" => "Wearing a red T shirt", "Special note" => "elderly", "Missing time" => "Sat, 17 Jun 2023 21:33:00 +0000"}
+
+  POST_FORM_FIELD_EDIT_POST={"Full name" => "David", "Age" => "34", "Location" => "Changi", "Description" => "Khi mất tích, anh ấy mặc chiếc áo thun màu đen Uniqlo, tóc ngắn nhuộm màu nâu, chiều cao 1m75, quần jean màu xanh và giày thế thao Adidas", "Special note" => "Người già và trí nhớ kém", "Missing time" => "Sat, 17 Jun 2023 21:33:00 +0000"}
 
   BUTTON_MAP = {
     "Home": "home-button",
@@ -21,7 +23,9 @@ module CapybaraHelper
     "Create Comment": "create-comment-button",
     "Delete": "delete-comment-button",
     "Edit": "edit-comment-button",
+    "Edit Post": "edit-post-button",
     "Cancel": "cancel-button",
+    "Update Post": "update-post-button"
   }
 
   FORM_BUTTON_MAP = {

@@ -53,7 +53,7 @@
 
     <div class="button_for_two_bottom">
     <button>
-    <%= link_to "EDIT", edit_user_post_path(current_user,@post)%>
+    <%= link_to "EDIT", edit_user_post_path(current_user,@post), class: "edit-post-button"%>
     </button>
     <button>
     <%= link_to "DELETE", user_post_path(current_user,@post),data: {turbo_method: :delete}%>
