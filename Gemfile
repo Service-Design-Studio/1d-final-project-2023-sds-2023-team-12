@@ -8,6 +8,8 @@ gem "sqlite3", "~> 1.4"
 gem 'pg'
 
 
+gem 'rack_session_access'
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

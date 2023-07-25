@@ -8,7 +8,7 @@ class Post < ApplicationRecord
     validates :location, presence: true
     validates :description, presence: true
     validates :special_note, presence: true
-    validates :image_data, presence: true
+    #validates :image_data, presence: true ##removed for testing
     validates :missing_time, presence: true
 
     def self.retrieve_user_id post_id

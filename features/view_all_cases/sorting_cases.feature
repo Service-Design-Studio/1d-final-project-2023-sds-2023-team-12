@@ -20,7 +20,7 @@ Feature: Sorting Cases
             | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  |
             | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  |
         When I visit the posts page
-        And I select "Most Recently Missing" from "Sort By"
+        And I select "Most Recently Missing" from "sort_by"
         Then I should see the following posts in order:
             | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        |
             | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  |
@@ -34,7 +34,7 @@ Feature: Sorting Cases
             | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  |
             | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  |
         When I visit the posts page
-        And I select "Alphabetical Order" from "Sort By"
+        And I select "Alphabetical Order" from "sort_by"
         Then I should see the following posts in order:
             | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        |
             | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  |
@@ -48,7 +48,7 @@ Feature: Sorting Cases
             | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  |
             | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  |
         When I visit the posts page
-        And I select "Most Recently Posted" from "Sort By"
+        And I select "Most Recently Posted" from "sort_by"
         Then I should see the following posts in order:
             | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        |
             | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  |
