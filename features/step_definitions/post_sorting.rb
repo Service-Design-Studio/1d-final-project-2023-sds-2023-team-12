@@ -27,7 +27,7 @@ Then('I should see the following posts in order:') do |table|
   expected_order = table.hashes.map { |row| row['full_name'] }
   
   # Get the actual post order from the page
-  displayed_order = all('.bottom_item.full_name_test').map { |element| element.text }
+  displayed_order = all('.bottom_item.full_name').map { |element| element.text }
 
   # debugging: to check if they extract the names properly
   puts "Displayed Order: #{displayed_order}"

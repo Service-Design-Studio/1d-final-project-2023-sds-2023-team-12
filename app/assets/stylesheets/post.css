@@ -36,10 +36,17 @@ body{
 .time_went_missing{
    margin-top: 15px;
    margin-bottom: 15px !important;
-   color: #E74C3C;
+   color: #e74c3d;
    font-weight: 700;
    font-size: 20px;
 }
+
+.full_name{
+   color: #E74C3C;
+   font-size: 20px;
+}
+
+
 
  .image_project{
     display: block;
@@ -515,4 +522,6 @@ body{
    padding-top: 25px;
    padding-left: 15px;
 }
+
+
 
