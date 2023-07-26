@@ -100,4 +100,5 @@ group :test do
   gem 'cucumber-rails', require: false
   # Even thought database_cleaner is not mandatory, it is highly recommended for cleaning the database between tests. 
   gem 'database_cleaner'
+  gem 'launchy'
 end

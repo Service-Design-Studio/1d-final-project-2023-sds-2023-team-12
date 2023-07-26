@@ -154,6 +154,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -306,6 +308,7 @@ DEPENDENCIES
   image_processing (~> 1.12, >= 1.12.2)
   importmap-rails
   jbuilder
+  launchy
   pg
   puma (~> 4.3.5)
   rack_session_access

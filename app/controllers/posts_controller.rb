@@ -11,6 +11,20 @@ class PostsController < ApplicationController
     if !params.key?(:user_id) # show all cases
       #@posts = Post.all
 
+      #sort by dropdown
+      sort_by = params[:sort_by]
+      case sort_by
+      when 'alphabetical'
+        @posts = @posts.order(full_name: :asc)
+      when 'recently_posted'
+        @posts = @posts.order(created_at: :desc)
+      when 'recently_missing'
+        @posts = @posts.order(missing_time: :desc)
+      else
+        @posts = @posts.order(created_at: :desc)
+      end
+      
+
       ### age filter ### 
       if params[:age_categories].present?
         age_cag_list = params[:age_categories]
@@ -21,19 +35,7 @@ class PostsController < ApplicationController
       end
 
       
-      #sort by dropdown
-      sort_by = params[:sort_by]
-      case sort_by
-
-      when 'alphabetical'
-        @posts = @posts.order(full_name: :asc)
-      when 'recently_posted'
-        @posts = @posts.order(created_at: :desc)
-      when 'recently_missing'
-        @posts = @posts.order(missing_time: :desc)
-
       
-      end
 
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts

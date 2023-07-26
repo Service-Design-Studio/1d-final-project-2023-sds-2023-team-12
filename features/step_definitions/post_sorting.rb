@@ -19,12 +19,23 @@ end
   
 When('I visit the posts page') do
   visit posts_path
+  #save_and_open_page
+end
+
+When('I select {string} from {string}') do |sorting_option, sort_by|
+  # Code to select the given sorting option from the specified select field
+  select sorting_option, from: sort_by
+  click_button 'Filter' 
 end
   
 Then('I should see the following posts in order:') do |table|
   # Code to verify the order of the posts based on the table data
   # Use the table.hashes method to access the expected post data in the table
   expected_order = table.hashes.map { |row| row['full_name'] }
+
+  # Wait for the elements to be present and visible before querying for them
+  all('.bottom_item.full_name', wait: 10, visible: :all)
+
   
   # Get the actual post order from the page
   displayed_order = all('.bottom_item.full_name').map { |element| element.text }
@@ -37,7 +48,32 @@ Then('I should see the following posts in order:') do |table|
 end
   
 
-When('I select {string} from {string}') do |sorting_option, sort_by|
-  # Code to select the given sorting option from the specified select field
-  select sorting_option, from: sort_by
+## for filtered search
+When('I check the {string} age category') do |age_category|
+  # Code to check the age category checkbox
+  find("input[type='checkbox'][name='age_categories[]'][value='#{age_category.downcase}']").check
+end
+
+When('I click "Filter"') do
+  # Code to click the "Filter" button
+  click_button('Filter')
+end
+
+When('I fill in "search" with {string}') do |search_query|
+  # Code to fill in the search field with the given search query
+  fill_in('search', with: search_query)
+end
+
+Then('I should see the following posts:') do |table|
+  # Code to verify the posts displayed on the page based on the table data
+  # Use the table.hashes method to access the expected post data in the table
+  expected_posts = table.hashes.map { |row| row['full_name'] }
+  
+  # Get the actual post data from the page
+  displayed_posts = all('.bottom_item.full_name').map { |element| element.text }
+
+  # Check if all the expected posts exist in the displayed posts
+  expected_posts.each do |expected_post|
+    assert_includes(displayed_posts, expected_post)
+  end
 end
