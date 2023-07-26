@@ -43,6 +43,9 @@
     <h3 class="missing_case_headers">Missing Time<h3>
     <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
 
+    <h3 class="missing_case_headers">How to interact with this person, offered by our AI solution:<h3>
+    <p class="missing_case_content pe-5"><%= @result %></p>
+
 <% if current_user and current_user.id == @user_id %>
 
     <div class="button_for_two_bottom">
