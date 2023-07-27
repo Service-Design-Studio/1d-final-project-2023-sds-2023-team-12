@@ -18,10 +18,10 @@
 <%# <%= params.inspect%> 
 <% if params[:controller]=="posts" and params[:action]=="edit" %>
   <h1 class="report_header">Edit Case</h1>
-
-  <% else %>
+<% else %>
   <h1 class="report_header">Create Case</h1>
 <%end%>
+
   <div class="row">
 
     <div class="column post_image_ne">
@@ -92,6 +92,11 @@
         <%= form.file_field :image %>
       </div>
 
+      <div class="post_item">
+        <%= form.label :reward, style: "display: block", class:"report-label mb-1 add_details_reward" %>
+        <%= form.number_field :reward, class:"report-field" %>
+      </div>
+
       <%# Gcloud storage %>
       <%# <div class="field">
       <%= form.file_field :avatar %>
@@ -101,7 +106,7 @@
   </div>
 
   <div class="middle-button"> 
-    <%= form.submit class: "login-button create-post-button" %>
+    <%= form.submit class: "login-button create-post-button update-post-button" %>
     <%# <% link_to "Update Post", show_post_detail_path(post), class: "login_button"%> 
   </div>
 

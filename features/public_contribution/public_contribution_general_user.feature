@@ -5,7 +5,7 @@ Feature: Public Contribution
     So that my contribution can be used to assist in finding the missing person
 
 Background: User as general public can view post detail and create a comment
-    Given I am on Post Detail page for a particular post
+    Given I am on "Post Detail" page for a particular post
 
 @happy_path
 Scenario: Creating a comment given the user is logged in 

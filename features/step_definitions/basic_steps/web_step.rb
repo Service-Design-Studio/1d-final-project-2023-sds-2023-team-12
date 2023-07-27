@@ -39,6 +39,33 @@ Then(/^I should stay on same Post Detail page for missing person name "([^"]*)"$
   expect(page).to have_current_path(route)
 end
 
+Given(/^I am on the "([^"]*)" page for user with email: "([^"]*)"$/) do |page_name, email|
+  @user=User.find_by(email: email)
+  route=nil
+  case page_name
+  when "Report Case"
+    visit "/users/#{@user.id}/posts/new"
+    route="/users/#{@user.id}/posts/new"
+  else 
+    pending
+  end
+  expect(page).to have_current_path(route)
+end
+
+Then(/^I should be on the "([^"]*)" page for post with name: "([^"]*)"$/) do |page_name, name|
+  @post=Post.find_by(full_name: name)
+  route=nil
+  case page_name
+  when "Missing Case Detail"
+    route="/post/#{@post.id}/detail"
+    visit route
+  else 
+    pending
+  end
+  expect(page).to have_current_path(route)
+end
+
+
 # CHECK FOR ELEMEMNT VISIBILITY
 And(/^I should see a "([^"]*)" button$/) do |button_name|
   if CapybaraHelper::BUTTON_MAP.key?(button_name.to_sym)

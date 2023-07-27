@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
               devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:full_name,:mobile_phone, :email, :password, :current_password)}
          end
          
+     # Function to handle API call
      def response_from_api_call single_line_string
           api_key='AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8Xg'
           uri_string = 'https://translation.googleapis.com/language/translate/v2?key='+api_key
@@ -34,7 +35,7 @@ EOS
           return output
      end
 
-
+     # Function return country name based on country code returned by user 
      def return_country_base_on_code country_code
           language_names = {
                "af" => "Afrikaans",
@@ -144,5 +145,42 @@ EOS
                "zu" => "Zulu"
              }
           return language_names[country_code]
+     end
+
+     #Function to handle API call to google cloud vision microservices
+     def output_google_cloud_vision_microservices
+          require 'uri'
+          require 'net/http'
+          require 'json'
+
+          api_key = ENV['API_KEY']
+          uri_string = 'https://vision.googleapis.com/v1/images:annotate?key='+api_key
+          puts uri_string
+          gs_uri = "gs://examples-images-ruby-api/sign.jpg"
+
+          body_request = {
+          "requests" => [
+               {
+                    "image" => {
+                    "source" => {
+                         "gcsImageUri" =>  gs_uri
+                    }
+                    },
+                    "features" => [
+                    {
+                    "type" => "TEXT_DETECTION",
+                    "maxResults" => 10
+                    }
+                    ]
+               }
+          ]
+          }.to_json
+
+          req_uri = URI(uri_string)
+          res = Net::HTTP.post req_uri, body_request, "Content-Type" => "application/json"
+          #puts res.body
+          response_data = JSON.parse(res.body)
+          puts response_data['responses'][0]["textAnnotations"][0]['description']
+     
      end
 end

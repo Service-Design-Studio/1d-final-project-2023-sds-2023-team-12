@@ -9,7 +9,7 @@
                         <%# <img src="./img/image 2.png" alt=""> %>
                         <%= image_tag post.image_url if post.image%>
                         <div class="overlay">
-                            <p class="">Description: <%=post.description%></p>
+                            <p class="">Description: <%=post.store_description%></p>
                             <p class="">Age: <%=post.age%></p>
                             <p class="">Reported missing time: <%=post.missing_time.to_fs(:rfc822)%></p>
 
@@ -20,16 +20,20 @@
                     class="bottom">
                       <p class="bottom_item"><%=post.full_name%></p>
 
-                      <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.special_note%></p>
+                      <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.store_special_note%></p>
 
                       <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
 
                        <p class="bottom_item time_went_missing"> Went missing for about <%=((Time.new-post.missing_time)/3600).round %> hours </p> 
 
-                      <p class="bottom_item">
-                      <button class="button_class"><i class="fa-solid fa-circle-info small_icon"></i>
+                      <%# <p class="bottom_item"> %>
+                    <div class="bottom_item d-flex justify-content-between">
+                      <button class="button_class_change"><i class="fa-solid fa-circle-info small_icon"></i>
                       <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
-                      </p>
+
+                        <h3 class="missing_case_content pe-5 reward_info_post"><i class="fa-solid fa-coins reward_coins_post"></i><%=post.reward%> SGD</h3>
+
+                    </div>
                 </div>
 </div>
 </div>
@@ -44,7 +48,7 @@
                         <%# <img src="./img/image 2.png" alt=""> %>
                         <%= image_tag post.image_url if post.image%>
                         <div class="overlay">
-                            <p class="">Description: <%=post.description%></p>
+                            <p class="">Description: <%=post.store_description%></p>
                             <p class="">Age: <%=post.age%></p>
                             <p class="">Reported missing time: <%=post.missing_time.to_fs(:rfc822)%></p>
 
@@ -55,16 +59,23 @@
                     class="bottom">
                       <p class="bottom_item"><%=post.full_name%></p>
 
-                      <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.special_note%></p>
+                      <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.store_special_note%></p>
 
                       <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
 
                        <p class="bottom_item time_went_missing"> Went missing for about <%=((Time.new-post.missing_time)/3600).round %> hours </p> 
 
-                      <p class="bottom_item">
-                      <button class="button_class more-detail-button"><i class="fa-solid fa-circle-info small_icon"></i>
+
+                      <div class="bottom_item d-flex justify-content-between">
+
+                      <button class=" button_class_change more-detail-button "><i class="fa-solid fa-circle-info small_icon"></i>
                       <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
-                      </p>
+
+                    <h3 class="missing_case_content pe-5 reward_info_post"><i class="fa-solid fa-coins reward_coins_post"></i><%=post.reward%> SGD</h3>
+
+
+                      </div>
+
                 </div>
 </div>
 </div>

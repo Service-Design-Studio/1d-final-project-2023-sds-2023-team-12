@@ -5,7 +5,7 @@ Feature: Public Contribution
     So that my post contains only the most accurate and updated information to facilitate the investigation process
 
 Background:
-    Given I am on Post Detail page for a particular post
+    Given I am on "Post Detail" page for a particular post
     Then I am logged in as general public
     And I am on Post Detail page for missing person name "David"
     And I fill in comment field with "Your missing person is so beautiful"

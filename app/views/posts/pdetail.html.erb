@@ -1,12 +1,15 @@
 <%# Do not modify this from line 2 to 13 - Louis %>
 <%# <div class="alert alert-danger alert-dismissible fade show animate__animated animate__fadeInDown" role="alert"> %>
 
+
 <% if flash[:help] == 1%> 
   <% flash[:for_view_api].each_pair do |key,value| %>
+
   <div class="alert alert-warning alert-dismissible fade show animate__animated animate__fadeInDown notification" role="alert">
   <%=  value  %>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+
   <% end %>
 <% end %>
 
@@ -35,19 +38,22 @@
     <p class="missing_case_content pe-3"><%=@post.location%></p>
 
     <h3 class="missing_case_headers">Description<h3>
-    <p class="missing_case_content pe-5"><%=@post.description%></p>
+    <p class="missing_case_content pe-5"><%=@post.store_description%></p>
 
     <h3 class="missing_case_headers">Special Note<h3>
-    <p class="missing_case_content pe-5"><%=@post.special_note%></p>
+    <p class="missing_case_content pe-5"><%=@post.store_special_note%></p>
 
     <h3 class="missing_case_headers">Missing Time<h3>
     <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
+
+    <h3 class="missing_case_headers">Reward<h3>
+    <p class="missing_case_content pe-5 reward_info"><i class="fa-solid fa-coins reward_coins"></i><%=@post.reward%> SGD</p>
 
 <% if current_user and current_user.id == @user_id %>
 
     <div class="button_for_two_bottom">
     <button>
-    <%= link_to "EDIT", edit_user_post_path(current_user,@post)%>
+    <%= link_to "EDIT", edit_user_post_path(current_user,@post), class: "edit-post-button"%>
     </button>
     <button>
     <%= link_to "DELETE", user_post_path(current_user,@post),data: {turbo_method: :delete}%>

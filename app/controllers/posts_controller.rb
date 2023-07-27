@@ -31,32 +31,47 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+
   end
 
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
+    unless @post.reward
+      @post.update(reward: 0)
+    end
+    
     respond_to do |format|
       if @post.save
         for_view=Hash.new
         output_from_api_description=response_from_api_call(@post.description)
         output_from_api_note=response_from_api_call(@post.special_note)
 
-
-        unless output_from_api_description[:soure_language] == "en"
+        unless (output_from_api_description[:source_language] == 'en')
           flash[:test2]=output_from_api_description[:source_language]
           flash[:test1]=return_country_base_on_code(output_from_api_description[:source_language])
-          @post.update(description: output_from_api_description[:translatedText])
+          # @post.update(description: output_from_api_description[:translatedText])
+          @post.update(store_description: output_from_api_description[:translatedText])
+
           @post.save
           for_view[:description]="Description has been translated from #{return_country_base_on_code(output_from_api_description[:source_language])} to English \n"
           flash[:help]=1
+        else
+          @post.update(store_description: @post.description)
+          @post.save
+
         end
 
-        unless output_from_api_note[:soure_language] == "en"
-          @post.update(special_note: output_from_api_note[:translatedText])
+        unless (output_from_api_note[:source_language] == "en")
+          # @post.update(special_note: output_from_api_note[:translatedText])
+          @post.update(store_special_note: output_from_api_note[:translatedText])
+
           @post.save
           for_view[:note]="Special Note has been translated from #{return_country_base_on_code(output_from_api_note[:source_language])} to English"
+        else
+          @post.update(store_special_note: @post.special_note)
+          @post.save
+
         end
 
         flash[:for_view_api]=for_view
@@ -74,6 +89,35 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        for_view=Hash.new
+        output_from_api_description=response_from_api_call(@post.description)
+        output_from_api_note=response_from_api_call(@post.special_note)
+
+        unless (output_from_api_description[:source_language] == 'en')
+          flash[:test2]=output_from_api_description[:source_language]
+          flash[:test1]=return_country_base_on_code(output_from_api_description[:source_language])
+          # @post.update(description: output_from_api_description[:translatedText])
+          @post.update(store_description: output_from_api_description[:translatedText])
+          @post.save
+          for_view[:description]="Description has been translated from #{return_country_base_on_code(output_from_api_description[:source_language])} to English \n"
+          flash[:help]=1
+        else
+          @post.update(store_description: @post.description)
+          @post.save
+        end
+
+        unless (output_from_api_note[:source_language] == "en")
+          # @post.update(special_note: output_from_api_note[:translatedText])
+          @post.update(store_special_note: output_from_api_note[:translatedText])
+          @post.save
+          for_view[:note]="Special Note has been translated from #{return_country_base_on_code(output_from_api_note[:source_language])} to English"
+        else
+          @post.update(store_special_note: @post.special_note)
+          @post.save
+        end
+
+        flash[:for_view_api]=for_view
+
         format.html { redirect_to show_post_detail_path(@post), notice: "Post was successfully updated, click on show cases to see your case" }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -111,7 +155,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time,:avatar)
+      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time,:avatar,:reward)
     end
 
   private
