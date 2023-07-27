@@ -1,6 +1,5 @@
-
-
 # To use minitest framwork
+
 require 'minitest/reporters'
 require 'minitest/autorun'
 require File.expand_path('../../config/environment', __FILE__)
@@ -27,6 +26,9 @@ class ActiveSupport::TestCase
 
   # Setup all fixtures in test/fixtures/*.yml for all tests
   fixtures :users, :posts, :comments
-end
- 
 
+  # Helper method to read image data and return as a string
+  def image_data(filename)
+    File.read(Rails.root.join('app', 'assets', 'images', 'reporting_case', filename))
+  end
+end

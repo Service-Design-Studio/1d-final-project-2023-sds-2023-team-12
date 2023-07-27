@@ -3,25 +3,24 @@
 # Sample data for comments
 # Fixture data and references to posts(:one), posts(:two), users(:one), and users(:two)
 
-one:
+comment_one:
   body: This is a comment
    # This means this comment is posted by user one from test/fixtures/users.yml
    # on post one from test/fixtures/posts.yml
-  post: <%= posts(:one) %>
-  user: <%= users(:one) %>
+  user: user_one
+  post: post_one
 
-two:
+comment_two:
   body: Another comment
   # This means this comment is posted by user two from test/fixtures/users.yml
   # on post two from test/fixtures/posts.yml
-  post: <%= posts(:two) %>
-  user: <%= users(:two) %>
+  user: user_two
+  post: post_two
 
-three:
-  body: nil
+comment_three:
   # This means this comment is posted by user three from test/fixtures/users.yml
   # on post two from test/fixtures/posts.yml
-  post: <%= posts(:three) %>
-  user: <%= users(:three) %>
+  user: user_three
+  post: post_three
 
 

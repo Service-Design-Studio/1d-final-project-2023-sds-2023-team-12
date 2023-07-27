@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
 
   # Testing if the username shown is correct when retrieved by Comments to be displayed
   test 'retrieve_user_name should return user\'s full name' do
-    user = users(:one) # Using users fixture in test/fixtures/users.yml
+    user = users(:user_one) # Using users fixture in test/fixtures/users.yml
     comment = Comment.new(user_id: user.id)
     assert_equal user.full_name, User.retrieve_user_name(comment)
   end

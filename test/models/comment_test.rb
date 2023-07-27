@@ -6,13 +6,13 @@ class CommentTest < ActiveSupport::TestCase
 
   # Testing if the comment is valid if a user with an account comments normally
   test 'comment should be valid' do
-    comment = comments(:one) # Using comments fixture in test/fixtures/comments.yml
+    comment = comments(:comment_one) # Using comments fixture in test/fixtures/comments.yml
     assert comment.valid?
   end
 
   # Testing if the comment is invalid if a user with an account comments nothing
   test 'body should be present' do
-    comment = comments(:three)
+    comment = comments(:comment_three)
     comment.body = nil # Simulating comment body as blank
     assert_not comment.valid?
   end

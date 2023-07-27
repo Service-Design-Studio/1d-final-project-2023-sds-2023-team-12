@@ -8,21 +8,21 @@
 # Creating sample datas: a way of organising data to test against
 # Sample users
 
-one:
+user_one:
   full_name: John Doe
   mobile_phone: 12345678
   email: john111@example.com
   password: j0HnDoE
 
 
-two:
+user_two:
   full_name: Jane Smith
   mobile_phone: 98765432
   email: jane222@example.com
   password: jAnEsM1tH
 
 
-three:
+user_three:
   full_name: Jason Tan
   mobile_phone: 88887777
   email: jason333@example.com

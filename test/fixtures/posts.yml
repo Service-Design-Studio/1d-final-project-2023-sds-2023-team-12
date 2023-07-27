@@ -1,38 +1,32 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 
-one:
+post_one:
   full_name: John Doe
   age: 30
   location: Jurong Point
   description: Missing person description
   special_note: Important note
-  image_data: <%= File.read(Rails.root.join('app', 'assets', 'images', 'reporting_case', 'young-adult.png'))%>
-  missing_time: <%= Time.now %>
-  # This means this post is created by user one from test/fixtures/users.yml
-  user: <%= users(:one) %>
+  #image_data: young-adult.png
+  missing_time: Sat, 17 Jun 2023 21:33:00 +0000
+  user: user_one
 
-
-two:
+post_two:
   full_name: Jane Smith
   age: 25
   location: Orchard Road
   description: Random description
   special_note: None
-  image_data: <%= File.read(Rails.root.join('app', 'assets', 'images', 'reporting_case', 'young-adult.png'))%>
-  missing_time: <%= Time.now %>
-  # This means this post is created by user two from test/fixtures/users.yml
-  user: <%= users(:two) %>
+  #image_data: young-adult.png
+  missing_time: Sun, 18 Jun 2023 21:33:00 +0000
+  user: user_two
 
-
-three:
+post_three:
   full_name: Jason Tan
   age: 27
   location: Tampines
   description: Blue shirt
   special_note: Autistic
-  image_data: <%= File.read(Rails.root.join('app', 'assets', 'images', 'reporting_case', 'young-adult.png'))%>
-  missing_time: <%= Time.now %>
-  # This means this post is created by user three from test/fixtures/users.yml
-  user: <%= users(:three) %>
-
+  #image_data: young-adult.png
+  missing_time: Sat, 17 Jun 2023 21:33:00 +0000
+  user: user_three

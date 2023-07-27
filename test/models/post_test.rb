@@ -22,13 +22,13 @@ class PostTest < ActiveSupport::TestCase
 
   # Testing if the post is valid and can be posted successfully if all fields are filled by a user with an account
   test 'valid post' do
-    post = posts(:two) # Using posts fixture in test/fixtures/posts.yml
+    post = posts(:post_two) # Using posts fixture in test/fixtures/posts.yml
     assert post.valid?
   end
 
   # Testing if the post is invalid when a field isn't filled up
   test 'full_name should be present' do
-    post = posts(:three)
+    post = posts(:post_three)
     post.full_name = nil # Simulating full_name field as blank
     assert_not post.valid?
   end
