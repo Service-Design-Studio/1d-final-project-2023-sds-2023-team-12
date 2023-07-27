@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   get "/user/:id/edit", to: "devise/registrations#edit"
   get "/post/:id/detail", to: "posts#detail", as: "show_post_detail"
 
+  # return json objects to api call
+  get "/post/:id/question_1", to: "posts#question_1"
+  get "/post/:id/question_2", to: "posts#question_2"
+  get "/post/:id/question_3", to: "posts#question_3"
+
+
   resources :users do
     resources :posts 
   end

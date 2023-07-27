@@ -586,3 +586,47 @@ body{
    margin-bottom: 0;
    color: #F39C12 !important;
 }
+
+/* ### For commonly asked questions */
+.common_asked_answer_content{
+   margin-left: 30px;
+}
+
+.for_each_question{
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+.button-answer-ai{
+   margin-right: auto;
+   border-radius: 20px;
+   /* border: 1px solid #FF4B2B; */
+   background-color: #FDEDEC;
+   color: #2E4053;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 12px 45px;
+   letter-spacing: 1px;
+   transition: all 0.7s;
+}
+
+.button-answer-ai:hover{
+   background-color: #FF4B2B;
+   color: white;
+   border: none;
+}
+
+.answer_from_open_ai{
+   padding-left: 40px;
+   margin-top: 10px;
+}
+
+.active_button{
+   background-color: #FF4B2B;
+   color: white;
+   border: none;
+}
+
+.answer_from_open_ai{
+   font-size: 17px;
+}

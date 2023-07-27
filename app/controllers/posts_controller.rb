@@ -4,14 +4,13 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     if !params.key?(:user_id)
-      # NADA YOUR CODE GO HERE #  
-     
+      # NADA YOUR CODE GO HERE #
+      # @test=response_text_from_openai_api_call("tell me more about this ruby")
+      # @url=response_image_from_openai_api_call()
       @posts = Post.all
     else
       @posts = User.find_by(id: params[:user_id]).posts
     end
-
-
   end
 
   # GET /posts/1 or /posts/1.json
@@ -133,8 +132,33 @@ class PostsController < ApplicationController
     @user=User.find_by(id: @post.user_id)
     @comments=Comment.where(post_id: params[:id])
     @comment = Comment.new
+
     render "pdetail"
   end
+
+  # The following three actions handle API call front end side and only return JSON objects
+  def question_1
+    @post=Post.find_by(id: params[:id])
+    first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
+
+    render json: { status: "success", data: first_answer }  
+  end
+
+  def question_2
+    @post=Post.find_by(id: params[:id])
+    second_answer=response_text_from_openai_api_call(ApplicationController.question_two(@post.full_name,@post.special_note))
+
+    render json: { status: "success", data: second_answer }  
+  end
+
+  def question_3
+    @post=Post.find_by(id: params[:id])
+    third_answer=response_image_from_openai_api_call(ApplicationController.question_third(@post.store_description,@post.full_name))
+    
+    render json: { status: "success", data: third_answer }  
+  end
+
+
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
