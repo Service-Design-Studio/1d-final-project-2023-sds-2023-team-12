@@ -29,7 +29,7 @@ def process_text():
 
 # define prompt for ai, this will be called above, concatonate text from description and speical note with prompt
 def generate_prompt(text_data):
-    prompt = "This is a text about a missing person. Eased on this specific text, in a paragraph format, give me advice on what to look out for and how to interact with this missing individual if I spot them. {}".format(text_data)
+    prompt = "This is a text about a missing person. Based on this specific text, in a paragraph format, give me advice on what to look out for and how to interact with this missing individual if I spot them. {}".format(text_data)
     return prompt
 
 if __name__ == '__main__':
