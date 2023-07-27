@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Cephas code for log in */
 /* ###### Your code start here ###### */
@@ -16,7 +16,6 @@
 }
 
 .log_in_header{
-    font-family: 'Montserrat', sans-serif;
     color: #e53e3e;
     font-size: 35px;
     text-align: center;
@@ -78,7 +77,6 @@
   }
 
 .login-label {
-    font-family: 'Montserrat', sans-serif;
     color: black;
     font-size: 20px;
     font-weight: normal;;
@@ -146,7 +144,6 @@
   }
 
 .signup-label {
-    font-family: 'Montserrat', sans-serif;
     color: black;
     font-size: 20px;
     font-weight: normal;;
@@ -210,7 +207,6 @@ justify-content: center;
 }
 
 .edit_user_header{
-font-family: 'Montserrat', sans-serif;
 color: #e53e3e;
 font-size: 35px;
 text-align: center;
@@ -220,7 +216,6 @@ margin-bottom: 15px;
 }
 
 .edit_field_label{
-  font-family: 'Montserrat', sans-serif;
   color: black;
   font-size: 18px;
   font-weight: normal;;
@@ -256,7 +251,6 @@ border-radius: 10px;
 }
 
 em{
-font-family: 'Montserrat', sans-serif;
 color: black;
 font-size: 15px;
 font-weight: normal;
@@ -264,7 +258,6 @@ margin: 0;
 }
 
 .delete_account_header{
-font-family: 'Montserrat', sans-serif;
 color: #b72c0d;
 font-size: 20px;
 text-align: center;
@@ -274,7 +267,6 @@ margin-bottom: 15px;
 }
 
 .delete_account_text{
-font-family: 'Montserrat', sans-serif;
 color: black;
 font-size: 18px;
 font-weight: normal;
@@ -283,7 +275,6 @@ text-align:center;
 }
 
 .delete_account_button{
-font-family: 'Montserrat', sans-serif;
 border-radius: 10px;
   border: 2px solid #b72c0d;
   color: #000000;

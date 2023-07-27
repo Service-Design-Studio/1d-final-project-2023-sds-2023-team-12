@@ -60,6 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_063145) do
     t.integer "user_id"
     t.text "image_data"
     t.datetime "missing_time"
+    t.string "store_description"
+    t.string "store_special_note"
+    t.integer "reward"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

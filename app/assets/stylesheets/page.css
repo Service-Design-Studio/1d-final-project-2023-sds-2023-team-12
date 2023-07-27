@@ -94,8 +94,7 @@
    font-weight: 800;
    line-height: 80px;
    text-align: center;
-   font-family: 'Calibre', Sans-Serif;
-}
+   font-family: 'Inter', sans-serif;}
 
 .our_aim{
    padding-top: 20px;
@@ -141,4 +140,14 @@
 
 .two_options_for_home_page button:hover a{
    color: white;
+}
+
+/*NAVBAR V2 */
+.nav_bar{
+   padding: 20px !important;
+   font-size: 22px;
+   margin-bottom: 10px;
+   /* background-color: #34495E !important; */
+   background-color: #FDEDEC !important;
+   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }

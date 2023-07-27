@@ -265,7 +265,6 @@ body{
  }
 
 .report-label {
-   font-family: 'Montserrat', sans-serif;
    color: black;
    font-size: 20px;
    font-weight: normal;;
@@ -453,14 +452,12 @@ body{
 
 .missing_case_detail_title{
    text-align: center;
-   font-family: sans-serif;
    color: #e53e3e;
    margin-top: 15px;
    font-weight: 500;
 }
 
 .missing_case_headers{
-   font-family: sans-serif;
    font-weight: bold;
    color: #000000;
 }
