@@ -63,6 +63,7 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Add the middleware for Rack Session Access
-  config.middleware.use RackSessionAccess::Middleware
+  # Not neccessary anymore
+  #config.middleware.use RackSessionAccess::Middleware
   
 end
