@@ -1,40 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* Cephas code for log in */
-/* ###### Your code start here ###### */
-.log_in_test{
-    color: purple;
-}
 
-/* ###### End here ######### */
 
-/* Cephas code for log in */
-/* ###### Your code start here ###### */
-.log_out_test{
-    color: red;
-    font-size: 30px;
-}
 
 .log_in_header{
-    color: #e53e3e;
-    font-size: 35px;
-    text-align: center;
-    font-weight: bold;;
-	margin-top: 30px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 100% */
+  margin-top: 35px;
 }
 
 .container_fix {
-	background-color: #f6f5f7;
-    opacity: 1.0;
+  opacity: 1.0;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 440px;
 	max-width: 100%;
 	min-height: 400px;
-  margin: auto;
+ 
   margin-top: 100px;
 }
 
@@ -64,7 +54,7 @@
 
 .sign-up-container {
 	left: 0;
-	width: 50%;
+	width: 40%;
 	opacity: 0;
 	z-index: 1;
 }
@@ -88,8 +78,8 @@
     border: none;
     padding: 12px 15px;
     margin: 0;
-    width: 400px;
-    font-size: 20px;
+    width: 320px;
+    font-size: 16px;
   }
 
 .form {
@@ -109,30 +99,17 @@
   }
 
 .login-button {
-    border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+  border-radius: 6px;
+	background-color: #E53E3E;
 	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
+	font-size: 18px;
+	font-weight: 600;
+  line-height: 28px;
 	padding: 12px 45px;
-	letter-spacing: 1px;
-  text-align: center !important;
-  text-decoration: none;
+  text-align: center;
 }
 
-.login-button {
-    border-radius: 20px;
-    border: 1px solid #e53e3e;
-    background-color: #e53e3e;
-    color: #FFFFFF;
-    font-size: 15px; /* Adjust the font size as desired */
-    font-weight: bold;
-    padding: 12px 30px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-  }
+
   
 .login-button:hover {
     transform: scale(1.05); /* Adjust the scale factor for hover effect */
@@ -144,10 +121,8 @@
   }
 
 .signup-label {
-    color: black;
-    font-size: 20px;
-    font-weight: normal;;
-	margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
   
 .signup-field {
@@ -160,17 +135,14 @@
   }
 
 .signup-button {
-    border-radius: 20px;
-    border: 1px solid #e53e3e;
-    background-color: #e53e3e;
-    color: #FFFFFF;
-    font-size: 15px; /* Adjust the font size as desired */
-    font-weight: bold;
-    padding: 12px 30px;
-    margin-top: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
+  border-radius: 6px;
+	background-color: #E53E3E;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: 600;
+  line-height: 28px;
+	padding: 12px 45px;
+  text-align: center;
   }
   
 .signup-button:hover {

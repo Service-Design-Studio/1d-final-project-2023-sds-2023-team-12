@@ -213,15 +213,18 @@ body{
 }
 
 
-/* CEPHAS CODE FOR REPOR CASE: */
-/* ############## Your code start here ############# */
-.report_header{
-   color: #e53e3e;
-   margin-top: 5px;
-   margin-left: 5px;
-   margin: 15px auto;
-   text-align: center;
-   font-weight: 500;
+
+.report_header_breadcrumb{
+   margin-top: 32px;
+   margin-bottom: 32p;
+   margin-left: 48px;
+
+   color: var(--gray-700, #2D3748);
+   text-align: left;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px; /* 150% */
 }
 
 .container_fix {
@@ -247,6 +250,7 @@ body{
 	position: relative;
 	overflow: hidden;
 	width: 1096px;
+   height: 800px;
 	max-width: 100%;
   margin: auto;
   margin-top: 50px;
@@ -269,40 +273,28 @@ body{
    font-size: 20px;
    font-weight: normal;;
   margin: 0;
+  flex:1;
+  display: block;
 }
  
 .report-field {
    background-color: #eee;
    border: none;
-   padding: 12px 15px;
+   padding: 8px 8px;
    margin: 0;
-   width: 400px;
-   font-size: 20px;
+   font-size: 16px;
+   flex: 2;
+   margin-right: 50px;
+
  }
 
- .description-field {
-   background-color: #eee;
-   border: none;
-   padding: 12px 15px;
-   margin: 0;
-   width: 400px;
-   height: 100px;
-   word-wrap: break-word;
-   font-size: 20px;
-   height: 160px;
- }
 
- .special-note-field{
-   height: 100px;
- }
 
  .post_image_new{
    padding: 15px;
  }
 
- .time_item{
-   color: ;
- }
+ 
 
  .new_post_image{
    border: 1px dashed black;
@@ -314,11 +306,34 @@ body{
  .post_item{
    margin: 10px;
    margin-left: 30px;
+   margin-top: 0px;
+   display: flex;
+
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 24px; /* 150% */
+
+
+ }
+
+ .subtext{
+   font-style: italic;
+   font-size: 14px;
  }
 
 .column {
    float: left;
    width: 50%;
+ }
+
+ .column_left{
+   float: left;
+   width: 30%;
+ }
+
+ .column_right{
+   float: left;
+   width: 70%;
  }
 
  .button_submit_post{
@@ -345,10 +360,6 @@ body{
   text-align: center;
 }
 
-.TimeMissing-label {
-   font-size: 20px; /* Adjust the font size as desired */
-   color: #000000; /* Set the color to black */
- }
 
 .createpost-button {
    border-radius: 20px;
@@ -394,7 +405,6 @@ body{
 }
 
 
-/* ############## Your code end here ################# */
 
 
 /* FOR SHOW DETAIL*/
@@ -465,6 +475,21 @@ body{
 .missing_case_content{
    color: #000000;
    font-size: 0.8em;
+}
+
+.form_headers{
+   color: var(--gray-700, #2D3748);
+   text-align: left;
+   margin-top: 24px;
+   font-family: Inter;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 24px; /* 120% */
+}
+
+.mt-5{
+   margin-top: 0px;
 }
 
 /* FOR EDIT POST PAGE */

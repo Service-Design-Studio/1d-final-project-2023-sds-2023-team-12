@@ -17,14 +17,14 @@
 <div class="container_fix_advanced animate__animated animate__fadeInUp">
 <%# <%= params.inspect%> 
 <% if params[:controller]=="posts" and params[:action]=="edit" %>
-  <h1 class="report_header">Edit Case</h1>
+  <h1 class="report_header_breadcrumb">Edit Case</h1>
 <% else %>
-  <h1 class="report_header">Create Case</h1>
+  <h1 class="report_header_breadcrumb">Report A Case</h1>
 <%end%>
 
   <div class="row">
 
-    <div class="column post_image_ne">
+    <div class="column column_left post_image_new">
       <div class="new_post_image">
       <div class="edit_post_image">
         <%= image_tag @post.image_url if @post.image%>
@@ -32,7 +32,8 @@
       </div>
     </div>
 
-    <div class="column">
+    <div class="column column_right">
+      <p class="form_headers post_item"> Basic Information </p>
       <div class="post_item">
         <%= form.label :full_name, style: "display: block", class:"report-label mb-1" %>
         <%= form.text_field :full_name, class:"report-field" %>
@@ -43,23 +44,35 @@
         <%= form.number_field :age, class:"report-field" %>
       </div>
 
+      <p class="form_headers post_item"> Last Seen </p>
+
       <div class="post_item">
         <%= form.label :location, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_area :location, class:"report-field" %>
+        <%= form.text_field :location, class:"report-field" %>
       </div>
 
-      <div class="post_item mt-5">
-        <p class="pe-5" style="font-style: italic;">For Description and Special Note, you can write in any languague, our app will take care of the translation<p>
+      <div class="post_item">
+        <form action="/action_page.php">
+          <%= form.label :missing_time, style: "display: block", class:"TimeMissing-label report-label mb-1" %>
+          <%= form.datetime_local_field :missing_time, class:"report-field" %>
+
+             
+        </form>
       </div>
+
+
+      <p class="form_headers post_item"> Description </p>
+      <p class="subtext post_item">The fields below have auto-translation, feel free to write in your language.<p>
+      
 
       <div class="post_item">
         <%= form.label :description, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_area  :description, class:"description-field" %>
+        <%= form.text_area  :description, class:"report-field " %>
       </div>
 
       <div class="post_item">
         <%= form.label :special_note, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_area :special_note, class:"report-field special-note-field" %>
+        <%= form.text_area :special_note, class:"report-field" %>
       </div>
 
       <div hidden>
@@ -67,23 +80,7 @@
         <%= form.number_field :user_id, value: current_user.id, class:"report-field" %>
       </div>
 
-      <%# <div class="time-input-container post_item time_item">
-        <form action="/action_page.php">
-             <label for="missingtime", class="TimeMissing-label report-label mb-1">Time of Missing:</label>
-            <input type="datetime-local" id="missingtime" name="missingtime">
-        </form>
-      </div> %>
-
-        <div class="time-input-container post_item time_item">
-        <form action="/action_page.php">
-          <%= form.label :missing_time, style: "display: block", class:"TimeMissing-label report-label mb-1" %>
-          <%= form.datetime_local_field :missing_time, class:"report-field" %>
-
-             <%# <label for="missingtime", class="TimeMissing-label report-label mb-1">Time of Missing:</label>
-            <input type="datetime-local" id="missingtime" name="missingtime"> %>
-        </form>
-      </div>
-
+      <p class="form_headers post_item"> Other </p>
 
       <div class="post_item">
         <%= form.label :image, style: "display: block", class: "report-label mb-1" %>
