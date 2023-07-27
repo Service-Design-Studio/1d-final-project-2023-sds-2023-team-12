@@ -18,10 +18,10 @@
 <%# <%= params.inspect%> 
 <% if params[:controller]=="posts" and params[:action]=="edit" %>
   <h1 class="report_header">Edit Case</h1>
-
-  <% else %>
+<% else %>
   <h1 class="report_header">Create Case</h1>
 <%end%>
+
   <div class="row">
 
     <div class="column post_image_ne">
@@ -45,17 +45,21 @@
 
       <div class="post_item">
         <%= form.label :location, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :location, class:"report-field" %>
+        <%= form.text_area :location, class:"report-field" %>
+      </div>
+
+      <div class="post_item mt-5">
+        <p class="pe-5" style="font-style: italic;">For Description and Special Note, you can write in any languague, our app will take care of the translation<p>
       </div>
 
       <div class="post_item">
         <%= form.label :description, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :description, class:"description-field" %>
+        <%= form.text_area  :description, class:"description-field" %>
       </div>
 
       <div class="post_item">
         <%= form.label :special_note, style: "display: block", class:"report-label mb-1" %>
-        <%= form.text_field :special_note, class:"report-field" %>
+        <%= form.text_area :special_note, class:"report-field special-note-field" %>
       </div>
 
       <div hidden>
@@ -86,14 +90,23 @@
         <%= image_tag form.object.image_url if form.object.cached_image_data %>
         <%= form.hidden_field :image, value: form.object.cached_image_data %>
         <%= form.file_field :image %>
- 
       </div>
+
+      <div class="post_item">
+        <%= form.label :reward, style: "display: block", class:"report-label mb-1 add_details_reward" %>
+        <%= form.number_field :reward, class:"report-field" %>
+      </div>
+
+      <%# Gcloud storage %>
+      <%# <div class="field">
+      <%= form.file_field :avatar %>
+      <%# </div> %> 
 
     </div>
   </div>
 
   <div class="middle-button"> 
-    <%= form.submit class: "login-button" %>
+    <%= form.submit class: "login-button create-post-button update-post-button" %>
     <%# <% link_to "Update Post", show_post_detail_path(post), class: "login_button"%> 
   </div>
 
