@@ -23,6 +23,7 @@
 
 <!-- Our Mission -->
 
+
 # Our Mission
 
 As an information portal, AMADEUS allows admin users to upload important articles, which are tagged, categorised and summarised by varying forms of artificial intelligence. Making use of Google's Cloud APIs, AMADEUS is able to effectively tackle the large diversity and high volumes of relevant information for its users.
@@ -42,11 +43,50 @@ As an information portal, AMADEUS allows admin users to upload important article
 
 ## Prerequisites 
 
-### Installing Rails
+### 1. Install Ruby
 
-- Install Ruby
-* John Adams
-+ Thomas Jefferson
+Open up a command line prompt. On macOS open Terminal.app; on Windows choose "Run" from your Start menu and type cmd.exe. Any commands prefaced with a dollar sign $ should be run in the command line. Verify that you have a current version of Ruby installed:
+
+```ruby
+$ ruby --version
+```
+
+Rails requires Ruby version 2.7.0 or later. It is preferred to use the latest Ruby version. If the version number returned is less than that number (such as 2.3.7, or 1.8.7), you'll need to install a fresh copy of Ruby.
+
+To install Rails on Windows, you'll first need to install [Ruby Installer](https://rubyinstaller.org/). 
+
+For more installation methods for most Operating Systems take a look at [ruby-lang.org.](https://www.ruby-lang.org/en/documentation/installation/)
+
+### 2. Install SQLite 3
+
+You will also need an installation of the SQLite3 database. Many popular UNIX-like OSes ship with an acceptable version of SQLite3. Others can find installation instructions at the  [SQLite3 website](https://www.sqlite.org/index.html)
+
+Verify that it is correctly installed and in your load PATH:
+```ruby
+$ sqlite3 --version
+```
+
+### 3. Install Rails
+
+To install Rails, use the gem install command provided by RubyGems:
+
+```ruby
+$ gem install rails
+```
+
+Rails will not run as expected if you are unable to install any of above required dependencies. Once you have finished installing all required above, to verify that you succesfully acquired tools and softwares without any error or system conflict, use the following command
+
+```ruby
+$ rails --version
+```
+
+If command line prompt returns result of "Rails 7.x.x" for the above command, congratulations, you have set up all required dependencies successfully and are ready to embark on Ruby on Rails journey. 
+
+Otherwise, if command line promts fail to return output as expected, then the best workaround is properly starting from the first step again. And this time, make sure you follow every steps deligently. 
+
+## Installation
+
+
 
 
 
