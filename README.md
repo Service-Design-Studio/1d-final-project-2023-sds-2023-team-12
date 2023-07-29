@@ -36,7 +36,44 @@ As an information portal, AMADEUS allows admin users to upload important article
 5. Ayu
 6. Senna
 
+<!-- Getting started -->
+
 # Getting Started
+
+## Prerequisites 
+
+### Installing Rails
+
+- Install Ruby
+* John Adams
++ Thomas Jefferson
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/PW-Vmbf6)
