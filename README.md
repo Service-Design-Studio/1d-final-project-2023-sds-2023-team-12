@@ -86,9 +86,33 @@ Otherwise, if command line promts fail to return output as expected, then the be
 
 ## Installation
 
+### 1. Clone the remote repo
 
+Clone the project remote repo to your local machine using the following command in your terminal or command line prompt.
 
+```
+git clone https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12.git
+```
 
+### 2. Ruby Gem libraries
+
+After cloning the project to local machine, the following step is to ensure your local machine already acquire libraries and dependences required to run the application. Hence, to fulfill that requirement, use the following command.
+
+```
+bundle install
+```
+
+This command is used to install all the required gems specified in the application's Gemfile.
+
+### 3. Setup Database
+
+After cloning the project to local machine, the following step is to ensure your local machine already acquire libraries and dependences required to run the application. Hence, to fulfill that requirement, use the following command.
+
+```
+bundle install
+```
+
+This command is used to install all the required gems specified in the application's Gemfile.
 
 
 
