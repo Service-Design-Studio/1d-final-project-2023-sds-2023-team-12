@@ -17,7 +17,8 @@
 <h1 class="missing_case_detail_title">Missing Case Detail</h1>
     <div class="col-sm-6 col_for_image">
         <div class="contain_image">
-        <%= image_tag @post.image_url if @post.image%>
+        <%= image_tag(@post.avatar) if @post.avatar.attached? %>
+        <%# <%= image_tag @post.image_url if @post.image%> 
     </div>
     </div>
 

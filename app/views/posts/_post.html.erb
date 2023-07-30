@@ -7,7 +7,9 @@
                     <div class="col_content">
                     <div class="image_project">
                         <%# <img src="./img/image 2.png" alt=""> %>
-                        <%= image_tag post.image_url if post.image%>
+                        <%# <%= image_tag post.image_url if post.image %> 
+                        <%= image_tag(post.avatar, width: 200) if post.avatar.attached? %>
+
                         <div class="overlay">
                             <p class="">Description: <%=Post.shorten_description(post.store_description,140)%></p>
                             <p class="">Age: <%=post.age%></p>
@@ -46,7 +48,9 @@
                     <div class="col_content">
                     <div class="image_project">
                         <%# <img src="./img/image 2.png" alt=""> %>
-                        <%= image_tag post.image_url if post.image%>
+                        <%# <%= image_tag post.image_url if post.image %> 
+                        <%= image_tag(post.avatar, width: 200) if post.avatar.attached? %>
+
                         <div class="overlay">
                             <p class="">Description: <%=Post.shorten_description(post.store_description,140)%></p>
                             <p class="">Age: <%=post.age%></p>
