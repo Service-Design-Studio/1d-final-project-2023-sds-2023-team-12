@@ -9,7 +9,7 @@
 
 <div align="center">
   
-# Service Design Studio 2023
+# 60.004 - Service Design Studio 2023
 
 </div>
 
@@ -98,11 +98,18 @@ git clone https://github.com/Service-Design-Studio/1d-final-project-2023-sds-202
 
 After cloning the project to local machine, the following step is to ensure your local machine already acquire libraries and dependences required to run the application. Hence, to fulfill that requirement, use the following command.
 
+> This command is used to install all the required gems specified in the application's Gemfile.
+
+
 ```
 bundle install
 ```
 
-This command is used to install all the required gems specified in the application's Gemfile.
+If any modification is made to the Gemfile, whether it involves removing or adding a new gem, please use either the previous command or the following command accordingly.
+
+```
+bundle update
+```
 
 ### 3. Setup Database
 
