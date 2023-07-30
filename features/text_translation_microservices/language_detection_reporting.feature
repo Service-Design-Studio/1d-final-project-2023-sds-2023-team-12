@@ -13,7 +13,7 @@ Background: I want to report a missing case when i am already logged in
 @happy_path
 Scenario: Report a new case with description and special note fully filled by English 
   Given I am on the "Report Case" page for user with email: "test@example.com"
-  Then I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image
+  Then I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar
   When I fill in "Full name" field with "David"
   And I fill in "Age" field with "34"
   And I fill in "Location" field with "Changi"
@@ -28,7 +28,7 @@ Scenario: Report a new case with description and special note fully filled by En
 
 Scenario: Report a new case with the description provided in a non-English language
   Given I am on the "Report Case" page for user with email: "test@example.com"
-  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image
+  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar
   When I fill in "Full name" field with "David"
   And I fill in "Age" field with "34"
   And I fill in "Location" field with "Changi"
@@ -44,7 +44,7 @@ Scenario: Report a new case with the description provided in a non-English langu
 
 Scenario: Report a new case with the description provided in a non-English language
   Given I am on the "Report Case" page for user with email: "test@example.com"
-  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image
+  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar
   When I fill in "Full name" field with "David"
   And I fill in "Age" field with "34"
   And I fill in "Location" field with "Changi"

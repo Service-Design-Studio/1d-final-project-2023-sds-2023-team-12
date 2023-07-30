@@ -13,7 +13,7 @@ Background: I want to report a missing case when i am already logged in
 @happy_path
 Scenario: Report a new case will correct and valid information 
   Given I should see "Create Case"
-  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image
+  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar
   When I fill in "Full name" field with "David"
   And I fill in "Age" field with "34"
   And I fill in "Location" field with "Changi"
@@ -30,7 +30,7 @@ Scenario: Report a new case will correct and valid information
 @sad_path
 Scenario: Report a new case will invalid information
   Given I should see "Create Case"
-  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, image  
+  And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar  
   When I fill in "Full name" field with ""
   And I fill in "Age" field with "34"
   And I fill in "Location" field with "Changi"

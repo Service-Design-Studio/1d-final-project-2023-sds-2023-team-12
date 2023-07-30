@@ -18,5 +18,5 @@ end
 
 Then(/^I fill in "([^"]*)" field with valid image/) do |field|
   image_path = Rails.root.join('app', 'assets', 'images','reporting_case','young-adult.png')
-  attach_file('post[image]', image_path)
+  attach_file('post[avatar]', image_path)
 end
