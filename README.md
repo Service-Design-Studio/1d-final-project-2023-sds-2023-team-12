@@ -30,7 +30,7 @@ As an information portal, AMADEUS allows admin users to upload important article
 
 <!-- Acknewledgment -->
 # Acknowledgments
-1. Tran Cong Nam Anh - Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Technical Lead + Fullstack Developer + QA Engineer)
+1. Tran Cong Nam Anh (Louis) [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Technical Lead + Fullstack Developer + QA Engineer)
 2. Nada - (Project Manager)
 3. Cephas
 4. Yi Xuan
@@ -106,13 +106,114 @@ This command is used to install all the required gems specified in the applicati
 
 ### 3. Setup Database
 
-After cloning the project to local machine, the following step is to ensure your local machine already acquire libraries and dependences required to run the application. Hence, to fulfill that requirement, use the following command.
+- Push migrations to database
+```
+rails db:migrate
+```
+
+* Seed data to development and testing environment database
+```
+rails db:seed
+```
+  
++ Create database
 
 ```
-bundle install
+rails db:create
 ```
 
-This command is used to install all the required gems specified in the application's Gemfile.
+### 4. Set up Google ML/AI API keys
+
+1. Create google cloud account and enable following API services, Cloud Translation API, Cloud Natuaral API
+
+2. Create a new project and in your project console, navigate to "API & Services"  -> "Credentials" to create API key
+
+Use the following command in your command line promptv (Unix-based)
+
+``` ruby
+export API_KEY=<your API key>
+```
+
+if you use Windows, please use the alternative command:
+
+``` ruby
+set API_KEY=<your API key>
+```
+
+## Run Development
+
+> Note: All commands are executed under repository root path
+
+### 1. Run Rails application
+
+```
+rails server
+```
+
+## Troubleshooting
+
+### 1. Inspect development database
+
+- Using Active Record
+
+```
+rails console
+```
+
+- Common ActiveRecord commands
+
+```ruby
+### BASIC OPERATIONS
+
+# Create a new record in User model
+user = User.create(name: "David", occupation: "Code Artist")
+
+# return a collection with all users
+users = User.all
+
+# return the first user
+user = User.first
+
+# return the first user named David
+david = User.find_by(name: 'David')
+
+# update an entity in table
+# approach 1:
+user = User.find_by(name: 'David')
+user.name = 'Dave'
+user.save
+
+# approach 2:
+user = User.find_by(name: 'David')
+user.update(name: 'Dave')
+
+### ACITVE RECORD COMMON METHODS
+# where method
+users = User.where(name: 'John', age: 25)
+users = User.where('age > ? AND name LIKE ?', 18, '%John%')
+
+# Order method
+Users=User.where(name: ‘DAVID’, occupation: ‘Code’).order(created_at: :desc)
+
+# Find_by method
+User=User.find_by(name: 'John', age: 25)
+
+# Like method
+Customer.where("email IS NOT NULL and email NOT LIKE '%@%’ ")
+
+# Update all method
+User. where(age: 25).update_all(name: 'John', gender: 'Male')
+
+# Limit method
+User.order(created_at: :desc).limit(20)
+
+# Working Date and Time
+User.where(“created_at > ?”,Date.new(2023,1,1))
+User.where(“EXTRACT(MONTH FROM created_at)=?”,7)
+
+
+
+```
 
 
 
@@ -140,43 +241,7 @@ This command is used to install all the required gems specified in the applicati
 
 
 
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/PW-Vmbf6)
-# README
 
-</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-# Service Design Studio
 
-<p align="center">
-affaf
-</p>
 
-<p style="font-size:40px;">
-This text has a larger font size.
-</p>
-
-<h2>This text has a larger font size.</h2>
-<h4>This text has a smaller font size.</h4>
-
-Things you may want to cover:
-dcasa
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
