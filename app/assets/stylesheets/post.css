@@ -630,3 +630,9 @@ body{
 .answer_from_open_ai{
    font-size: 17px;
 }
+
+
+.loading{
+   color: #27AE60;
+   font-weight: 550;
+}

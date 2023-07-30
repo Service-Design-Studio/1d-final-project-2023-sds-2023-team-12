@@ -26,7 +26,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Gemfile for shrine
-
+gem 'jquery-turbolinks'
 
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'
