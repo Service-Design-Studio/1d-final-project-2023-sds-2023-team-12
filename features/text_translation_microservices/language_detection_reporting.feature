@@ -69,7 +69,7 @@ Scenario: Edit an existing case with information shown in original language
   And I update "Special note" field with "Người già và trí nhớ tốt"
   And I click on the "Update Post" button
   Then I should be on the "Missing Case Detail" page for post with name: "David"
-  And I should see "When he went missing, he was wearing a black Uniqlo t-shirt, short brown hair, 1.85m tall, blue jeans and Adidas sneakers."
+  And I should see notification "When he went missing, he was wearing a black Uniqlo t-shirt, short brown hair, 1.85m tall, blue jeans and Adidas sneakers."
   And I should see "Old people and good memory"
   And I should see notification "Post was successfully created, click on show cases to see your case"
   And I should see notification "Description has been translated from Vietnamese to English"

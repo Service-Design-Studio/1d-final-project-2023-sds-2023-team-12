@@ -44,6 +44,11 @@
       </div>
 
       <div class="post_item">
+          <%= form.label :gender, style: "display: block", class: "report-label mb-1" %>
+          <%= form.select :gender, options_for_select(['Male', 'Female']), {}, class: "report-field" %>
+      </div>
+
+      <div class="post_item">
         <%= form.label :location, style: "display: block", class:"report-label mb-1" %>
         <%= form.text_area :location, class:"report-field" %>
       </div>
@@ -92,15 +97,18 @@
         <%= form.file_field :image %>
       </div>
 
+       <%# Gcloud storage %>
+      <%# <div class="field">
+          <%= form.label :image, style: "display: block", class: "report-label mb-1" %>
+          <%# <%= form.file_field :avatar %> 
+      <%# </div>  %> 
+
       <div class="post_item">
         <%= form.label :reward, style: "display: block", class:"report-label mb-1 add_details_reward" %>
         <%= form.number_field :reward, class:"report-field" %>
       </div>
 
-      <%# Gcloud storage %>
-      <%# <div class="field">
-      <%= form.file_field :avatar %>
-      <%# </div> %> 
+     
 
     </div>
   </div>

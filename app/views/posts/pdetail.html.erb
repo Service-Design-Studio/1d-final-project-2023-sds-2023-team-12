@@ -34,6 +34,9 @@
     <h3 class="missing_case_headers">Age<h3>
     <p class="missing_case_content pe-3"><%=@post.age%></p>
 
+    <h3 class="missing_case_headers">Gender<h3>
+    <p class="missing_case_content pe-3"><%=@post.gender%></p>
+
     <h3 class="missing_case_headers">Location<h3>
     <p class="missing_case_content pe-3"><%=@post.location%></p>
 
@@ -64,6 +67,21 @@
 </h3>
 </div>
 </div>
+
+<%# FOR PUBLIC CONTRIBUTION %>
+<h1 class="title_public_contribution animate__animated  animate__fadeInUp">Welcome Public Contribution</h1>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+
+</div>
+
+<div class="mt-3 animate__animated  animate__fadeInUp">
+<%= render "comments/form", comment: @comment %>
+</div>
+<div class="for_bottom"></div>
 
 <%# # FOR AI FEATURE %>
 <h1 class="title_public_contribution animate__animated  animate__fadeInUp">Commonly Asked Questions</h1>
@@ -98,20 +116,7 @@
 
 
 
-<%# FOR PUBLIC CONTRIBUTION %>
-<h1 class="title_public_contribution animate__animated  animate__fadeInUp">Welcome Public Contribution</h1>
 
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render comment %>
-  <% end %>
-
-</div>
-
-<div class="mt-3 animate__animated  animate__fadeInUp">
-<%= render "comments/form", comment: @comment %>
-</div>
-<div class="for_bottom"></div>
 
 
 
@@ -216,7 +221,6 @@ let after_dom_load=()=>{
 document.addEventListener("DOMContentLoaded", after_dom_load);
 
 // after_dom_load();
-
 
 //     function hello(name) {
 //     let greeting = "Hello, " + name + "!";
