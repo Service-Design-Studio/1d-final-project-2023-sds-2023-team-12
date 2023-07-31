@@ -1,6 +1,6 @@
 require 'minitest_helper'
 
-class CommentsControllerTest < ActionDispatch::IntegrationTest
+class CommentsIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     @comment = comments(:comment_one)
   end

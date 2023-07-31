@@ -1,7 +1,7 @@
 require 'minitest_helper'
 
 
-class UserTest < ActiveSupport::TestCase
+class UserUnitTest < ActiveSupport::TestCase
   fixtures :users # Explicitly include the necessary fixture users.yml
 
   # Testing if the username shown is correct when retrieved by Comments to be displayed

@@ -1,6 +1,6 @@
 require 'minitest_helper' # Using default Rails MiniTest framework, check test/minitest_helper.rb
 
-class PostTest < ActiveSupport::TestCase
+class PostUnitTest < ActiveSupport::TestCase
   # Explicitly include the necessary fixtures (users.yml, posts.yml) in the test environment
   fixtures :users, :posts
 

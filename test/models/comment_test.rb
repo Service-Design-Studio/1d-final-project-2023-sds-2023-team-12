@@ -1,6 +1,6 @@
 require 'minitest_helper'
 
-class CommentTest < ActiveSupport::TestCase
+class CommentUnitTest < ActiveSupport::TestCase
   # Explicitly include the necessary fixtures (users.yml, posts.yml, comments.yml) in the test environment
   fixtures :users, :posts, :comments
 

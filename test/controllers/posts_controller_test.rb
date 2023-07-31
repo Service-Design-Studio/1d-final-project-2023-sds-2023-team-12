@@ -2,16 +2,16 @@
 
 require 'minitest_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+class PostsIntegrationTest < ActionDispatch::IntegrationTest
   fixtures :users, :posts # Include the necessary fixtures
 
-  test "should get index" do
+  test "get index for the post" do
     @post = posts(:post_one)
     get posts_url
     assert_response :success
   end
 
-  test "should get new" do
+  test "get new post" do
     @post = posts(:post_two)
     get new_post_url
     assert_redirected_to new_user_session_path
