@@ -80,6 +80,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
   gem 'sqlite3'
+
+  gem 'faker'
+  gem 'rails-controller-testing'       
 end
 
 group :development do

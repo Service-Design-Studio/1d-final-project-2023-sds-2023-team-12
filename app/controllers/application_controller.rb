@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-
 #     Set up questions for OPENAI
     def self.question_one name
      return "#{name} is a missing person in Singapore, If I meet #{name} in real life, what should i do" 
