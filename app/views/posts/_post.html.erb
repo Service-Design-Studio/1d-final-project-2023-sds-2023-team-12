@@ -3,8 +3,9 @@
 
 
 <div class="col-sm-4 try animate__animated animate__fadeInUp">
+  <a href="<%= show_post_detail_path(post) %>" class="card-link">
     <div id="<%= dom_id post %>" class="col_component your_case">
-                    <div class="col_content">
+                  <div class="col_content">
                     <div class="image_project">
                         <%# <img src="./img/image 2.png" alt=""> %>
                         <%= image_tag post.image_url if post.image%>
@@ -34,10 +35,10 @@
                         <h3 class="missing_case_content pe-5 reward_info_post"><i class="fa-solid fa-coins reward_coins_post"></i><%=post.reward%> SGD</h3>
 
                     </div>
-                </div>
-</div>
-</div>
-</div>
+                  </div>
+    </div>
+    </div>
+    </div>
 
 <%else%>
 
