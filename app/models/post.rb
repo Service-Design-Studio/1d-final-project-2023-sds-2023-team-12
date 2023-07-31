@@ -19,6 +19,45 @@ class Post < ApplicationRecord
         return Post.find_by(id: post_id).user_id
     end
 
+    ##### FOR SEARCH FILTER #####
+
+    AGE_CATEGORIES = {
+        children: (0..12),
+        youth: (13..20),
+        adult: (21..50),
+        senior: (51..)
+      }.freeze  
+
+    def self.all_age_cag
+        distinct.pluck(:AGE_CATEGORIES)
+    end
+
+    def age_category
+        AGE_CATEGORIES.find { |_, range| range.cover?(age) }&.first
+    end
+
+
+    def self.with_age_filter(age_cag_list) 
+        if age_cag_list.nil?
+            all
+        else
+            joins(:user).where(posts: { age: AGE_CATEGORIES.values_at(*age_cag_list).flatten })
+        end
+    end
+
+    #full text search
+    def self.search(query)
+        if query.present?
+          where("full_name LIKE :query OR location LIKE :query OR description LIKE :query OR special_note LIKE :query", query: "%#{query}%")
+        else
+          all
+        end
+      end
+
+    ###
+
+
+
     def self.shorten_description random_string,desire_len
         if random_string.length <= 30
             return random_string

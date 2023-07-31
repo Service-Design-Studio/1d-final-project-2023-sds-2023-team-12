@@ -3,15 +3,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+#db 
+gem "sqlite3", "~> 1.4"
+gem 'pg'
+
+
+gem 'rack_session_access'
+
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
-gem "dotenv-rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+
+
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 4.3.5"
+gem "puma", "~> 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -30,6 +40,8 @@ gem 'jquery-turbolinks'
 
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'
+
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -68,17 +80,7 @@ gem "google-cloud-storage", "~> 1.11", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'capybara'
-  gem 'byebug'
-  gem 'database_cleaner'
-  gem 'sqlite3'
-  gem 'launchy'
-  gem 'rspec-rails'
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
-  gem 'sqlite3'
+  gem 'capybara', '>= 3.26'
 end
 
 group :development do
@@ -92,10 +94,8 @@ group :development do
   # gem "spring"
 end
 
-
-# Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later, only in production will we use pg
 group :production do
-  gem 'pg', '~> 1.5.3' # for gcloud deployment
+  #gem 'pg' # for gcloud deployment
 end
 
 group :test do

@@ -25,7 +25,34 @@
     <div class="filter_content">
 
      <%# NADA - YOUR CODE HERE %>
-    <h2>Filtering<h2>
+
+
+    <%# SEARCH FILTERING %>
+    <%= form_tag(posts_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
+      <%= submit_tag "Search" %>
+    <% end %>
+    
+    <%# AGE FILTERING %>
+    <%= form_tag(posts_path, method: :get) do %>
+      <h5>Age</h5>
+      <% Post::AGE_CATEGORIES.each do |category, _range| %>
+        <%= check_box_tag "age_categories[]", category , @selected_age_categories.include?(category.to_s) %>
+        <%= label_tag category.to_s, category.capitalize %><br>
+      <% end %>
+
+      <%# SORTING  %>
+      <h5>Sort By</h5>
+      <% sort_options= [['Most Recently Posted', 'recently_posted'],['Most Recently Missing', 'recently_missing'], ['Alphabetical Order', 'alphabetical']] %>
+      <%= select_tag :sort_by, options_for_select(sort_options, @sort_by), prompt: 'Sort By' %>
+
+      <br>
+      <%= submit_tag "Filter" %>
+    <% end %>
+
+
+     <%# NADA - YOUR CODE ENDS HERE %>
+    
     
     </div>
 
