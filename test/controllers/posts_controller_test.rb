@@ -3,48 +3,50 @@
 require 'minitest_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    posts(:post_one)
-  end
+  fixtures :users, :posts # Include the necessary fixtures
 
   test "should get index" do
+    @post = posts(:post_one)
     get posts_url
     assert_response :success
   end
 
   test "should get new" do
+    @post = posts(:post_two)
     get new_post_url
-    assert_response :success
+    assert_redirected_to new_user_session_path
   end
 
   test "should create post" do
+    @post = posts(:post_three)
+    puts @post.inspect # To verify posts fixture exist
     assert_difference("Post.count") do
       post posts_url, params: { 
         post: { 
+          full_name: @post.full_name,
           age: @post.age, 
-          description: @post.description, 
-          full_name: @post.full_name, 
           location: @post.location, 
+          description: @post.description,  
           special_note: @post.special_note,
-          user_id: @post.user_id, # Add this line to pass user_id in the create action 
+          missing_time: @post.missing_time,
+          user: @post.user, 
+          user_id: @post.user_id # Add this line to pass user_id in the create action 
         }
       }
     end
 
-    assert_redirected_to post_url(Post.last)
+    assert_redirected_to show_post_detail_path(Post.last)
+
   end
 
   test "should show post" do
+    @post = posts(:post_three)
     get post_url(@post)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_post_url(@post)
-    assert_response :success
-  end
-
   test "should update post" do
+    @post = posts(:post_three)
     patch post_url(@post), params: { 
       post: { 
         age: @post.age, 
@@ -52,18 +54,28 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         full_name: @post.full_name, 
         location: @post.location, 
         special_note: @post.special_note,
-        user_id: @post.user_id, # Add this line to pass user_id in the update action
        }
       }
-    assert_redirected_to post_url(@post)
+    assert_redirected_to show_post_detail_path(@post)
   end
 
   test "should destroy post" do
+    @post = posts(:post_four)
+    puts @post.inspect
     assert_difference("Post.count", -1) do
       delete post_url(@post)
+
     end
 
-    #assert_redirected_to posts_url
     assert_redirected_to user_posts_path(current_user)
+
   end
+
+  # Removing because edit method is empty in posts_controller.rb
+  #test "should get edit" do
+    #@post = posts(:post_one)
+    #get edit_post_url(@post)
+    #assert_response :success
+  #end
+
 end

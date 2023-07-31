@@ -19,8 +19,10 @@ comment_two:
 
 comment_three:
   # This means this comment is posted by user three from test/fixtures/users.yml
-  # on post two from test/fixtures/posts.yml
+  # on post three from test/fixtures/posts.yml
   user: user_three
   post: post_three
+
+
 
 

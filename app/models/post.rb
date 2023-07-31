@@ -1,4 +1,3 @@
-
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
@@ -7,7 +6,7 @@ class Post < ApplicationRecord
     include ImageUploader::Attachment(:image)
 
     validates :full_name, presence: true
-    # validates :age, presence: true
+    validates :age, presence: true
     validates :age, numericality: { greater_than_or_equal_to: 0}
     validates :location, presence: true
     validates :description, presence: true

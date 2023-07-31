@@ -28,3 +28,8 @@ user_three:
   email: jason333@example.com
   password: JAs0nTAn
 
+user_four:
+  full_name: Bobby Sim
+  mobile_phone: 90909090
+  email: bbobob@example.com
+  password: b0bBysIm

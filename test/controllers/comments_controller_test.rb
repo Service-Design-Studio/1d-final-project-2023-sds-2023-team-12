@@ -1,26 +1,34 @@
-require "test_helper"
+require 'minitest_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @comment = comments(:one)
+    @comment = comments(:comment_one)
   end
 
   test "should get index" do
     get comments_url
     assert_response :success
+
   end
 
   test "should get new" do
     get new_comment_url
     assert_response :success
+
   end
 
   test "should create comment" do
     assert_difference("Comment.count") do
-      post comments_url, params: { comment: { body: @comment.body } }
+      get comments_url, params: { 
+      #post comments_url(@comment.post_id), params: { 
+        comment: { 
+          body: @comment.body 
+          } 
+        }
     end
 
-    assert_redirected_to comment_url(Comment.last)
+    assert_redirected_to show_post_detail_path(@comment.post_id)
+
   end
 
   test "should show comment" do
@@ -34,8 +42,13 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update comment" do
-    patch comment_url(@comment), params: { comment: { body: @comment.body } }
-    assert_redirected_to comment_url(@comment)
+    patch comment_url(@comment), params: {
+       comment: {
+        body: @comment.body 
+        } 
+      }
+      
+    assert_redirected_to show_post_detail_path(@comment.post_id)
   end
 
   test "should destroy comment" do
@@ -43,6 +56,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       delete comment_url(@comment)
     end
 
-    assert_redirected_to comments_url
+    assert_redirected_to show_post_detail_path(@post_id)
+
   end
+
 end
