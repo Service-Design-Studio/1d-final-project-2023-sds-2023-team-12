@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
               devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:full_name,:mobile_phone, :email, :password, :current_password)}
          end
          
-     # Function to handle API call
+#      # Function to handle API call
      def response_from_api_call single_line_string
           api_key='AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8Xg'
           uri_string = 'https://translation.googleapis.com/language/translate/v2?key='+api_key
@@ -51,6 +51,53 @@ EOS
           output[:translatedText]=response_data["data"]["translations"][0]["translatedText"]
           return output
      end
+
+# Function to handle API call
+def response_from_api_call_test(single_line_string)
+     # api_key = 'AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8Xg'
+     api_key = 'AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8'
+
+     uri_string = 'https://translation.googleapis.com/language/translate/v2?key=' + api_key
+   
+     text_to_translate = <<~EOS
+       #{single_line_string}
+     EOS
+   
+     body_request = {
+       "q" => text_to_translate,
+       "target" => "en"
+     }.to_json
+   
+     req_uri = URI(uri_string)
+   
+     begin
+       res = Net::HTTP.post(req_uri, body_request, "Content-Type" => "application/json")
+       
+       # Check if the API call was successful
+       if res.is_a?(Net::HTTPSuccess)
+         response_data = JSON.parse(res.body)
+         output = Hash.new
+         output[:source_language] = response_data["data"]["translations"][0]["detectedSourceLanguage"]
+         output[:translatedText] = response_data["data"]["translations"][0]["translatedText"]
+         return output
+       else
+         # Handle non-successful responses (e.g., HTTP errors like 404, 500, etc.)
+         # You can raise an exception or return an appropriate error response.
+         raise StandardError, "API call failed with status code: #{res.code}"
+       end
+
+     rescue StandardError => e
+       # Handle any other exceptions that might occur during the API call (e.g., network errors)
+       # You can log the error, send an alert, or return a user-friendly error response.
+       puts "API call failed: #{e.message}"
+       output = Hash.new
+       output[:source_language] = "FAILED"
+       output[:translatedText] = "FAILED"
+       return output
+     end
+   end
+
+
 
      # Function return country name based on country code returned by user 
      def return_country_base_on_code country_code
