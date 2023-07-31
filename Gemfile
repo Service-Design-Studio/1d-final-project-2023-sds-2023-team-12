@@ -25,8 +25,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Gemfile for shrine
+# Gemfile for jquery
 gem 'jquery-turbolinks'
+gem 'jquery-rails'
 
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'

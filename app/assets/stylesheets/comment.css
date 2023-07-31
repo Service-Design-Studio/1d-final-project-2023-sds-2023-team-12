@@ -68,13 +68,13 @@
  }
 
  .body_form_comment{
-    border-radius: 15px;
+    border-radius: 70px;
  }
 
 .body_form_comment textarea{
     width: 100%;
     border-color: black;
-    border-radius: 15px;
+    border-radius: 30px;
     padding-top: 20px;
     padding-left: 10px;
 }
