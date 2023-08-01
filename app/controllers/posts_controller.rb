@@ -20,6 +20,8 @@ class PostsController < ApplicationController
         @posts = @posts.order(created_at: :desc)
       when 'recently_missing'
         @posts = @posts.order(missing_time: :desc)
+      when 'highest_rewards'
+        @posts = @posts.order(reward: :desc)
       else
         @posts = @posts.order(created_at: :desc)
       end
