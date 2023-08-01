@@ -34,7 +34,7 @@
       <%= submit_tag "Search" %>
     <% end %>
     
-    <%# AGE FILTERING %>
+    <%# AGE + GENDER FILTERING %>
     <%= form_tag(posts_path, method: :get) do %>
       <h5>Age Category</h5>
       <% Post::AGE_CATEGORIES.each do |category, _range| %>
