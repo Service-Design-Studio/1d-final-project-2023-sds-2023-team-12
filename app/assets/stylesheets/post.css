@@ -36,10 +36,17 @@ body{
 .time_went_missing{
    margin-top: 15px;
    margin-bottom: 15px !important;
-   color: #E74C3C;
+   color: #e74c3d;
    font-weight: 700;
    font-size: 20px;
 }
+
+.full_name{
+   color: #E74C3C;
+   font-size: 20px;
+}
+
+
 
  .image_project{
     display: block;
@@ -301,9 +308,7 @@ body{
    padding: 15px;
  }
 
- .time_item{
-   color: ;
- }
+
 
  .new_post_image{
    border: 1px dashed black;
@@ -632,6 +637,10 @@ body{
 .answer_from_open_ai{
    font-size: 17px;
 }
+
+
+
+
 
 
 .loading{

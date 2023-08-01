@@ -30,12 +30,12 @@ As an information portal, AMADEUS allows admin users to upload important article
 
 <!-- Acknewledgment -->
 # Acknowledgments
-1. Tran Cong Nam Anh (Louis) [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Technical Lead + Fullstack Developer + QA Engineer)
-2. Nada - (Project Manager)
-3. Cephas
-4. Yi Xuan
-5. Ayu
-6. Senna
+1. Tran Cong Nam Anh (Louis) [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) Technical Lead + Fullstack Developer + QA Engineer
+2. Nada Khan - Project Manager + Product Designer
+3. Cephas Yeo - ML Engineer + Software Tester  
+4. Yi Xuan - Software Tester
+5. Ayu - Software Tester + Product Management
+6. Senna - Graphic Design 
 
 <!-- Getting started -->
 
