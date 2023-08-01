@@ -7,7 +7,7 @@ body{
     margin-top: 20px;
     text-align: left;
     margin-bottom: 30px;
-    font-size: 43px;
+    font-size: 32px;
     color: #000000;
 }
 
@@ -23,16 +23,24 @@ body{
     /* margin-bottom: 10px !important; */
 }
 
-.your_case{
-   background-color: #FCF3CF  !important;
+.your-case{
+   border: 2px solid #FED7D7; 
+   box-sizing: border-box;
+
 }
 
 
-.col_component{
+.card-component{
    border-radius: 8px;
-background: #FFF;
-/* base */
-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+   background: #FFF;
+   min-width: 200px;
+   /* base */
+   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+}
+
+.card-link{
+   text-decoration: none;
+   color: black;
 }
 
 .time_went_missing{
@@ -56,7 +64,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
    height: 400px;
    position: relative;
    display: inline-flex;
-   padding: 19px 23px 35px 23px;
+   padding: 16px 24px 16px 24px;
    flex-direction: column;
    align-items: center;
  }
@@ -73,26 +81,15 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
    object-fit: cover;
  }
 
- .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    background-color: rgba(33, 18, 18, 0.607);
-    padding: 10px;
-    color: black;
-    opacity: 0;
-    transition: all 0.5s;
- }
+ 
 
  .project_showcase .bottom p:first-of-type{
-    margin: 15px 0px;
-    color: #717171;
+    margin: 8px 0px;
+    color: #E74C3C;
     font-weight: 600;
-    font-size: 21px;
+
+    font-size: 24px !important;
+   
  }
 
  .col_content{
@@ -121,7 +118,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
  .bottom{
    padding-left: 20px;
    margin-bottom: 15px;
-   color: #34495E;
+
  }
 
  .bottom_item{
@@ -158,12 +155,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
    margin-bottom: 10px;
  }
 
- .a_tag{
-   text-decoration: none;
-   color: #D30001;
-   font-weight: 600;
-   transition: all 0.5s;
- }
+
 
  .small_icon{
    margin-right: 5px;
@@ -209,10 +201,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
    margin-right: 5px;
  }
 
- .bottom p:nth-of-type(1){
-   font-size: 28px !important;
-   color: #34495E !important;
- }
+ 
 
 .user_item{
    margin-right: 5px;
@@ -569,8 +558,6 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
 
 
 
-/* *************************** */
-
 /* FOR FILTERING */
 .width_ninety_for_filter{
    width: 95% !important;
@@ -593,7 +580,14 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
 
 .filter_content>h2:nth-of-type(1){
    color: #000000;
+   font-size: 20px;
 }
+
+/* FILTERING ENDS */
+
+
+
+/* FOR REWARDS */
 
 .add_details_reward::after{
    content: " SGD";
@@ -603,7 +597,7 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
 
 .reward_coins{
    color: #F39C12;
-   font-size: 50px;
+   font-size: 20px;
    margin-right: 15px;
 }
 
@@ -617,12 +611,12 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0
 
 .reward_coins_post{
    color: #F39C12;
-   font-size: 50px;
+   font-size: 24px;
    margin-right: 15px;
 }
 
 .reward_info_post{
-   font-size: 40px;
+   font-size: 24px;
    padding-bottom: 5px;
    margin-bottom: 0;
    color: #F39C12 !important;

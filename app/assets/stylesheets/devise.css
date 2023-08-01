@@ -3,29 +3,30 @@
 
 
 
-.log_in_header{
+.log_in_header,
+.sign_up_header{
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, 'sans-serif';
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
   line-height: 24px; /* 100% */
   margin-top: 35px;
 }
 
+/* cards for login signup forms*/
 .container_fix {
   opacity: 1.0;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 440px;
 	max-width: 100%;
-	min-height: 400px;
+	min-height: 100%;
  
   margin-top: 100px;
+  margin-bottom: 100px;
+  
 }
 
 .form-container {
@@ -98,7 +99,8 @@
     color: #000000; /* Set the color to black */
   }
 
-.login-button {
+.login-button,
+.signup-button{
   border-radius: 6px;
 	background-color: #E53E3E;
 	color: #FFFFFF;
@@ -107,18 +109,17 @@
   line-height: 28px;
 	padding: 12px 45px;
   text-align: center;
+  border: none ;
 }
 
 
   
-.login-button:hover {
+.login-button:hover,
+.signup-button:hover {
     transform: scale(1.05); /* Adjust the scale factor for hover effect */
   }
 
-  
-.login-button:focus {
-    outline: none;
-  }
+
 
 .signup-label {
   margin-top: 10px;
@@ -134,33 +135,14 @@
     font-size: 20px;
   }
 
-.signup-button {
-  border-radius: 6px;
-	background-color: #E53E3E;
-	color: #FFFFFF;
-	font-size: 18px;
-	font-weight: 600;
-  line-height: 28px;
-	padding: 12px 45px;
-  text-align: center;
-  }
-  
-.signup-button:hover {
-    transform: scale(1.05); /* Adjust the scale factor for hover effect */
-  }
-  
-.signup-button:focus {
-    outline: none;
-  }
+
 
 .sign_up_cover{
     margin-top: 25px;
     margin-bottom: 25px;
   }
 
-.signup_button{
-    margin-top: 30px !important;
-  }
+
 /* ###### End here ######### */
 
 

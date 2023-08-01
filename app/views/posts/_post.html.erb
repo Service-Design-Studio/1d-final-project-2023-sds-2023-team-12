@@ -2,88 +2,50 @@
 
 
 
-<div class="col-sm-4 try animate__animated animate__fadeInUp">
+<div class="col-sm-6 try animate__animated animate__fadeInUp">
   <a href="<%= show_post_detail_path(post) %>" class="card-link">
-    <div id="<%= dom_id post %>" class="col_component your_case">
-                  <div class="col_content">
-                    <div class="image_project">
-                        <%# <img src="./img/image 2.png" alt=""> %>
-                        <%# <%= image_tag post.image_url if post.image %> 
-                        <%= image_tag(post.avatar, width: 200) if post.avatar.attached? %>
+  <div id="<%= dom_id post %>" class="card-component your-case">
+      <div class="col_content">
+          <div class="image_project">
+              <%= image_tag post.image_url if post.image%>   
+          </div>
 
-                        <div class="overlay">
-                            <p class="">Description: <%=Post.shorten_description(post.store_description,140)%></p>
-                            <p class="">Age: <%=post.age%></p>
-                            <p class="">Reported missing time: <%=post.missing_time.to_fs(:rfc822)%></p>
-
-                        </div>
-                    </div>
-
-                    <div
-                    class="bottom">
-                      <p class="bottom_item full_name"><%=post.full_name%></p>
-
-                      <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=Post.shorten_description(post.store_special_note,65)%></p>
-
-                      <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
-
-                       <p class="bottom_item time_went_missing"> Went missing for about <%=((Time.new-post.missing_time)/3600).round %> hours </p> 
-
-                      <%# <p class="bottom_item"> %>
-                    <div class="bottom_item d-flex justify-content-between">
-                      <button class="button_class_change"><i class="fa-solid fa-circle-info small_icon"></i>
-                      <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
-
-                        <h3 class="missing_case_content pe-5 reward_info_post"><i class="fa-solid fa-coins reward_coins_post"></i><%=post.reward%> SGD</h3>
-
-                    </div>
-                  </div>
-    </div>
-    </div>
-    </div>
+          <div class="bottom">
+              <p class="bottom_item full_name"><%=post.full_name%></p>
+              <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.store_special_note%></p>
+              <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
+              <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %>
+          </div>
+      </div>
+  </div>
+</div>
 
 <%else%>
 
-<div class="col-sm-4 try animate__animated animate__fadeInUp">
-    <div id="<%= dom_id post %>" class="col_component">
-                    <div class="col_content">
-                    <div class="image_project">
-                        <%# <img src="./img/image 2.png" alt=""> %>
-                        <%# <%= image_tag post.image_url if post.image %> 
-                        <%= image_tag(post.avatar, width: 200) if post.avatar.attached? %>
+<div class="col-sm-6 try animate__animated animate__fadeInUp">
+  <a href="<%= show_post_detail_path(post) %>" class="card-link">
+  <div id="<%= dom_id post %>" class="card-component">
+      <div class="col_content">
+          <div class="image_project">
+              <%= image_tag post.image_url if post.image%>   
+          </div>
 
-                        <div class="overlay">
-                            <p class="">Description: <%=Post.shorten_description(post.store_description,140)%></p>
-                            <p class="">Age: <%=post.age%></p>
-                            <p class="">Reported missing time: <%=post.missing_time.to_fs(:rfc822)%></p>
+          <div class="bottom">
+              <p class="bottom_item full_name"><%=post.full_name%></p>
+              <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=post.store_special_note%></p>
+              <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
+              <p class="bottom_item time_went_missing"> Went missing for about <%=((Time.new-post.missing_time)/3600).round %> hours </p> 
 
-                        </div>
-                    </div>
+              <div class="bottom_item d-flex justify-content-between">
+                  <button class=" button_class_change more-detail-button "><i class="fa-solid fa-circle-info small_icon"></i>
+                  <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
 
-                    <div
-                    class="bottom">
-                      <p class="bottom_item full_name"><%=post.full_name%></p>
+                  <h3 class="missing_case_content pe-5 reward_info_post"><i class="fa-solid fa-coins reward_coins_post"></i><%=post.reward%> SGD</h3>
+              </div>
 
-                       <p class="bottom_item"> <i class="fa-sharp fa-solid fa-note-sticky note_bottom"></i> Note: <%=Post.shorten_description(post.store_special_note,65)%></p>
-
-                      <p class="bottom_item"><i class="fa-sharp fa-solid fa-location-dot note_bottom"></i> Location: <%=post.location%></p>
-
-                       <p class="bottom_item time_went_missing"> Went missing for about <%=((Time.new-post.missing_time)/3600).round %> hours </p> 
-
-
-                      <div class="bottom_item d-flex justify-content-between">
-
-                      <button class=" button_class_change more-detail-button "><i class="fa-solid fa-circle-info small_icon"></i>
-                      <%= link_to "More details...", show_post_detail_path(post) ,class: "a_tag" %></button>
-
-                    <h3 class="missing_case_content pe-5 reward_info_post"><i class="fa-solid fa-coins reward_coins_post"></i><%=post.reward%> SGD</h3>
-
-
-                      </div>
-
-                </div>
-</div>
-</div>
+          </div>
+      </div>
+  </div>
 </div>
 
 
