@@ -25,8 +25,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Gemfile for shrine
+# Gemfile for jquery
 gem 'jquery-turbolinks'
+gem 'jquery-rails'
 
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'
@@ -78,6 +79,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
+  gem 'sqlite3'
 end
 
 group :development do
