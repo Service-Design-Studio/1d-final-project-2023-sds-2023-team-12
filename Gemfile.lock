@@ -434,6 +434,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   launchy
+  minitest
   pg (~> 1.5.3)
   pry
   pry-byebug

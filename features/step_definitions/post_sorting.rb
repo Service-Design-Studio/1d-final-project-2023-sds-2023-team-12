@@ -1,4 +1,5 @@
-# features/steps/post_sorting_steps.rb
+
+
 
 Given('the following posts exist:') do |table|
   # Code to create the posts based on the given data in the table
@@ -44,7 +45,7 @@ Then('I should see the following posts in order:') do |table|
   puts "Displayed Order: #{displayed_order}"
 
   # Compare the expected order with the displayed order
-  assert_equal(expected_order, displayed_order)
+  expect(displayed_order).to eq(expected_order)
 end
   
 
@@ -68,12 +69,15 @@ Then('I should see the following posts:') do |table|
   # Code to verify the posts displayed on the page based on the table data
   # Use the table.hashes method to access the expected post data in the table
   expected_posts = table.hashes.map { |row| row['full_name'] }
+  puts expected_posts
   
   # Get the actual post data from the page
   displayed_posts = all('.bottom_item.full_name').map { |element| element.text }
+  puts displayed_posts
+
 
   # Check if all the expected posts exist in the displayed posts
   expected_posts.each do |expected_post|
-    assert_includes(displayed_posts, expected_post)
+    expect(displayed_posts).to include(expected_post)
   end
 end

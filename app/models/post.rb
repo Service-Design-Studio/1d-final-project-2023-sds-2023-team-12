@@ -59,6 +59,7 @@ class Post < ApplicationRecord
 
 
     def self.shorten_description random_string,desire_len
+        return " " if random_string.nil?
         if random_string.length <= 30
             return random_string
         end
