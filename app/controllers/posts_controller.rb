@@ -34,6 +34,15 @@ class PostsController < ApplicationController
         @posts = @posts.where(id: filtered_post_ids)
       end
 
+      if params[:genders].present?
+        selected_genders = params[:genders]
+        @posts = @posts.where(gender: selected_genders)
+      else
+        @selected_genders = []
+      end
+
+
+
       
       
 
@@ -43,6 +52,7 @@ class PostsController < ApplicationController
 
     # Storing selected filters to keep state persistent
     @selected_age_categories = params[:age_categories] || []
+    @selected_genders = params[:genders] || [] 
     @sort_by = params[:sort_by] || 'recently_posted'
 
   end

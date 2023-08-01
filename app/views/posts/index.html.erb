@@ -40,6 +40,13 @@
         <%= check_box_tag "age_categories[]", category , @selected_age_categories.include?(category.to_s) %>
         <%= label_tag category.to_s, category.capitalize %><br>
       <% end %>
+      <h5>Gender</h5>
+        <% selected_genders = @selected_genders || [] %>
+        <%= check_box_tag "genders[]", "Male", @selected_genders&.include?("Male") %>
+        <%= label_tag "Male", "Male" %><br>
+        <%= check_box_tag "genders[]", "Female", @selected_genders&.include?("Female") %>
+        <%= label_tag "Female", "Female" %><br>
+
 
       <%# SORTING  %>
       <h5>Sort By</h5>
