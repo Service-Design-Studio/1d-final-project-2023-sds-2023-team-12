@@ -679,3 +679,25 @@ body{
 .common_asked_answer_content{
    margin-bottom: 200px;
 }
+
+
+
+
+/* FOR MY CASES + PROFILE */
+
+.width_ninety_for_profile{
+   width: 100% !important;
+   margin-top: 40px;
+}
+.profile-content{
+   border-radius: 6px;
+   border: 1px solid var(--gray-200, #E2E8F0);
+   background-color: #FFFFFF!important;
+   opacity: 1.0;
+	border-radius: 10px;
+ 
+   padding: 10px;
+   padding-top: 25px;
+   padding-left: 15px;
+   height: 800px;
+}

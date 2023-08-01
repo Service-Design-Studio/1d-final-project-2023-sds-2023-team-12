@@ -5,16 +5,24 @@
 
 <%# for my cases page %>
 <% if params[:user_id]%>
+  <div class="width_ninety_for_profile row">
+    <div class="col-3 profile-content">
+        <%# ayu u can add profile content here!  %>
+        <%# the bottom left button should link to the page that is currently named Profile in the nav bar  %>
+    </div>
 
-<h1 class="title_index_post">My Cases</h1>
+    <div class="for_all_cases col-9">
+      <h1 class="title_index_post">My Cases</h1>
 
-<div id="posts" class="project_showcase row">
+      <div id="posts" class="project_showcase row">
 
-    <% @posts.each do |post| %>
-      <%= render post %>
-    <% end %>
+          <% @posts.each do |post| %>
+            <%= render post %>
+          <% end %>
 
-</div>
+      </div>
+    </div>
+  </div>
 
 <%# for browse cases page %>
 <% else %>
@@ -63,14 +71,9 @@
       <%= submit_tag "Filter" %>
     <% end %>
 
-
-    
-    
-    
     </div>
 
-   
-
+  
     </div>
 
     <div class="for_all_cases col-9">
@@ -81,7 +84,6 @@
               <%= render post %>
           <% end %>
       </div>
-
     </div>
   </div>
 
