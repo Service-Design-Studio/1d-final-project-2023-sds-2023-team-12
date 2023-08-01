@@ -17,6 +17,7 @@ class CommentUnitTest < ActiveSupport::TestCase
     assert_not comment.valid?
   end
 
+
   # Add more tests as needed
 
 end

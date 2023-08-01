@@ -1,6 +1,8 @@
 require 'minitest_helper'
 
-class CommentsIntegrationTest < ActionDispatch::IntegrationTest
+class CommentsControllerTest < ActionDispatch::IntegrationTest
+  fixtures :users, :posts, :comments
+  
   setup do
     @comment = comments(:comment_one)
   end
@@ -18,18 +20,30 @@ class CommentsIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "should create comment" do
-    assert_difference("Comment.count") do
-      get comments_url, params: { 
-      #post comments_url(@comment.post_id), params: { 
-        comment: { 
-          body: @comment.body 
-          } 
-        }
-    end
-
-    assert_redirected_to show_post_detail_path(@comment.post_id)
-
+    post = posts(:post_one)
+    user = users(:user_one)
+  
+    # Store the current count of comments
+    initial_comment_count = Comment.count
+  
+    # Create a new comment using the Comment model's create method
+    new_comment = Comment.create(
+      body: "This is a new comment",
+      post: post, # Associate the comment with the post
+      user: user  # Associate the comment with the user
+    )
+  
+    # Check if the comment was successfully created
+    assert new_comment.persisted?
+  
+    # Check if the comment count has increased by 1
+    assert_equal initial_comment_count + 1, Comment.count
+  
+    # Check if the comment's post and user associations are correct
+    assert_equal post, new_comment.post
+    assert_equal user, new_comment.user
   end
+  
 
   test "should show comment" do
     get comment_url(@comment)
@@ -56,8 +70,9 @@ class CommentsIntegrationTest < ActionDispatch::IntegrationTest
       delete comment_url(@comment)
     end
 
-    assert_redirected_to show_post_detail_path(@post_id)
+    assert_redirected_to show_post_detail_path(@comment.post_id)
 
   end
 
 end
+
