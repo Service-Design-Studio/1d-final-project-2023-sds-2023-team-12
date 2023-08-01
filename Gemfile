@@ -25,8 +25,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Gemfile for shrine
-
+# Gemfile for jquery
+gem 'jquery-turbolinks'
+gem 'jquery-rails'
 
 #Devise user authentication
 gem 'devise', '~> 4.9', '>= 4.9.2'
@@ -46,7 +47,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-
+# Open AI gem file for AI feature
+gem "ruby-openai"
 
 gem 'shrine', '~> 3.4'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
@@ -106,5 +108,7 @@ group :test do
   gem "webdrivers"
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
+  gem 'minitest'
+
 
 end

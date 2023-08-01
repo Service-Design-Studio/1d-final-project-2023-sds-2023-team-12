@@ -17,7 +17,8 @@
 <h1 class="missing_case_detail_title">Missing Case Detail</h1>
     <div class="col-sm-6 col_for_image">
         <div class="contain_image">
-        <%= image_tag @post.image_url if @post.image%>
+        <%= image_tag(@post.avatar) if @post.avatar.attached? %>
+        <%# <%= image_tag @post.image_url if @post.image%> 
     </div>
     </div>
 
@@ -33,6 +34,9 @@
 
     <h3 class="missing_case_headers">Age<h3>
     <p class="missing_case_content pe-3"><%=@post.age%></p>
+
+    <h3 class="missing_case_headers">Gender<h3>
+    <p class="missing_case_content pe-3"><%=@post.gender%></p>
 
     <h3 class="missing_case_headers">Location<h3>
     <p class="missing_case_content pe-3"><%=@post.location%></p>
@@ -65,6 +69,7 @@
 </div>
 </div>
 
+<%# FOR PUBLIC CONTRIBUTION %>
 <h1 class="title_public_contribution animate__animated  animate__fadeInUp">Welcome Public Contribution</h1>
 
 <div id="comments">
@@ -78,3 +83,185 @@
 <%= render "comments/form", comment: @comment %>
 </div>
 <div class="for_bottom"></div>
+
+<%# # FOR AI FEATURE %>
+<h1 class="title_public_contribution animate__animated  animate__fadeInUp">Commonly Asked Questions</h1>
+
+<div class="common_asked_answer_content">
+
+  <div class="for_each_question">
+    <button class="button-answer-ai" id="first_openai_request">What should I do if i suspect someone is <%= @post.full_name%>?</button>
+    <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="first_answer_from_open_ai">
+        <h4 class="loading">We are generating answer...Please wait !</h4>
+    </div>
+  </div>
+
+  <div class="for_each_question">
+    <button class="button-answer-ai" id="second_openai_request">Given <%= @post.full_name%>'s condition, what is the most appropriate way to approach <%= @post.full_name%>?</button>
+    <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="second_answer_from_open_ai">
+    <h4 class="loading">We are generating answer...Please wait !</h4>
+    </div>
+  </div>
+
+  <div class="for_each_question">
+    <button class="button-answer-ai" id="third_openai_request">Based on description provided during reporting process, our app generated photo to help with recognization and facilitate searching process?</button>
+
+    <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="third_answer_from_open_ai">
+        <h4 class="loading" id="should_be_hidden">We are generating answer...please wait !</h4>
+        <img id="image_from_open_ai">
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<%# /// Test  %>
+
+<%# // JavaScript Code %>
+<script>
+
+function formatTextWithNumbers(text) {
+   const sentences = text.split(/[.!?](?=\s*\d+\.)/); // Split the text by sentences that start with a number
+  let result = "";
+
+  sentences.forEach((sentence, index) => {
+    if (sentence.trim() !== "") {
+      result += `${index + 1}. ${sentence.trim()}:\n`;
+    }
+  });
+
+  return result;
+}
+
+function fetchData(box_id,question_number) {
+  fetch(`/post/<%=@post.id%>/question_${question_number}`) // Replace with the appropriate route for your server endpoint
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      displayData(box_id,data,question_number);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}
+
+
+function displayData(box_id,data,question_number) {
+    const resultDiv = document.getElementById(box_id);
+    if(question_number==3){
+      const responseData = data.data;
+      const resultP=document.getElementById("should_be_hidden"); 
+      resultP.style.display="none";
+      resultDiv.src=responseData;
+    }
+    else{
+      const responseData =(data.data); 
+      resultDiv.innerHTML = responseData;
+    }
+}
+
+// ## Function to handle button 1
+let handleQuestion=(id_box,id_button)=>{
+    answer_box=document.getElementById(id_box);
+    button=document.getElementById(id_button);
+    if(answer_box.style.display=='block'){
+       answer_box.style.display='none';
+       button.classList.remove('active_button');
+    }
+    else{
+      answer_box.style.display='block';
+      button.classList.add('active_button');
+    }
+}
+
+let after_dom_load=()=>{
+    var button_one=document.getElementById("first_openai_request");
+    var button_two=document.getElementById("second_openai_request");
+    var button_three=document.getElementById("third_openai_request");
+
+    var box_one=document.getElementById("first_answer_from_open_ai");
+    var box_two=document.getElementById("second_answer_from_open_ai");
+    var box_three=document.getElementById("third_answer_from_open_ai");
+
+    box_one.style.display="none";
+    box_two.style.display="none";
+    box_three.style.display="none";
+
+
+    fetchData("first_answer_from_open_ai",1);
+    fetchData("second_answer_from_open_ai",2);
+    fetchData("image_from_open_ai",3);
+
+
+    button_one.addEventListener('click',
+    function(){
+        handleQuestion("first_answer_from_open_ai","first_openai_request")
+    });
+
+    button_two.addEventListener('click',
+    function(){
+        handleQuestion("second_answer_from_open_ai","second_openai_request")
+    });
+
+    button_three.addEventListener('click',
+    function(){
+        handleQuestion("third_answer_from_open_ai","third_openai_request")
+    });
+}
+
+document.addEventListener("DOMContentLoaded", after_dom_load);
+
+// $(document).on('turbolinks:load', function() {
+//   after_dom_load();
+// });
+
+// after_dom_load();
+
+//     function hello(name) {
+//     let greeting = "Hello, " + name + "!";
+//     console.log(greeting);
+//     alert(greeting);
+// }
+
+// document.getElementById("fetchDataButton").addEventListener("click", fetchData);
+
+//     function fetchData() {
+//       fetch('/post/<%=@post.id%>/question_1') // Replace with the appropriate route for your server endpoint
+//         .then(response => {
+//           if (!response.ok) {
+//             throw new Error('Network response was not ok.');
+//           }
+//           return response.json();
+//         })
+//         .then(data => {
+//           displayData(data);
+//         })
+//         .catch(error => {
+//           console.error('Error fetching data:', error);
+//         });
+//     }
+
+//     function displayData(data) {
+//       const resultDiv = document.getElementById("result");
+//        const responseData = data.data; 
+//        resultDiv.innerHTML = responseData
+//     }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const clickButton = document.getElementById("greet-user-button");
+//     clickButton.addEventListener('click', (event) => {
+//         hello('JavaScript')
+//     });
+// });
+
+</script>

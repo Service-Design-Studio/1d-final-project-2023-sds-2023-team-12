@@ -35,7 +35,7 @@ Given(/^I am on "([^"]*)" page for a particular post$/) do |page_name|
     end
 
     image_path = Rails.root.join('app', 'assets', 'images','reporting_case','young-adult.png')
-    attach_file('post[image]', image_path)
+    attach_file('post[avatar]', image_path)
 
     button_name="Create Post"
     button_name=button_name.to_sym

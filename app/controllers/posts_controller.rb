@@ -3,16 +3,68 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    if !params.key?(:user_id)
-      # NADA YOUR CODE GO HERE #  
-     
-      @posts = Post.all
-    else
+    @posts = Post.all
+    if params[:search].present?
+      @posts = Post.search(params[:search])
+    end
+
+    if !params.key?(:user_id) # show all cases
+      #@posts = Post.all
+
+      #sort by dropdown
+      sort_by = params[:sort_by]
+      case sort_by
+      when 'alphabetical'
+        @posts = @posts.order(full_name: :asc)
+      when 'recently_posted'
+        @posts = @posts.order(created_at: :desc)
+      when 'recently_missing'
+        @posts = @posts.order(missing_time: :desc)
+      when 'highest_rewards'
+        @posts = @posts.order(reward: :desc)
+      else
+        @posts = @posts.order(created_at: :desc)
+      end
+      
+
+      ### age filter ### 
+      if params[:age_categories].present?
+        age_cag_list = params[:age_categories]
+        ##age categories is a virtual attr thus you need to use select
+        filtered_post_ids = @posts.select { |post| age_cag_list.include?(post.age_category.to_s) }.pluck(:id)
+        ##however, we want a query selection that returns an activerecord selection, so we need to use .where method instead, so we use a placeholder to select the ids
+        @posts = @posts.where(id: filtered_post_ids)
+      end
+
+      if params[:genders].present?
+        selected_genders = params[:genders]
+        @posts = @posts.where(gender: selected_genders)
+      else
+        @selected_genders = []
+      end
+
+
+
+      
+      
+
+    else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
 
+    # Storing selected filters to keep state persistent
+    @selected_age_categories = params[:age_categories] || []
+    @selected_genders = params[:genders] || [] 
+    @sort_by = params[:sort_by] || 'recently_posted'
 
   end
+
+
+  
+
+
+
+
 
   # GET /posts/1 or /posts/1.json
   def show
@@ -133,8 +185,33 @@ class PostsController < ApplicationController
     @user=User.find_by(id: @post.user_id)
     @comments=Comment.where(post_id: params[:id])
     @comment = Comment.new
+
     render "pdetail"
   end
+
+  # The following three actions handle API call front end side and only return JSON objects
+  def question_1
+    @post=Post.find_by(id: params[:id])
+    first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
+
+    render json: { status: "success", data: first_answer }  
+  end
+
+  def question_2
+    @post=Post.find_by(id: params[:id])
+    second_answer=response_text_from_openai_api_call(ApplicationController.question_two(@post.full_name,@post.special_note))
+
+    render json: { status: "success", data: second_answer }  
+  end
+
+  def question_3
+    @post=Post.find_by(id: params[:id])
+    third_answer=response_image_from_openai_api_call(ApplicationController.question_third(@post.store_description,@post.full_name))
+    
+    render json: { status: "success", data: third_answer }  
+  end
+
+
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
@@ -155,7 +232,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time,:avatar,:reward)
+      params.require(:post).permit(:full_name, :age, :location, :description, :special_note, :user_id,:image,:missing_time,:avatar,:reward,:gender)
     end
 
   private

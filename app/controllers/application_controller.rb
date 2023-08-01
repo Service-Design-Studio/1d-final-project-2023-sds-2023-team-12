@@ -3,6 +3,23 @@ class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
+#     Set up questions for OPENAI
+    def self.question_one name
+     return "#{name} is a missing person in Singapore, If I meet #{name} in real life, what should i do" 
+    end
+
+    def self.question_two name, special_note
+     return """#{name} is a person that went missing in Singapore, and given #{}'s heath and mental condition provided below:
+     special note: #{special_note} 
+     please tell me the most appropriate way to approach #{name}""" 
+    end
+
+    def self.question_third description,name
+     return """
+      based on the description: '#{description}'
+      , please create a photo of person with outfit that match above description, do not include any text or word in the photo""" 
+    end
+
     protected
 
          def configure_permitted_parameters
@@ -181,6 +198,39 @@ EOS
           #puts res.body
           response_data = JSON.parse(res.body)
           puts response_data['responses'][0]["textAnnotations"][0]['description']
-     
+     end
+
+     # Handle Open AI Api
+     def response_text_from_openai_api_call content
+          require 'ruby/openai'
+          client = OpenAI::Client.new
+          response = client.chat(
+          parameters: {
+            model: "gpt-3.5-turbo", # Required.
+            messages: [{ role: "user", content: content}], # Required.
+            temperature: 0.7,
+          })
+          
+          return response.dig("choices", 0, "message", "content")
+     end
+
+     def response_text_edit_from_openai_api_call input,name
+          require 'ruby/openai'
+          client = OpenAI::Client.new
+          response = client.edits(
+               parameters: {
+                   model: "text-davinci-edit-001",
+                   input: input,
+                   instruction: ApplicationController.question_two(name)
+               }
+           )
+           return response.dig("choices", 0, "text")
+     end
+
+     def response_image_from_openai_api_call description
+          require 'ruby/openai'
+          client = OpenAI::Client.new
+          response = client.images.generate(parameters: { prompt: description, size: "512x512" })
+          return response.dig("data", 0, "url")
      end
 end
