@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body{
    background-color: #F4F6F6   ;
 }
@@ -453,30 +455,64 @@ body{
    height: 100%;
 }
 
-.missing_case_headers{
-   font-size: 26px !important;
+/* .missing_case_headers{
+   /* font-size: 26px !important;
    font-weight: 500 !important;
    color: #e53e3e !important;
-}
+} */
 
-.missing_case_content{
+/* .missing_case_content{
    color: #717171;
-}
+   font-family: Inter, sans-serif;
+   font-size: 24px;
+   font-style: normal;
+} */
 
 .col_for_image{
    padding: 10px;
 }
 
-.missing_case_detail_title{
+/* .missing_case_detail_title{
    text-align: center;
    color: #e53e3e;
    margin-top: 15px;
    font-weight: 500;
+} */
+
+.case_header_breadcrumb{
+   margin-top: 32px;
+   margin-bottom: 32p;
+   margin-left: 48px;
+
+   color: var(--gray-700, #2D3748);
+   text-align: left;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px; /* 150% */
 }
 
-.missing_case_headers{
-   font-weight: bold;
-   color: #000000;
+.missing_case_labels{
+   /* font-weight: bold;
+   color: #000000; */
+   color: #505050;
+   text-align: left;
+   margin-top: 10px;
+   font-size: 20px;
+   /* font-style: normal; */
+   font-weight: 600;
+   line-height: 24px;
+}
+
+.case_headers{
+   color: var(--gray-700, #2D3748);
+   text-align: left;
+   margin-top: 24px;
+   font-family: Inter;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 24px; /* 120% */
 }
 
 .missing_case_content{
@@ -512,7 +548,7 @@ body{
 /* For detail page */
 .button_for_two_bottom{
    margin-top: 50px;
-   padding-left: 350px;
+   padding-right: 5px;
    margin-bottom: 20px;
 }
 .button_for_two_bottom button{

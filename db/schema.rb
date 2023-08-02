@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_07_30_101816) do
-ActiveRecord::Schema[7.0].define(version: 2023_07_30_101816) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_30_101816) do
     t.datetime "missing_time"
     t.string "store_description"
     t.string "store_special_note"
-    t.integer "reward", default: 0
+    t.integer "reward"
     t.string "gender"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
