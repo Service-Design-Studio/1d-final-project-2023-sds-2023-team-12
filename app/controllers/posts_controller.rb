@@ -34,9 +34,6 @@ class PostsController < ApplicationController
         @posts = @posts.where(id: filtered_post_ids)
       end
 
-      
-      
-
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
@@ -46,12 +43,6 @@ class PostsController < ApplicationController
     @sort_by = params[:sort_by] || 'recently_posted'
 
   end
-
-
-  
-
-
-
 
 
   # GET /posts/1 or /posts/1.json
