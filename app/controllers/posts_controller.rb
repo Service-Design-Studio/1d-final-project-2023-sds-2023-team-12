@@ -20,6 +20,8 @@ class PostsController < ApplicationController
         @posts = @posts.order(created_at: :desc)
       when 'recently_missing'
         @posts = @posts.order(missing_time: :desc)
+      when 'highest_rewards'
+        @posts = @posts.order(reward: :desc)
       else
         @posts = @posts.order(created_at: :desc)
       end
@@ -34,12 +36,31 @@ class PostsController < ApplicationController
         @posts = @posts.where(id: filtered_post_ids)
       end
 
+      if params[:genders].present?
+        selected_genders = params[:genders]
+        @posts = @posts.where(gender: selected_genders)
+      else
+        @selected_genders = []
+      end
+
+
+
+      if params[:genders].present?
+        selected_genders = params[:genders]
+        @posts = @posts.where(gender: selected_genders)
+      else
+        @selected_genders = []
+      end
+
+
+
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
 
     # Storing selected filters to keep state persistent
     @selected_age_categories = params[:age_categories] || []
+    @selected_genders = params[:genders] || [] 
     @sort_by = params[:sort_by] || 'recently_posted'
 
   end
