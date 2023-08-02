@@ -14,43 +14,50 @@
 <% end %>
 
 <div class="container_detail row animate__animated  animate__fadeInUp">
-<h1 class="missing_case_detail_title">Missing Case Detail</h1>
-    <div class="col-sm-6 col_for_image">
+<h1 class="case_header_breadcrumb">Case Details</h1>
+    <div class="column column_left">
         <div class="contain_image">
         <%= image_tag(@post.avatar) if @post.avatar.attached? %>
         <%# <%= image_tag @post.image_url if @post.image%> 
+        <div class="contact_person_detail">
+        Posted by: <%=@user.full_name %>, Contact number: <%= @user.mobile_phone%>
+    </div>
     </div>
     </div>
 
     <%# Gcloud test %>
     <%# <%= image_tag(@post.avatar, width: 200) if @post.avatar.attached? %> 
 
-<div class="col-sm-6 contain_info">
+<div class="column column_right">
 
-<h3 class="contact_person_detail">Posted by: <%=@user.full_name %> , Contact number: <%= @user.mobile_phone%></h3>
-
-    <h3 class="missing_case_headers">Full name<h3>
+    <p class="case_headers">Basic Information</p>
+    
+    <h3 class="missing_case_labels">Full name<h3>
     <p class="missing_case_content pe-3"><%=@post.full_name%></p>
 
-    <h3 class="missing_case_headers">Age<h3>
+    <h3 class="missing_case_labels">Age<h3>
     <p class="missing_case_content pe-3"><%=@post.age%></p>
 
-    <h3 class="missing_case_headers">Gender<h3>
+    <h3 class="missing_case_labels">Gender<h3>
     <p class="missing_case_content pe-3"><%=@post.gender%></p>
 
-    <h3 class="missing_case_headers">Location<h3>
+    <p class="case_headers">Last Seen</p>
+    
+    <h3 class="missing_case_labels">Location<h3>
     <p class="missing_case_content pe-3"><%=@post.location%></p>
 
-    <h3 class="missing_case_headers">Description<h3>
-    <p class="missing_case_content pe-5"><%=@post.store_description%></p>
-
-    <h3 class="missing_case_headers">Special Note<h3>
-    <p class="missing_case_content pe-5"><%=@post.store_special_note%></p>
-
-    <h3 class="missing_case_headers">Missing Time<h3>
+    <h3 class="missing_case_labels">Missing Time<h3>
     <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
 
-    <h3 class="missing_case_headers">Reward<h3>
+    <p class="case_headers">Description</p>
+
+    <h3 class="missing_case_labels">Description<h3>
+    <p class="missing_case_content pe-5"><%=@post.store_description%></p>
+
+    <h3 class="missing_case_labels">Special Note<h3>
+    <p class="missing_case_content pe-5"><%=@post.store_special_note%></p>
+
+    <h3 class="missing_case_labels">Reward<h3>
     <p class="missing_case_content pe-5 reward_info"><i class="fa-solid fa-coins reward_coins"></i><%=@post.reward%> SGD</p>
 
 <% if current_user and current_user.id == @user_id %>
