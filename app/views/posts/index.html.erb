@@ -7,6 +7,9 @@
 <% if params[:user_id]%>
   <div class="width_ninety_for_profile row">
     <div class="col-3 profile-content">
+      <div class="container-account-details">
+        <h1 class="account-details-header">Account Details</h1>
+
         <%# ayu u can add profile content here!  %>
         <%# the bottom left button should link to the page that is currently named Profile in the nav bar  %>
     </div>
@@ -14,7 +17,7 @@
     <div class="for_all_cases col-9">
       <h1 class="title_index_post">My Cases</h1>
 
-      <div id="posts" class="project_showcase row">
+        <div id="posts" class="project_showcase row">
 
           <% @posts.each do |post| %>
             <%= render post %>
