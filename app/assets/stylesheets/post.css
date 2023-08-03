@@ -573,11 +573,29 @@ body{
  }
 
 /* *************************************** */
-/*  For Public Contribution */
-.title_public_contribution{
-   margin-top: 25px;
-   margin-bottom: 15px;
-   color: black;
+/*  For Public Contribution + AI FAQ*/
+.container-comments{
+   opacity: 1.0;
+   position: relative;
+   overflow: hidden;
+   width: 1096px;
+   height: 100%;
+   max-width: 100%;
+   margin: auto;
+   margin-top: 50px;
+
+
+}
+
+.title_bottom{
+   color: var(--gray-700, #2D3748);
+   text-align: left;
+   margin-top: 24px;
+   font-family: Inter;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 24px; /* 120% */
 }
 
 

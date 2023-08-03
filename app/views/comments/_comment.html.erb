@@ -13,9 +13,9 @@
                   <%= User.retrieve_user_name comment%>
               </p>
               
-              <div class="for_timing">
-              <p class="timimg">
-                  Posted at: <%= comment.created_at.to_fs(:rfc822).to_s[0..25] %> 
+              <div class="comment-timing">
+              <p class="timing">
+                <%= comment.created_at.to_fs(:rfc822).to_s[0..25] %> 
               </p>
               </div>
 
