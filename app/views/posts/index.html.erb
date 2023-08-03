@@ -31,47 +31,52 @@
   <div class="width_ninety_for_filter row">
 
     <div class="for_filter col-3">
-    <div class="filter_content">
+      <div class="filter_content">
+        <%# SEARCH FILTERING %>
+        <%= form_tag(posts_path, method: :get) do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search...", class:"search-bar" %>
+          <br>
+          <br>
+          <%= submit_tag "Search", class:"search-button" %>
+        <% end %>
+      </div>
 
-    
+      <div class="filter_content">
+
+        <%# SORTING  %>
+        <h5 class="filter-header">Sort By</h5>
+          <% sort_options= [['Most Recently Posted', 'recently_posted'],['Most Recently Missing', 'recently_missing'], ['Alphabetical Order', 'alphabetical'], ['Highest Rewards', 'highest_rewards']] %>
+          <%= select_tag :sort_by, options_for_select(sort_options, @sort_by), prompt: 'Sort By', class:'dropdown' %>
+        <br>
+        <br>
+        
+        <%# AGE + GENDER FILTERING %>
+        <%= form_tag(posts_path, method: :get) do %>
+          <h5 class="filter-header">Age</h5>
+          <% Post::AGE_CATEGORIES.each do |category, _range| %>
+            <div class="filter-checkbox">
+              <%= check_box_tag "age_categories[]", category , @selected_age_categories.include?(category.to_s) %>
+              <%= label_tag category.to_s, category.capitalize %><br>
+            </div>
+          <% end %>
+          <br>
+          <h5 class="filter-header">Gender</h5>
+            <div class="filter-checkbox">
+              <% selected_genders = @selected_genders || [] %>
+              <%= check_box_tag "genders[]", "Male", @selected_genders&.include?("Male") %>
+              <%= label_tag "Male", "Male" %><br>
+              <%= check_box_tag "genders[]", "Female", @selected_genders&.include?("Female") %>
+              <%= label_tag "Female", "Female" %><br>
+            </div>
+          
 
 
-    <%# SEARCH FILTERING %>
-    <%= form_tag(posts_path, method: :get) do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
-      <%= submit_tag "Search" %>
-    <% end %>
-    
-    <%# AGE + GENDER FILTERING %>
-    <%= form_tag(posts_path, method: :get) do %>
-      <h5>Age Category</h5>
-      <% Post::AGE_CATEGORIES.each do |category, _range| %>
-        <div class="filter-checkbox">
-          <%= check_box_tag "age_categories[]", category , @selected_age_categories.include?(category.to_s) %>
-          <%= label_tag category.to_s, category.capitalize %><br>
-        </div>
-      <% end %>
-      <h5>Gender</h5>
-        <div class="filter-checkbox">
-          <% selected_genders = @selected_genders || [] %>
-          <%= check_box_tag "genders[]", "Male", @selected_genders&.include?("Male") %>
-          <%= label_tag "Male", "Male" %><br>
-          <%= check_box_tag "genders[]", "Female", @selected_genders&.include?("Female") %>
-          <%= label_tag "Female", "Female" %><br>
-        </div>
-      
+          
+          <br>
+          <%= submit_tag "Filter", class:"filter-button"%>
+        <% end %>
 
-
-      <%# SORTING  %>
-      <h5>Sort By</h5>
-      <% sort_options= [['Most Recently Posted', 'recently_posted'],['Most Recently Missing', 'recently_missing'], ['Alphabetical Order', 'alphabetical'], ['Highest Rewards', 'highest_rewards']] %>
-      <%= select_tag :sort_by, options_for_select(sort_options, @sort_by), prompt: 'Sort By' %>
-
-      <br>
-      <%= submit_tag "Filter" %>
-    <% end %>
-
-    </div>
+      </div>
 
   
     </div>
