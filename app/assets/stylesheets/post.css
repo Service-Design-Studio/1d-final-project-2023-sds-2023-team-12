@@ -49,8 +49,8 @@ body{
    margin-top: 15px;
    margin-bottom: 15px !important;
    color: #e74c3d;
-   font-weight: 700;
-   font-size: 20px;
+   font-weight: 500;
+   font-size: 14px;
 }
 
 .full_name{
@@ -674,14 +674,9 @@ body{
    /* color: #F39C12 !important; */
 }
 
-.reward_coins{
-   color: #F39C12;
-   font-size: 20px;
-   margin-right: 15px;
-}
 
 .reward_info{
-   font-size: 50px;
+   font-size: 18px;
    padding-bottom: 5px;
    margin-bottom: 0;
    color: #F39C12 !important;
@@ -690,12 +685,12 @@ body{
 
 .reward_coins_post{
    color: #F39C12;
-   font-size: 24px;
+   font-size: 18px;
    margin-right: 15px;
 }
 
 .reward_info_post{
-   font-size: 24px;
+   font-size: 18px;
    padding-bottom: 5px;
    margin-bottom: 0;
    color: #F39C12 !important;
