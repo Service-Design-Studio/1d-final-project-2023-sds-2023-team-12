@@ -22,9 +22,18 @@
     <div class="column column_left post_image_new">
       <div class="case_post_image">
         <%= image_tag @post.image_url if @post.image%>
-        <div class="contact_person_detail">
-        Posted by: <%=@user.full_name %>, Contact number: <%= @user.mobile_phone%>
-      </div>
+        <br>
+
+        <div>
+          <p class="poster-detail"> Posted By</p>
+          <p class="poster-detail poster-detail-data"> <%=@user.full_name %> </p>
+
+          <p class="poster-detail"> Contact</p>
+          <p class="poster-detail poster-detail-data"> <%= @user.mobile_phone%> </p>
+
+          <p class="poster-detail"> Last Updated</p>
+          <p class="poster-detail poster-detail-data"> ??toeditsenna</p>
+        </div>
       </div>
     </div>
 
@@ -81,7 +90,7 @@
 
     <div class="button_for_two_bottom">
     <button>
-    <%= link_to "EDIT", edit_user_post_path(current_user,@post), class: "edit-post-button"%>
+    <%= link_to "EDIT", edit_user_post_path(current_user,@post)%>
     </button>
     <button>
     <%= link_to "DELETE", user_post_path(current_user,@post),data: {turbo_method: :delete}%>
