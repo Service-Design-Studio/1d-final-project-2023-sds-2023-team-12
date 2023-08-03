@@ -20,9 +20,7 @@
 
             <p class="account-details-label">Phone Number</p>
             <h2 class ="account-details-label account-details-value mb-1"> <%=current_user.mobile_phone%> </h2>
-          </div>
-
-          <div class="detail-item">
+            
             <a href="<%=edit_user_registration_path({user_id: current_user.id})%>">
               <button class = "edit-profile-button"><b>Edit Profile</b></button>
             </a>
