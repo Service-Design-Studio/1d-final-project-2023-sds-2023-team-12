@@ -1,5 +1,6 @@
 
 
+
 .for_bottom{
     margin-bottom: 20px;
  }
@@ -7,6 +8,13 @@
  .image_of_commenter img{
     width: 100%;
  }
+
+.full-name{
+   margin-top: 7px;
+   font-size: 14px;
+   font-weight: 600;
+   color: #34495E;
+}
  
  .comment_content{
     background-color: #FDEDEC;
@@ -15,12 +23,7 @@
     padding-left: 20px;
  }
  
- .comment_content{
-    font-size: 28px;
-    font-weight: 500;
-    color: #D30001;
-    margin-right: 40px;
- }
+
 
 
 
@@ -37,7 +40,7 @@
 
  .actual_content{
     color: black;
-    font-size: 20px;
+    font-size: 16px;
  }
 
  .edit_delete_comment{
