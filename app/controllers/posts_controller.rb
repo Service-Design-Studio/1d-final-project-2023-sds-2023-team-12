@@ -193,14 +193,14 @@ class PostsController < ApplicationController
   def question_1
     @post=Post.find_by(id: params[:id])
     # first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
-    first_answer=response_text_from_openai_api_call(@post.description,@post.special_note,1)
+    first_answer=response_text_from_openai_api_call(@post.description, @post.special_note, @post.full_name, 1)
 
     render json: { status: "success", data: first_answer }  
   end
 
   def question_2
     @post=Post.find_by(id: params[:id])
-    second_answer=response_text_from_openai_api_call(ApplicationController.question_two(@post.full_name,@post.special_note))
+    second_answer=response_text_from_openai_api_call(@post.description, @post.special_note, @post.full_name, 2)
 
     render json: { status: "success", data: second_answer }  
   end
