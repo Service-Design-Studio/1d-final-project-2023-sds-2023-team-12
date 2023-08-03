@@ -192,7 +192,8 @@ class PostsController < ApplicationController
   # The following three actions handle API call front end side and only return JSON objects
   def question_1
     @post=Post.find_by(id: params[:id])
-    first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
+    # first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
+    first_answer=response_text_from_openai_api_call(@post.description,@post.special_note,1)
 
     render json: { status: "success", data: first_answer }  
   end

@@ -247,7 +247,7 @@ context 'valid input for post' do
     end
   end 
 
-  # destroy detail
+  # post detail
   describe 'show detail of post' do
     it 'render show detail of a post' do
         new_user= FactoryBot.create :user

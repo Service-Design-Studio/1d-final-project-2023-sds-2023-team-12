@@ -248,7 +248,20 @@ def response_from_api_call_test(single_line_string)
      end
 
      # Handle Open AI Api
-     def response_text_from_openai_api_call content
+     # def response_text_from_openai_api_call content
+     #      require 'ruby/openai'
+     #      client = OpenAI::Client.new
+     #      response = client.chat(
+     #      parameters: {
+     #        model: "gpt-3.5-turbo", # Required.
+     #        messages: [{ role: "user", content: content}], # Required.
+     #        temperature: 0.7,
+     #      })
+          
+     #      return response.dig("choices", 0, "message", "content")
+     # end
+
+     def response_text_from_openai_api_call description, special_note, question_number
           require 'ruby/openai'
           client = OpenAI::Client.new
           response = client.chat(
@@ -260,6 +273,7 @@ def response_from_api_call_test(single_line_string)
           
           return response.dig("choices", 0, "message", "content")
      end
+
 
      def response_text_edit_from_openai_api_call input,name
           require 'ruby/openai'
