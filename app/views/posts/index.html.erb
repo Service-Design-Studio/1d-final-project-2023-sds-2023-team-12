@@ -15,25 +15,24 @@
             <p class ="account-details-label mb-1">Full Name</p>
             <h2 class ="account-details-label account-details-value mb-1"> <%=current_user.full_name %> </h2>
 
-            <p class="account-details-label">Email</p>
+            <p class="account-details-label mb-1">Email</p>
             <h2 class ="account-details-label account-details-value mb-1"> <%=current_user.email%> </h2>
 
-            <p class="account-details-label">Phone Number</p>
+            <p class="account-details-label mb-1">Phone Number</p>
             <h2 class ="account-details-label account-details-value mb-1"> <%=current_user.mobile_phone%> </h2>
-            
+          </div>
+
+          <div class="detail-item">
             <a href="<%=edit_user_registration_path({user_id: current_user.id})%>">
               <button class = "edit-profile-button"><b>Edit Profile</b></button>
             </a>
           </div>
-
         </div>
       </div>
-        <%# ayu u can add profile content here!  %>
-        <%# the bottom left button should link to the page that is currently named Profile in the nav bar  %>
     </div>
 
-    <div class="for_all_cases col-9">
-      <h1 class="title_index_post">My Cases</h1>
+    <div class="for_all_cases col-8 row-5">
+      <div class="cases-header">My Cases</div>
 
         <div id="posts" class="project_showcase row">
 
