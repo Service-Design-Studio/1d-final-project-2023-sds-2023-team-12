@@ -7,7 +7,7 @@ module CapybaraHelper
     "Home": "/",
     "Show All Posts": "/posts",
     "Log In": "/users/sign_in",
-    "Report Case": "/admin",
+    "Report": "/admin",
   }
 
   POST_FORM_FIELD_POST_DETAIL={"Full name" => "David", "Age" => "34", "Location" => "Changi", "Description" => "Wearing a red T shirt", "Special note" => "elderly", "Missing time" => "Sat, 17 Jun 2023 21:33:00 +0000"}

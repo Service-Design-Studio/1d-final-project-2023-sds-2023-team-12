@@ -43,7 +43,7 @@ Given(/^I am on the "([^"]*)" page for user with email: "([^"]*)"$/) do |page_na
   @user=User.find_by(email: email)
   route=nil
   case page_name
-  when "Report Case"
+  when "Report"
     visit "/users/#{@user.id}/posts/new"
     route="/users/#{@user.id}/posts/new"
   else 
@@ -56,7 +56,7 @@ Then(/^I should be on the "([^"]*)" page for post with name: "([^"]*)"$/) do |pa
   @post=Post.find_by(full_name: name)
   route=nil
   case page_name
-  when "Missing Case Detail"
+  when "Case Details"
     route="/post/#{@post.id}/detail"
     visit route
   else 
