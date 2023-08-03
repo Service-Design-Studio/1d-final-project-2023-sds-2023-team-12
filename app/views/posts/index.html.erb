@@ -9,23 +9,29 @@
     <div class="col-3 profile-content">
       <div class="container-account-details">
         <div class="account-details-header">Account Details</div>
-      </div>
+
         <div class="container-details-content">
           <div class="detail-item">
-            <h2 class="account-details-label">Full Name</h2>
+            <h2 class ="account-details-label mb-1">Full Name</h2>
+
           </div>
-        </div>
-        <div class="container-details-content">
+
           <div class= "detail-item">
             <h2 class="account-details-label">Email</h2>
           </div>
-        </div>
-        <div class="container-details-content">
+
           <div class="detail-item">
             <h2 class="account-details-label">Phone Number</h2>
           </div>
-        </div>
 
+          <div class="detail-item">
+            <a href="<%=edit_user_registration_path({user_id: current_user.id})%>">
+              <button class = "edit-profile-button"><b>Edit Profile</b></button>
+            </a>
+          </div>
+
+        </div>
+      </div>
         <%# ayu u can add profile content here!  %>
         <%# the bottom left button should link to the page that is currently named Profile in the nav bar  %>
     </div>

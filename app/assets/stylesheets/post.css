@@ -758,8 +758,12 @@ body{
 }
 
 .container-details-content{
-   display: block;
-   margin-bottom:10px;
+   display:block;
+   position: absolute;
+   width:181px;
+   height:173px;
+   left: 18px;
+   top: 40px;
 }
 
 .detail-item {
@@ -778,6 +782,10 @@ body{
 .account-details-label{
    font-size: 15px;
 }
+
+.account-details-value{
+   font-size: 15px
+}
 .profile-content{
    height: 100%;
    position: relative;
@@ -791,5 +799,13 @@ body{
    padding: 10px;
    padding-top: 5px;
    padding-left: 10px;
-   height: 400px;
+   height: 250px;
+   width: 250px;
+}
+
+.edit-profile-button{
+   height: 20px;
+   width: 50px;
+   border:2px solid var(#E53E3E);
+   text-align: center;
 }
