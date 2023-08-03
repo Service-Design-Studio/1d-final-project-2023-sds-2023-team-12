@@ -154,8 +154,8 @@ justify-content: center;
 }
 
 .edit_user_header{
-color: #e53e3e;
-font-size: 35px;
+color: black;
+font-size: 30px;
 text-align: center;
 font-weight: bold;;
 margin-top: 30px;
@@ -163,24 +163,24 @@ margin-bottom: 15px;
 }
 
 .edit_field_label{
-  color: black;
-  font-size: 18px;
+  color: #505050;
+  font-size: 15px;
   font-weight: normal;;
   margin: 0;
 }
 
 .edit_field {
-background-color: #eee;
-border: none;
-padding: 5px;
-margin: 0;
-width: 400px;
-font-size: 20px;
-margin-bottom: 5px;
+  background-color: #eee;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  width: 400px;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .update_button{
-border-radius: 10px;
+  border-radius: 10px;
   border: 1px solid #e53e3e;
   background-color: #e53e3e;
   color: #FFFFFF;
@@ -190,6 +190,7 @@ border-radius: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  display: block;
 }
 
 .update_button_cover{

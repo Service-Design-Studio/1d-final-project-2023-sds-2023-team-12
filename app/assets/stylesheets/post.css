@@ -867,9 +867,9 @@ body{
    height: 100%;
    width: 100%;
    border-radius: 6px;
-   background-color: #E53E3E;
-   color: white;
-   border: #E53E3E;
+   border: 1px solid #FF4B2B;
+   background-color: #FFFFFF;
+   color: #FF4B2B;
 
    padding-left: 10px;
    padding-right: 10px;
