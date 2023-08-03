@@ -593,17 +593,55 @@ body{
    background-color: #FFFFFF!important;
    opacity: 1.0;
 	border-radius: 10px;
- 
+   margin-bottom: 30px;
    padding: 10px;
    padding-top: 25px;
    padding-left: 15px;
-   height: 800px;
+   height: max-content;
+   min-width: 240px;
+   
 }
 
-.filter_content>h2:nth-of-type(1){
-   color: #000000;
-   font-size: 20px;
+
+.filter-header{
+   color: #000;
+   text-align: left;
+   font-size: 18px;
+   font-weight: 500;
+   line-height: 24px;
+   margin-top: 16px;
+   
 }
+
+.dropdown{
+   border-radius: 6px;
+   border: 1px solid var(--gray-200, #E2E8F0);
+   background: var(--white, #FFF);
+
+}
+
+.filter-button{
+   border-radius: 6px;
+   border: 1px solid var(--red-500, #E53E3E);
+   padding: 0px 12px;
+   justify-content: center;
+   background-color: #fff;
+   color: #E53E3E;
+   font-size: 18px;
+   font-weight: 600;
+   line-height: 32px;
+
+}
+
+
+
+  
+.filter-button:hover {
+    transform: scale(1.05); /* Adjust the scale factor for hover effect */
+  }
+
+
+
 
 
 
