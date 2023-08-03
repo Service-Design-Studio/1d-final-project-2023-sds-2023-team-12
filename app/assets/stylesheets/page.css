@@ -15,14 +15,16 @@
 .nav-button{
    margin-left: 15px;
    margin-right: 15px;
-
 }
+
+
 
 .nav-item a,
 .nav-button a{
    transition: all 0.7s;
    color: #EA3323 !important;
    font-weight: 600;
+   text-align: center;
 }
 
 .nav-item:hover{
@@ -34,6 +36,13 @@
 
 .nav-item:hover a{
    font-weight: 700;
+}
+
+.navbar-toggler{
+   background-color: #E6B0AA;
+}
+.navbar-toggler:active{
+   background-color: #EA3323;
 }
 
 .nav_move{
