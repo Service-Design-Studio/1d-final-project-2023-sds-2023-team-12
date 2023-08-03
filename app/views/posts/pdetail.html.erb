@@ -15,7 +15,7 @@
 
 
 <div class="container_detail row animate__animated  animate__fadeInUp">
-<h1 class="report_header_breadcrumb">Case Details</h1>
+<h1 class="column column_left report_header_breadcrumb">Case Details</h1>
 
 <div class="row">
 
@@ -32,7 +32,7 @@
           <p class="poster-detail poster-detail-data"> <%= @user.mobile_phone%> </p>
 
           <p class="poster-detail"> Last Updated</p>
-          <p class="poster-detail poster-detail-data"> ??toeditsenna</p>
+          <p class="poster-detail poster-detail-data"> <%= @post.updated_at%></p>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
       <div class="post_item">
         <div style="display: block" class="report-label mb-1">Reward</div>
-        <div class="report-content"><i class="fa-solid fa-coins reward_coins"></i><%= @post.reward%></div>
+        <div class="reward-content"><i class="fa-solid fa-coins reward_coins"></i><%= @post.reward%> SGD</div>
       </div>
 
 <% if current_user and current_user.id == @user_id %>

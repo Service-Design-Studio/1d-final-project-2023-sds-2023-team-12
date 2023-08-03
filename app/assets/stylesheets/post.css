@@ -223,7 +223,7 @@ body{
 .report_header_breadcrumb{
    margin-top: 32px;
    margin-bottom: 32p;
-   margin-left: 48px;
+   margin-left: 20px;
 
    color: var(--gray-700, #2D3748);
    text-align: left;
@@ -422,13 +422,16 @@ body{
    font-size: 12px;
    font-weight: 600;
    line-height: 24px; /* 150% */
+   margin: 0;
+   padding: 0;
 }
 
 .poster-detail-data{
    text-decoration: underline;
    font-weight: 400;
    font-size: 16px;
-   
+   margin-bottom: 20px;
+   padding: 0;
 }
 
 .contain_image{
@@ -502,7 +505,6 @@ body{
    color: var(--gray-700, #2D3748);
    text-align: left;
    margin-top: 24px;
-   font-family: Inter;
    font-size: 20px;
    font-style: normal;
    font-weight: 600;
@@ -555,6 +557,7 @@ body{
 
 .case_post_image{
    padding-top: 20px;
+   margin-left: 20px;
 }
 
 .case_post_image img{
@@ -571,6 +574,16 @@ body{
    flex: 2;
    margin-right: 50px;
  }
+
+.reward-content {
+   border: none;
+   padding: 8px 8px;
+   margin: 0;
+   font-size: 20px;
+   flex: 2;
+   margin-right: 50px;
+   color: #F39C12;
+}
 
 /* *************************************** */
 
