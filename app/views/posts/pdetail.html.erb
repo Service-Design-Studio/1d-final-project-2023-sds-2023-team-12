@@ -13,52 +13,69 @@
   <% end %>
 <% end %>
 
+
 <div class="container_detail row animate__animated  animate__fadeInUp">
-<h1 class="case_header_breadcrumb">Case Details</h1>
-    <div class="column column_left">
-        <div class="contain_image">
-        <%= image_tag(@post.avatar) if @post.avatar.attached? %>
-        <%# <%= image_tag @post.image_url if @post.image%> 
+<h1 class="report_header_breadcrumb">Case Details</h1>
+
+<div class="row">
+
+    <div class="column column_left post_image_new">
+      <div class="case_post_image">
+        <%= image_tag @post.image_url if @post.image%>
         <div class="contact_person_detail">
         Posted by: <%=@user.full_name %>, Contact number: <%= @user.mobile_phone%>
-    </div>
-    </div>
+      </div>
+      </div>
     </div>
 
     <%# Gcloud test %>
     <%# <%= image_tag(@post.avatar, width: 200) if @post.avatar.attached? %> 
-
 <div class="column column_right">
+      <p class="form_headers post_item"> Basic Information </p>
 
-    <p class="case_headers">Basic Information</p>
-    
-    <h3 class="missing_case_labels">Full name<h3>
-    <p class="missing_case_content pe-3"><%=@post.full_name%></p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Full name</div>
+        <div class="report-content"><%= @post.full_name%></div>
+      </div>
 
-    <h3 class="missing_case_labels">Age<h3>
-    <p class="missing_case_content pe-3"><%=@post.age%></p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Age</div>
+        <div class="report-content"><%= @post.age%></div>
+      </div>
 
-    <h3 class="missing_case_labels">Gender<h3>
-    <p class="missing_case_content pe-3"><%=@post.gender%></p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Gender</div>
+        <div class="report-content"><%= @post.gender%></div>
+      </div>
 
-    <p class="case_headers">Last Seen</p>
-    
-    <h3 class="missing_case_labels">Location<h3>
-    <p class="missing_case_content pe-3"><%=@post.location%></p>
+      <p class="form_headers post_item"> Last Seen </p>
 
-    <h3 class="missing_case_labels">Missing Time<h3>
-    <p class="missing_case_content pe-3"><%= @post.missing_time.to_fs(:rfc822)%></p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Location</div>
+        <div class="report-content"><%= @post.location%></div>
+      </div>
 
-    <p class="case_headers">Description</p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Missing Time</div>
+        <div class="report-content"><%= @post.missing_time.to_fs(:rfc822) %></div>
+      </div>
 
-    <h3 class="missing_case_labels">Description<h3>
-    <p class="missing_case_content pe-5"><%=@post.store_description%></p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Description</div>
+        <div class="report-content"><%= @post.store_description%></div>
+      </div>
 
-    <h3 class="missing_case_labels">Special Note<h3>
-    <p class="missing_case_content pe-5"><%=@post.store_special_note%></p>
+      <p class="form_headers post_item"> Extra Information </p>
 
-    <h3 class="missing_case_labels">Reward<h3>
-    <p class="missing_case_content pe-5 reward_info"><i class="fa-solid fa-coins reward_coins"></i><%=@post.reward%> SGD</p>
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Special Note</div>
+        <div class="report-content"><%= @post.store_special_note%></div>
+      </div>
+
+      <div class="post_item">
+        <div style="display: block" class="report-label mb-1">Reward</div>
+        <div class="report-content"><i class="fa-solid fa-coins reward_coins"></i><%= @post.reward%></div>
+      </div>
 
 <% if current_user and current_user.id == @user_id %>
 
@@ -73,6 +90,7 @@
 <%end%>
 
 </h3>
+</div>
 </div>
 </div>
 

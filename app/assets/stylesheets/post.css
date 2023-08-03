@@ -292,7 +292,6 @@ body{
    font-size: 16px;
    flex: 2;
    margin-right: 50px;
-
  }
 
 
@@ -429,7 +428,7 @@ body{
 
 .contact_person_detail{
    margin-bottom: 15px;
-   font-size: 25px;
+   font-size: 20px;
     /* border-radius: 20px;
     border: 1px solid #FF4B2B;
     background-color: #FF4B2B; */
@@ -479,19 +478,6 @@ body{
    font-weight: 500;
 } */
 
-.case_header_breadcrumb{
-   margin-top: 32px;
-   margin-bottom: 32p;
-   margin-left: 48px;
-
-   color: var(--gray-700, #2D3748);
-   text-align: left;
-   font-size: 20px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: 24px; /* 150% */
-}
-
 .missing_case_labels{
    /* font-weight: bold;
    color: #000000; */
@@ -508,7 +494,7 @@ body{
    color: var(--gray-700, #2D3748);
    text-align: left;
    margin-top: 24px;
-   font-family: Inter;
+   font-family: Inter, sans-serif;
    font-size: 24px;
    font-style: normal;
    font-weight: 600;
@@ -579,7 +565,24 @@ body{
    font-weight: 700;
 }
 
+.case_post_image{
+   padding-top: 20px;
+}
 
+.case_post_image img{
+   display: block;
+   width: 100%;
+   height: 80%;
+}
+
+.report-content {
+   border: none;
+   padding: 8px 8px;
+   margin: 0;
+   font-size: 16px;
+   flex: 2;
+   margin-right: 50px;
+ }
 
 /* *************************************** */
 /*  For Public Contribution */
@@ -617,6 +620,10 @@ body{
 .filter_content>h2:nth-of-type(1){
    color: #000000;
    font-size: 20px;
+}
+
+.filter_checkbox{
+
 }
 
 /* FILTERING ENDS */
