@@ -19,7 +19,7 @@ Given(/^I am on "([^"]*)" page for a particular post$/) do |page_name|
     click_button 'Log in'
     route = CapybaraHelper::PAGE_MAP["Home".to_sym]
 
-    click_on("Report Case")
+    click_on("Report")
 
     case page_name 
     when "Post Detail"
@@ -44,7 +44,7 @@ Given(/^I am on "([^"]*)" page for a particular post$/) do |page_name|
 
     case page_name
     when "Post Detail"
-        expect(page).to have_content("Missing Case Detail")
+        expect(page).to have_content("Case Details")
     when "Edit"
         button_name="Edit Post"
         button_name=button_name.to_sym

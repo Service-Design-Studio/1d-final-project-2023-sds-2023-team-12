@@ -11,8 +11,8 @@ Background: User as general public can view post detail and create a comment
 Scenario: Creating a comment given the user is logged in 
     Given I am logged in as general public
     And I am on Post Detail page for missing person name "David"
-    Then I should see "Missing Case Detail"
-    And I should see "Welcome Public Contribution"
+    Then I should see "Case Details"
+    And I should see "Public Contribution"
     Then I fill in comment field with "I saw one person that look like your missing loved one"
     And I click on the "Create Comment" button
     Then I should see "I saw one person that look like your missing loved one"
@@ -46,8 +46,8 @@ Scenario: Updating a comment
 Scenario: Unsuccessfully creating a comment because user left the comment field empty 
     Given I am logged in as general public
     And I am on Post Detail page for missing person name "David"
-    Then I should see "Missing Case Detail"
-    And I should see "Welcome Public Contribution"
+    Then I should see "Case Details"
+    And I should see "Public Contribution"
     Then I fill in comment field with ""
     And I click on the "Create Comment" button
     Then I should stay on same Post Detail page for missing person name "David"
