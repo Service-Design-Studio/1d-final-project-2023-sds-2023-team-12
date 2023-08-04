@@ -224,7 +224,7 @@ User.where(“EXTRACT(MONTH FROM created_at)=?”,7)
 ```
 
 ### 2. Prepare Testing Database
-> Note: Database schema for Rails application are synchronized for all three development, namely development, testing and production. However, data stored in database for each environment differ from one another. Any change in schema in development environment should be reflection to testing environment.
+> Note: Database schema for Rails application are synchronized for all three development, namely development, testing and production. However, data stored in database for each environment differ from one another. Any change in schema in development environment should be reflected to testing environment.
 
 > Note: Seeding data using rails db:seed will add data to both testing and development environment, however data created in development environment will not be added to testing environment.
 
