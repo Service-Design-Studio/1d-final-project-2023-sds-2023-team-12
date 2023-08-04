@@ -31,12 +31,12 @@ As an information portal, AMADEUS allows admin users to upload important article
 <!-- Acknewledgment -->
 # Acknowledgments
 
-1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Technical Lead + Fullstack Developer + QA Engineer)
-2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee  (Project Manager + Product Designer)
-3. Cephas Yeo Zhi Hao (ML Engineer + Software Tester)  
-4. Saw Yi Xuan - Software (Tester)
-5. Ayu Permata Halim Mendoza (Software Tester + Product Management)
-6. Senna Lin Tan (Graphic Design) 
+1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
+2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee  (Deputy Project Manager + Product Designer + Frontend engineer)
+3. Cephas Yeo Zhi Hao (ML/AI Engineer + QA Engineer)  
+4. Saw Yi Xuan - Software (QA Engineer)
+5. Ayu Permata Halim Mendoza (Frontend Engineer + Product Management)
+6. Senna Lin Tan (Graphic Design + Frontend Engineer) 
 
 <!-- Getting started -->
 
