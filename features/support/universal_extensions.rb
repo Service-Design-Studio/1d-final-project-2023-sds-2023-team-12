@@ -25,7 +25,10 @@ module CapybaraHelper
     "Edit": "edit-comment-button",
     "Edit Post": "edit-post-button",
     "Cancel": "cancel-button",
-    "Update Post": "update-post-button"
+    "Update Post": "update-post-button",
+    "Question one": "button-answer-one",
+    "Question two": "button-answer-two",
+    "Question three": "button-answer-three"
   }
 
   FORM_BUTTON_MAP = {
