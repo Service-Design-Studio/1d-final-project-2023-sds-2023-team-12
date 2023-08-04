@@ -842,8 +842,6 @@ body{
 }
 .profile-content{
    height: 100%;
-   position: relative;
-   float: left;
    background: white;
    border-radius: 6px;
    border: 0.50px solid var(--gray-200, #E2E8F0);
@@ -854,7 +852,7 @@ body{
    padding-top: 5px;
    padding-left: 10px;
    height: 350px;
-   width: 330px;
+   width: 300px;
 }
 
 .edit-profile-button{
@@ -881,4 +879,9 @@ body{
    line-height: 24px;
    word-wrap: break-word;
 
+}
+
+.my-cases{
+   margin-left: 20px;
+   margin-right: 0px;
 }

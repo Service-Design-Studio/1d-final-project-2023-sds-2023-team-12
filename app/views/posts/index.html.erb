@@ -6,7 +6,7 @@
 <%# for my cases page %>
 <% if params[:user_id]%>
   <div class="width_ninety_for_profile row">
-    <div class="col-3 profile-content">
+    <div class="profile-content col-3">
       <div class="container-account-details">
         <div class="account-details-header">Account Details</div>
 
@@ -31,18 +31,18 @@
       </div>
     </div>
 
-    <div class="for_all_cases col-8 row-5">
-      <div class="cases-header">My Cases</div>
+      <div class="for_all_cases col-9 my-cases">
+        <div class="cases-header">My Cases</div>
 
-        <div id="posts" class="project_showcase row">
+          <div id="posts" class="project_showcase row">
 
           <% @posts.each do |post| %>
             <%= render post %>
           <% end %>
 
+        </div>
       </div>
     </div>
-  </div>
 
 <%# for browse cases page %>
 <% else %>
