@@ -47,15 +47,11 @@
     </div>
 
     <div class="actions update_button_cover">
-      <%= f.submit "Update", class: "update_button" %>
+      <%= f.submit "Save Changes", class: "update_button" %>
+      <div style: align-items: center></div>
     </div>
   <% end %>
-  
 
-<h3 class="delete_account_header">Delete your account?</h3>
 
 <div>
-<%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "delete_account_button" %></div>
-
-<%= link_to "Back", :back %>
-</div>
+<%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "delete_account_button" %></div>

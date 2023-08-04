@@ -58,7 +58,7 @@
 }
 
 .centralize-form {
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -180,17 +180,16 @@ margin-bottom: 15px;
 }
 
 .update_button{
-  border-radius: 10px;
   border: 1px solid #e53e3e;
   background-color: #e53e3e;
   color: #FFFFFF;
-  font-size: 15px; /* Adjust the font size as desired */
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 12px; /* Adjust the font size as desired */
+  font-weight: normal;
   padding: 10px 25px;
   letter-spacing: 1px;
-  text-transform: uppercase;
   transition: transform 80ms ease-in;
-  display: block;
+  
 }
 
 .update_button_cover{
@@ -223,10 +222,11 @@ text-align:center;
 }
 
 .delete_account_button{
-border-radius: 10px;
-  border: 2px solid #b72c0d;
-  color: #000000;
-  font-size: 15px; /* Adjust the font size as desired */
+  border: 1px solid #FF4B2B;
+  background-color: #FFFFFF;
+  color: #FF4B2B;
+  border-radius: 6px;
+  font-size: 12px; /* Adjust the font size as desired */
   font-weight: normal;
   padding: 10px 25px;
   letter-spacing: 1px;
