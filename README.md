@@ -17,7 +17,7 @@
 
 <div align="center">
 
-[Design Workbook](https://pages.github.com/). [Google Site](https://pages.github.com/). [Demo Video](https://pages.github.com/)
+[Design Workbook](https://docs.google.com/document/d/16COJjqF0mA2ArpqxF8cm82YeVSxkOZuwUAbKLCD6a-8/edit#heading=h.30mvr6mmd9p3). [Google Site](https://sites.google.com/mymail.sutd.edu.sg/teamserverline/home). [Demo Video](https://pages.github.com/)
 
 </div>
 
@@ -30,12 +30,13 @@ As an information portal, AMADEUS allows admin users to upload important article
 
 <!-- Acknewledgment -->
 # Acknowledgments
-1. Tran Cong Nam Anh (Louis) [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) Technical Lead + Fullstack Developer + QA Engineer
-2. Nada Khan - Project Manager + Product Designer
-3. Cephas Yeo - ML Engineer + Software Tester  
-4. Yi Xuan - Software Tester
-5. Ayu - Software Tester + Product Management
-6. Senna - Graphic Design 
+
+1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
+2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee  (Deputy Project Manager + Product Designer + Frontend engineer)
+3. Cephas Yeo Zhi Hao (ML/AI Engineer + QA Engineer)  
+4. Saw Yi Xuan - Software (QA Engineer)
+5. Ayu Permata Halim Mendoza (Frontend Engineer + Product Management)
+6. Senna Lin Tan (Graphic Design + Frontend Engineer) 
 
 <!-- Getting started -->
 
@@ -222,14 +223,60 @@ User.where(“EXTRACT(MONTH FROM created_at)=?”,7)
 
 ```
 
+### 2. Prepare Testing Database
+> Note: Database schema for Rails application are synchronized for all three development, namely development, testing and production. However, data stored in database for each environment differ from one another. Any change in schema in development environment should be reflected to testing environment.
 
+> Note: Seeding data using rails db:seed will add data to both testing and development environment, however data created in development environment will not be added to testing environment.
 
+Run these commands
 
+```
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
+```
 
+Optionally add some seed data in db/seeds.rb using the following command
 
+```
+rake db:seed
+```
 
+If any change made in schema in development, use this command to apply change to testing schema. 
 
+```
+bin/rails db:migrate RAILS_ENV=test
+```
 
+## Testing
+
+### 1. Acceptance/System Testing Using Cucumber
+
++ All features/user stories along with happy and sad path scenarios are under [./features](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/features)
++ All other steps definitions are under [./features/step_definitions](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/features/step_definitions)
++ Capybara helper under [./features/support/universal_extensions.rb](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/blob/main/features/support/universal_extensions.rb)
+
+Run acceptance test using the following command
+```
+bundle exec cucumber
+```
+
+### 2. Unit Testing 
+
++ 2.1 Using Minitest
+Testing are defined under [./test](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/test)
+
+Run unit testing using Minitest
+```
+bundle exec cucumber
+```
+
++ 2.2 Using Rspec
+Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
+
+Run unit testing using Rspec 
+```
+rspec
+```
 
 
 

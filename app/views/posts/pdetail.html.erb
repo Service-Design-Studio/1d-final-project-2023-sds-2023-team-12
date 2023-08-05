@@ -124,22 +124,22 @@
 
   <div class="common_asked_answer_content">
 
-    <div class="for_each_question">
-      <button class="button-answer-ai" id="first_openai_request">What should I do if i suspect someone is <%= @post.full_name%>?</button>
-      <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="first_answer_from_open_ai">
-          <h4 class="loading"> Please wait while our AI tool generates an answer for you!</h4>
-      </div>
+  <div class="for_each_question">
+    <button class="button-answer-ai button-answer-one" id="first_openai_request">What should I do if i suspect someone is <%= @post.full_name%>?</button>
+    <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="first_answer_from_open_ai">
+        <h4 class="loading">Please wait while our AI tool generates an answer for you!</h4>
     </div>
+  </div>
 
-    <div class="for_each_question">
-      <button class="button-answer-ai" id="second_openai_request">Given <%= @post.full_name%>'s condition, what is the most appropriate way to approach <%= @post.full_name%>?</button>
-      <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="second_answer_from_open_ai">
-      <h4 class="loading">Please wait while our AI tool generates an answer for you!</h4>
-      </div>
+  <div class="for_each_question">
+    <button class="button-answer-ai button-answer-two" id="second_openai_request">Given <%= @post.full_name%>'s condition, what is the most appropriate way to approach <%= @post.full_name%>?</button>
+    <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="second_answer_from_open_ai">
+    <h4 class="loading">Please wait while our AI tool generates an answer for you!</h4>
     </div>
+  </div>
 
-    <div class="for_each_question">
-      <button class="button-answer-ai" id="third_openai_request">Based on description provided during reporting process, our app generated photo to help with recognization and facilitate searching process?</button>
+  <div class="for_each_question">
+    <button class="button-answer-ai button-answer-three" id="third_openai_request">Based on description provided during reporting process, our app generated photo to help with recognization and facilitate searching process?</button>
 
       <div class="answer_from_open_ai animate__animated animate__fadeInRight" id="third_answer_from_open_ai">
           <h4 class="loading" id="should_be_hidden">Please wait while our AI tool generates an image for you!</h4>
