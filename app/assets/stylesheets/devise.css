@@ -204,6 +204,9 @@ font-weight: normal;
 margin: 0;
 }
 
+.save-changes-button-margin{
+  margin-left:128px;
+}
 .delete_account_header{
 color: #b72c0d;
 font-size: 20px;
