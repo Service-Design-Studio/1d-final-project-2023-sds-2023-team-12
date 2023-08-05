@@ -21,7 +21,7 @@
 
     <div class="column column_left post_image_new">
       <div class="case_post_image">
-        <%= image_tag @post.image_url if @post.image%>
+        <%= image_tag(@post.avatar) if @post.avatar.attached? %>
         <br>
 
         <div>
