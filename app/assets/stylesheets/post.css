@@ -856,7 +856,7 @@ body{
 }
 
 .edit-profile-button{
-   font-size: 10px;
+   font-size: 15px;
    height: 100%;
    width: 100%;
    border-radius: 6px;
@@ -866,8 +866,12 @@ body{
 
    padding-left: 10px;
    padding-right: 10px;
-   height: 20px;
-   width: 100px;
+   height: 48px;
+   width: 120px;
+}
+
+.edit-button-margin{
+   margin-left: 55px;
 }
 
 .cases-header{
