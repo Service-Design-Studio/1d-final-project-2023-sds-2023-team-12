@@ -26,15 +26,15 @@
 
 # Our Mission
 
-As an information portal, AMADEUS allows admin users to upload important articles, which are tagged, categorised and summarised by varying forms of artificial intelligence. Making use of Google's Cloud APIs, AMADEUS is able to effectively tackle the large diversity and high volumes of relevant information for its users.
+Our innovative application, Missing Persons, serves as a comprehensive platform for users to report and seek their missing loved ones by providing detailed information, thereby facilitating the search for other missing individuals. This user-friendly app boasts an array of features, including advanced language detection that enables users to effortlessly fill up forms in their preferred language.
 
 <!-- Acknewledgment -->
 # Acknowledgments
 
 1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
 2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee  (Deputy Project Manager + Product Designer + Frontend engineer)
-3. Cephas Yeo Zhi Hao (ML/AI Engineer + QA Engineer)  
-4. Saw Yi Xuan - Software (QA Engineer)
+3. Cephas Yeo Zhi Hao (ML/AI Engineer + QA Engineer)
+4. Saw Yi Xuan - Software (QA Engineer + Product Management)
 5. Ayu Permata Halim Mendoza (Frontend Engineer + Product Management)
 6. Senna Lin Tan (Graphic Design + Frontend Engineer) 
 
@@ -267,7 +267,7 @@ Testing are defined under [./test](https://github.com/Service-Design-Studio/1d-f
 
 Run unit testing using Minitest
 ```
-bundle exec cucumber
+rails test
 ```
 
 + 2.2 Using Rspec
