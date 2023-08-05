@@ -15,6 +15,5 @@ RSpec.describe Post, type: :model do
     it { should validate_presence_of(:special_note) }
     it { should validate_presence_of(:missing_time) }
     it { should validate_numericality_of(:reward).is_greater_than_or_equal_to(0) } 
-
   end
 end

@@ -5,13 +5,12 @@ class ApplicationController < ActionController::Base
 
 #     Set up questions for OPENAI
     def self.question_one name
-     return "#{name} is a missing person in Singapore, If I meet #{name} in real life, what should i do" 
+     return "I have seen someone that I suspect is #{name}. What should I do?" 
     end
 
     def self.question_two name, special_note
-     return """#{name} is a person that went missing in Singapore, and given #{}'s heath and mental condition provided below:
-     special note: #{special_note} 
-     please tell me the most appropriate way to approach #{name}""" 
+     return """Given #{name}'s heath and mental condition specified:
+     What is the most appropriate way to approach #{name}?""" 
     end
 
     def self.question_third description,name
@@ -28,7 +27,7 @@ class ApplicationController < ActionController::Base
               devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:full_name,:mobile_phone, :email, :password, :current_password)}
          end
          
-     # Function to handle API call
+#      # Function to handle API call
      def response_from_api_call single_line_string
           api_key='AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8Xg'
           uri_string = 'https://translation.googleapis.com/language/translate/v2?key='+api_key
@@ -51,6 +50,53 @@ EOS
           output[:translatedText]=response_data["data"]["translations"][0]["translatedText"]
           return output
      end
+
+# Function to handle API call
+def response_from_api_call_test(single_line_string)
+     # api_key = 'AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8Xg'
+     api_key = 'AIzaSyD_7AsEHBZ1zOq0ANvxwYV_7E706lhp8'
+
+     uri_string = 'https://translation.googleapis.com/language/translate/v2?key=' + api_key
+   
+     text_to_translate = <<~EOS
+       #{single_line_string}
+     EOS
+   
+     body_request = {
+       "q" => text_to_translate,
+       "target" => "en"
+     }.to_json
+   
+     req_uri = URI(uri_string)
+   
+     begin
+       res = Net::HTTP.post(req_uri, body_request, "Content-Type" => "application/json")
+       
+       # Check if the API call was successful
+       if res.is_a?(Net::HTTPSuccess)
+         response_data = JSON.parse(res.body)
+         output = Hash.new
+         output[:source_language] = response_data["data"]["translations"][0]["detectedSourceLanguage"]
+         output[:translatedText] = response_data["data"]["translations"][0]["translatedText"]
+         return output
+       else
+         # Handle non-successful responses (e.g., HTTP errors like 404, 500, etc.)
+         # You can raise an exception or return an appropriate error response.
+         raise StandardError, "API call failed with status code: #{res.code}"
+       end
+
+     rescue StandardError => e
+       # Handle any other exceptions that might occur during the API call (e.g., network errors)
+       # You can log the error, send an alert, or return a user-friendly error response.
+       puts "API call failed: #{e.message}"
+       output = Hash.new
+       output[:source_language] = "FAILED"
+       output[:translatedText] = "FAILED"
+       return output
+     end
+   end
+
+
 
      # Function return country name based on country code returned by user 
      def return_country_base_on_code country_code
@@ -201,18 +247,79 @@ EOS
      end
 
      # Handle Open AI Api
-     def response_text_from_openai_api_call content
-          require 'ruby/openai'
-          client = OpenAI::Client.new
-          response = client.chat(
-          parameters: {
-            model: "gpt-3.5-turbo", # Required.
-            messages: [{ role: "user", content: content}], # Required.
-            temperature: 0.7,
-          })
+     # def response_text_from_openai_api_call content
+     #      require 'ruby/openai'
+     #      client = OpenAI::Client.new
+     #      response = client.chat(
+     #      parameters: {
+     #        model: "gpt-3.5-turbo", # Required.
+     #        messages: [{ role: "user", content: content}], # Required.
+     #        temperature: 0.7,
+     #      })
           
-          return response.dig("choices", 0, "message", "content")
+     #      return response.dig("choices", 0, "message", "content")
+     # end
+
+     require 'net/http'
+     require 'uri'
+     require 'json'
+     require 'openssl'
+     
+     def response_text_from_openai_api_call(description, special_note, full_name, question_number)
+       if question_number == 1
+         prompt = "This is a text about a missing person. If I meet someone I suspect of being this person in real life, what should I do? Make the answer very detailed and specialised to this individual, so that I can use this information. Provide a step-by-step answer."
+       else
+         prompt = "This is a text about a missing person. Given this person's special note, what should I do when approaching this person? Make the answer very detailed and specialised to this individual, so that I can use this information. Provide a step-by-step answer."
+       end
+     
+       # Prepare the data to be sent in JSON format
+       data = {
+         "description": description,
+         "special_note": special_note,
+         "full_name": full_name,
+         "prompt": prompt
+       }
+     
+       # Convert the hash to a JSON string
+       json_data = data.to_json
+     
+       flask_microservice_url = 'https://vertexai-3rguewzela-as.a.run.app/process-text'
+     
+       # Prepare request to the Flask microservice with HTTPS
+       uri = URI(flask_microservice_url)
+       http = Net::HTTP.new(uri.host, uri.port)
+       http.use_ssl = true # Enable HTTPS
+       http.verify_mode = OpenSSL::SSL::VERIFY_PEER # Optionally, set the SSL verification mode
+     
+       request = Net::HTTP::Post.new(uri.path, { 'Content-Type' => 'application/json' }) #create new HTTP Post request to specific URI path
+       request.body = json_data
+     
+       response = http.request(request)
+     
+       if response.is_a?(Net::HTTPSuccess)
+         # The response body is in plain text, so no need to parse JSON
+         result = response.body
+         result # Return the generated prompt
+       else
+         error_message = 'Connection to Flask microservice failed'
+         error_message
+       end
      end
+     
+
+
+     #      require 'ruby/openai'
+     #      client = OpenAI::Client.new
+     #      response = client.chat(
+     #      parameters: {
+     #        model: "gpt-3.5-turbo", # Required.
+     #        messages: [{ role: "user", content: content}], # Required.
+     #        temperature: 0.7,
+     #      })
+          
+     #      return response.dig("choices", 0, "message", "content")
+     # end
+
 
      def response_text_edit_from_openai_api_call input,name
           require 'ruby/openai'

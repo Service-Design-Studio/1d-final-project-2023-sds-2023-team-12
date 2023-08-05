@@ -45,8 +45,14 @@ class PostsController < ApplicationController
 
 
 
-      
-      
+      if params[:genders].present?
+        selected_genders = params[:genders]
+        @posts = @posts.where(gender: selected_genders)
+      else
+        @selected_genders = []
+      end
+
+
 
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
@@ -58,12 +64,6 @@ class PostsController < ApplicationController
     @sort_by = params[:sort_by] || 'recently_posted'
 
   end
-
-
-  
-
-
-
 
 
   # GET /posts/1 or /posts/1.json
@@ -192,14 +192,15 @@ class PostsController < ApplicationController
   # The following three actions handle API call front end side and only return JSON objects
   def question_1
     @post=Post.find_by(id: params[:id])
-    first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
+    # first_answer=response_text_from_openai_api_call(ApplicationController.question_one(@post.full_name))
+    first_answer=response_text_from_openai_api_call(@post.store_description, @post.special_note, @post.full_name, 1)
 
     render json: { status: "success", data: first_answer }  
   end
 
   def question_2
     @post=Post.find_by(id: params[:id])
-    second_answer=response_text_from_openai_api_call(ApplicationController.question_two(@post.full_name,@post.special_note))
+    second_answer=response_text_from_openai_api_call(@post.store_description, @post.special_note, @post.full_name, 2)
 
     render json: { status: "success", data: second_answer }  
   end

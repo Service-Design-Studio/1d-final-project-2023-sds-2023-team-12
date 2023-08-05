@@ -18,4 +18,11 @@ FactoryBot.define do
         gender {"female"}
         reward {1000}
     end
+
+
+    factory :comment do
+      body {"test"}
+  end
+
+
 end
