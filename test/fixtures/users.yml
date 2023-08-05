@@ -3,9 +3,32 @@
 # This model initially had no columns defined. If you add columns to the
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+
+# Creating sample datas: a way of organising data to test against
+# Sample users
+
+user_one:
+  full_name: John Doe
+  mobile_phone: 12345678
+  email: john111@example.com
+  password: j0HnDoE
+
+
+user_two:
+  full_name: Jane Smith
+  mobile_phone: 98765432
+  email: jane222@example.com
+  password: jAnEsM1tH
+
+
+user_three:
+  full_name: Jason Tan
+  mobile_phone: 88887777
+  email: jason333@example.com
+  password: JAs0nTAn
+
+user_four:
+  full_name: Bobby Sim
+  mobile_phone: 90909090
+  email: bbobob@example.com
+  password: b0bBysIm
