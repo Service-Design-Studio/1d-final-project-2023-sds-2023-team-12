@@ -115,8 +115,23 @@ RSpec.describe PostsController, type: :controller do
       end
     end
 
+    ##### test searching function 
+    context 'testing searching functionality of post controller index action' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
 
+      end
 
+      it 'search by location of missing person' do
+        get :index, params: { search: "A" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+      end
+
+    end
 
 
     context 'with user_id parameter' do
