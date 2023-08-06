@@ -99,6 +99,22 @@ RSpec.describe PostsController, type: :controller do
       end
     end
 
+    context 'sort by gender - by female' do
+      it 'sort by gender - by female' do
+        user=create(:user)
+        male_post_missing_1=create(:post,gender: "Male",user: user)
+        male_post_missing_2=create(:post,gender: "Male",user: user)
+        female_post_missing_1=create(:post,gender: "Female",user: user)
+        female_post_missing_2=create(:post,gender: "Female",user: user)
+
+        get :index, params: {
+          genders: "Female"
+        }
+
+        expect(assigns(:posts)).to eq([female_post_missing_2, female_post_missing_1])
+      end
+    end
+
 
 
 
