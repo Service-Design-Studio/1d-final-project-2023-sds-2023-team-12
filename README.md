@@ -271,6 +271,7 @@ rails test
 ```
 
 + 2.2 Using Rspec
+  
 Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
 
 Run unit testing using Rspec 
