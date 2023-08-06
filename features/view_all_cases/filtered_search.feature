@@ -59,6 +59,7 @@ Feature: Filtered Search
             | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
             | Ayu Permata| 5      | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 29     |
 
+
     @sad_path
     Scenario: User searches for posts with specifc age but has no results
     Given the following posts exist:

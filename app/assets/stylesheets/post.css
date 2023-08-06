@@ -489,7 +489,7 @@ body{
    color: var(--gray-700, #2D3748);
    text-align: left;
    margin-top: 24px;
-   font-family: Inter, sans-serif;
+   font-family: 'Inter', sans-serif;
    font-size: 24px;
    font-style: normal;
    font-weight: 600;
@@ -713,7 +713,7 @@ body{
    color: var(--gray-700, #2D3748);
    text-align: left;
    margin-top: 24px;
-   font-family: Inter;
+   font-family: 'Inter', sans-serif;
    font-size: 20px;
    font-style: normal;
    font-weight: 600;
