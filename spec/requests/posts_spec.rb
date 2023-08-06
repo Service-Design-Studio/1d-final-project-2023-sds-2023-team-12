@@ -81,12 +81,27 @@ RSpec.describe PostsController, type: :controller do
         # Ensure the posts are ordered by missing_time in descending order
         expect(assigns(:posts)).to eq([high_reward_missing, low_reward_missing])
       end
-
-
-
-
-
     end
+
+    context 'sort by gender - by male' do
+      it 'sort by gender' do
+        user=create(:user)
+        male_post_missing_1=create(:post,gender: "Male",user: user)
+        male_post_missing_2=create(:post,gender: "Male",user: user)
+        female_post_missing_1=create(:post,gender: "Female",user: user)
+        female_post_missing_2=create(:post,gender: "Female",user: user)
+
+        get :index, params: {
+          genders: "Male"
+        }
+
+        expect(assigns(:posts)).to eq([male_post_missing_2, male_post_missing_1])
+      end
+    end
+
+
+
+
 
     context 'with user_id parameter' do
       it 'fetches posts for the given user' do
@@ -253,6 +268,8 @@ context 'valid input for post' do
           
     # end
 
+
+
   # destroy post 
   describe 'destroy an existing post in the database' do
     it 'sucessfully remove a new post' do
@@ -267,6 +284,8 @@ context 'valid input for post' do
         expect(response).to redirect_to(user_posts_path(new_user.id))
     end
   end 
+
+
 
   # post detail
   describe 'show detail of post' do
