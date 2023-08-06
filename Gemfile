@@ -71,7 +71,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rack_session_access', '>= 0.1.1'
   gem 'capybara', '>= 3.35.3'
-
+  gem 'capybara-screenshot'
   gem 'byebug'
   gem 'database_cleaner'
   gem 'sqlite3'

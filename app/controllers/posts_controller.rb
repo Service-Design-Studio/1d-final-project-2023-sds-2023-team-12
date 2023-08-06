@@ -3,13 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
-    if params[:search].present?
-      @posts = Post.search(params[:search])
-    end
 
     if !params.key?(:user_id) # show all cases
       #@posts = Post.all
+      @posts = Post.all
+      if params[:search].present?
+        @posts = Post.search(params[:search])
+      end
 
       #sort by dropdown
       sort_by = params[:sort_by]
@@ -52,16 +52,18 @@ class PostsController < ApplicationController
         @selected_genders = []
       end
 
+      # Storing selected filters to keep state persistent
+      @selected_age_categories = params[:age_categories] || []
+      @selected_genders = params[:genders] || [] 
+      @sort_by = params[:sort_by] || 'recently_posted'
+
 
 
     else # show your cases cases
       @posts = User.find_by(id: params[:user_id]).posts
     end
 
-    # Storing selected filters to keep state persistent
-    @selected_age_categories = params[:age_categories] || []
-    @selected_genders = params[:genders] || [] 
-    @sort_by = params[:sort_by]
+    
 
   end
 

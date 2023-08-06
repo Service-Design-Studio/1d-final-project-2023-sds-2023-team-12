@@ -3,7 +3,7 @@ Then(/^I should see "([^"]*)" section$/) do |msg|
 end
 
 Then(/^I should see correct answer$/) do
-    expect(page).to have_content("We are generating answer...Please wait !")
+    expect(page).to have_content("Please wait while our AI tool generates an answer for you!")
 end
 
 

@@ -52,7 +52,10 @@ end
 ## for filtered search
 When('I check the {string} age category') do |age_category|
   # Code to check the age category checkbox
-  find("input[type='checkbox'][name='age_categories[]'][value='#{age_category.downcase}']").check
+  find("input[type='checkbox'][name='age_categories[]'][value='#{age_category.downcase}']", wait: 10).check
+  
+
+  save_and_open_page # Add this line to save the screenshot
 end
 
 When('I click "Filter"') do
