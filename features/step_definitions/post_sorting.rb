@@ -26,7 +26,7 @@ end
 When('I select {string} from {string}') do |sorting_option, sort_by|
   # Code to select the given sorting option from the specified select field
   select sorting_option, from: sort_by
-  click_button 'Filter' 
+  click_button 'Search' 
 end
   
 Then('I should see the following posts in order:') do |table|
@@ -55,12 +55,12 @@ When('I check the {string} age category') do |age_category|
   find("input[type='checkbox'][name='age_categories[]'][value='#{age_category.downcase}']", wait: 10).check
   
 
-  save_and_open_page # Add this line to save the screenshot
+  #save_and_open_page 
 end
 
-When('I click "Filter"') do
-  # Code to click the "Filter" button
-  click_button('Filter')
+When('I click "Search"') do
+  # Code to click the "Search" button
+  click_button('Search')
 end
 
 When('I fill in "search" with {string}') do |search_query|
