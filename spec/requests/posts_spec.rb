@@ -139,6 +139,52 @@ RSpec.describe PostsController, type: :controller do
     end
 
 
+     ##### test searching function 
+     context 'testing filering posts using age_categories' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'search by location of missing person' do
+        get :index, params: { search: "A" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+      end
+
+      it 'search by name of missing person' do
+        get :index, params: { search: "Alpha" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+      end
+
+    end
+
+    # // Checking for consistent state 
+    context 'testing filering posts using age_categories' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'maintain state' do
+        get :index, params: { age_categories: [18], genders: ['Male'], sort_by: 'highest_rewards' }
+        expect(assigns(:selected_genders)).to eq(['Male'])
+        expect(assigns(:sort_by)).to eq('highest_rewards')
+        expect(assigns(:selected_age_categories)).to eq(["18"])
+
+      end
+
+    end
+
+
+
     context 'with user_id parameter' do
       it 'fetches posts for the given user' do
         user = create(:user)
