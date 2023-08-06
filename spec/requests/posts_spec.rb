@@ -131,6 +131,11 @@ RSpec.describe PostsController, type: :controller do
         expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
       end
 
+      it 'search by name of missing person' do
+        get :index, params: { search: "Alpha" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+      end
+
     end
 
 
