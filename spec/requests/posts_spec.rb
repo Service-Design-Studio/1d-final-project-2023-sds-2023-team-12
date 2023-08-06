@@ -68,6 +68,24 @@ RSpec.describe PostsController, type: :controller do
         # Ensure the posts are ordered by missing_time in descending order
         expect(assigns(:posts)).to eq([post_new_missing, post_old_missing])
       end
+
+      it 'sorts by higest rewards' do
+        # Create posts with different missing_time timestamps for ordering test
+        user=create(:user)
+        low_reward_missing = create(:post, reward: 300 ,user: user)
+        high_reward_missing = create(:post, reward: 500 , user: user)
+
+        # Send the request with sort_by parameter set to 'recently_missing'
+        get :index, params: { sort_by: 'highest_rewards' }
+
+        # Ensure the posts are ordered by missing_time in descending order
+        expect(assigns(:posts)).to eq([high_reward_missing, low_reward_missing])
+      end
+
+
+
+
+
     end
 
     context 'with user_id parameter' do
@@ -83,6 +101,9 @@ RSpec.describe PostsController, type: :controller do
       end
     end
   end
+
+
+
 
     # Test new action of post controller
     describe "GET #new" do
