@@ -35,10 +35,13 @@
         <div class="cases-header">My Cases</div>
 
           <div id="posts" class="project_showcase row">
-
-          <% @posts.each do |post| %>
-            <%= render post %>
-          <% end %>
+            <% if @posts.empty? %>
+              <p>No cases available</p>
+            <% else %>
+              <% @posts.each do |post| %>
+                <%= render post %>
+              <% end %>
+            <% end %>
 
         </div>
       </div>
@@ -105,9 +108,13 @@
       <h1 class="title_index_post">Cases</h1>
 
       <div id="posts" class="project_showcase row">
-          <% @posts.each do |post| %>
-              <%= render post %>
-          <% end %>
+          <% if @posts.empty? %>
+              <p>No cases available</p>
+            <% else %>
+              <% @posts.each do |post| %>
+                <%= render post %>
+              <% end %>
+            <% end %>
       </div>
     </div>
   </div>

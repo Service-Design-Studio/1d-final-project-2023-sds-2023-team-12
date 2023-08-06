@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     # Storing selected filters to keep state persistent
     @selected_age_categories = params[:age_categories] || []
     @selected_genders = params[:genders] || [] 
-    @sort_by = params[:sort_by] || 'recently_posted'
+    @sort_by = params[:sort_by]
 
   end
 
