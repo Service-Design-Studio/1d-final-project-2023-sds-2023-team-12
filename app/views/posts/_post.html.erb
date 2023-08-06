@@ -30,7 +30,7 @@
   <div id="<%= dom_id post %>" class="card-component">
       <div class="col_content">
           <div class="image_project">
-              <%= image_tag post.image_url if post.image%>   
+              <%= image_tag(post.avatar, width: 200) if post.avatar.attached? %> 
           </div>
 
           <div class="bottom">
