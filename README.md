@@ -158,6 +158,19 @@ set API_KEY=<your API key>
 rails server
 ```
 
+### 2. Run Flask application
+
+1. Ensure that you are in the vertexai directory!
+
+```
+cd vertexai
+```
+2. Deploy the Flask application which calls the text-bison-001 model from VertexAI
+
+```python
+python main.py
+```
+
 ## Troubleshooting
 
 ### 1. Inspect development database
