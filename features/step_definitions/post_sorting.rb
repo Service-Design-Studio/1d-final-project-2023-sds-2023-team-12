@@ -84,3 +84,9 @@ Then('I should see the following posts:') do |table|
     expect(displayed_posts).to include(expected_post)
   end
 end
+
+Then('I should see the message "No cases available"') do
+  error_message="No cases available"
+  puts error_message
+  expect(error_message).to include(error_message)
+end

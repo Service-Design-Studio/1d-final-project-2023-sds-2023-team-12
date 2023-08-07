@@ -68,7 +68,17 @@ Feature: Filtered Search
             | Ayu Permata | 5   | Tanah Merah | test              | nothing      | 2022-09-02 21:00   | 2022-09-03 09:00    | 29     |
     When I visit the posts page
     And I check the "senior" age category
-    Then I should see "No cases available"
+    Then I should see the message "No cases available"
+
+    @sad_path
+    Scenario: User searches for posts with specifc keyword but has no results
+    Given the following posts exist:
+            | full_name   | age | location    | description       | special_note | missing_time       | created_at          | reward |
+            | Louis Tran  | 18  | Tampines    | test description  | nil          | 2022-07-02 21:00   | 2022-07-03 09:00    | 54     |
+            | Ayu Permata | 5   | Tanah Merah | test              | nothing      | 2022-09-02 21:00   | 2022-09-03 09:00    | 29     |
+    When I visit the posts page
+    And I fill in "search" with "Cephas"
+    Then I should see the message "No cases available"
         
 
             
