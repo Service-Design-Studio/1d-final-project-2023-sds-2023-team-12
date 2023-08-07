@@ -6,7 +6,6 @@ post_one:
   location: Jurong Point
   description: Missing person description
   special_note: Important note
-  # avatar: 
   missing_time: Sat, 17 Jun 2023 21:33:00 +0000
   reward: 100
   user: user_one

@@ -1,3 +1,5 @@
+# Comment Controller Test
+
 require 'minitest_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
@@ -7,18 +9,22 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @comment = comments(:comment_one)
   end
 
+  # Testing to check if index action for comments is accessible
   test "should get index" do
     get comments_url
+    # Ensure the response status is 'success' (200)
     assert_response :success
 
   end
 
+  # Testing to check if the new comment page is accessible
   test "should get new" do
     get new_comment_url
     assert_response :success
 
   end
 
+  # Testing to check if a comment is created successfully
   test "should create comment" do
     post = posts(:post_one)
     user = users(:user_one)
@@ -44,19 +50,21 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_equal user, new_comment.user
   end
   
-
+  # Testing to check if the comment show action is functioning correctly
   test "should show comment" do
     get comment_url(@comment)
     assert_response :success
   end
 
+  # Testing to check if the edit comment page is accessible
   test "should get edit" do
     get edit_comment_url(@comment)
     assert_response :success
   end
 
+  # Testing to check if a comment is updated successfully
   test "should update comment" do
-    patch comment_url(@comment), params: {
+    patch comment_url(@comment), params: { # Sends a PATCH request to the update action with valid comment parameters
        comment: {
         body: @comment.body 
         } 
@@ -65,6 +73,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to show_post_detail_path(@comment.post_id)
   end
 
+  # Testing to check if a comment is deleted successfully
   test "should destroy comment" do
     assert_difference("Comment.count", -1) do
       delete comment_url(@comment)

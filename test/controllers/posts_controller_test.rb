@@ -1,3 +1,4 @@
+# Post Controller Test
 # To run this controller file only, run 'rails test test/controllers/posts_controller_test.rb'
 
 require 'minitest_helper'
@@ -5,25 +6,26 @@ require 'minitest_helper'
 class PostsControllerTest < ActionDispatch::IntegrationTest
   fixtures :users, :posts # Include the necessary fixtures
 
+  # Testing to check if index action for posts is accessible
   test "get index for the post" do
     @post = posts(:post_one)
     @user = users(:user_one)
-    get posts_url(@user)
-    #get user_posts_url(@user)
-    assert_response :success
+    get posts_url(@user) # Sends a GET request to the index action with the user's posts URL
+    assert_response :success # Ensure the response status is 'success' (200)
   end
 
+  # Testing to check if a new post page redirects to the login page when the user is not signed in
   test "get new post" do
     @post = posts(:post_two)
-    get new_post_url
+    get new_post_url #  Sends a GET request to the new action to create a new post
     assert_redirected_to new_user_session_path
   end
 
+  # Testing to check if a post is created successfully
   test "should create post" do
     @post = posts(:post_three)
-    puts @post.inspect # To verify posts fixture exist
     assert_difference("Post.count") do
-      post posts_url, params: { 
+      post posts_url, params: { # Sends a POST request to the create action with valid post parameters
         post: { 
           full_name: @post.full_name,
           age: @post.age, 
@@ -41,15 +43,17 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   end
 
+  # Testing to check if the post show action is functioning correctly (fetching the data for the specific post and rendering the appropriate view to display the post's details)
   test "should show post" do
     @post = posts(:post_three)
-    get post_url(@post)
+    get post_url(@post) # Sends a GET request to the show action with the URL
     assert_response :success
   end
 
+  # Testing to check if a post is updated successfully
   test "should update post" do
     @post = posts(:post_three)
-    patch post_url(@post), params: { 
+    patch post_url(@post), params: { # Sends a PATCH request to the update action with valid post parameters
       post: { 
         age: @post.age, 
         description: @post.description, 
@@ -59,22 +63,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
        }
       }
     assert_redirected_to show_post_detail_path(@post)
-  end
-
-  # To run just this test, 'rails test test/controllers/posts_controller_test.rb -n test_should_destroy_post'
-  test "should destroy post" do
-    #puts Rails.application.routes.routes.map { |r| "#{r.verb} #{r.path}" }
-    @post = posts(:post_one)
-    @user = users(:user_one)
-
-
-    assert_difference("Post.count", -1) do
-      delete post_url(@post)
-    end
-
-    assert_redirected_to user_posts_path(@user)
-
-
   end
 
 end

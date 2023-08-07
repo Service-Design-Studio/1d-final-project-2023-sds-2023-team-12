@@ -1,5 +1,6 @@
-require 'minitest_helper'
+# User Model Unit Test
 
+require 'minitest_helper'
 
 class UserUnitTest < ActiveSupport::TestCase
   fixtures :users # Explicitly include the necessary fixture users.yml
@@ -11,6 +12,8 @@ class UserUnitTest < ActiveSupport::TestCase
     assert_equal user.full_name, User.retrieve_user_name(comment)
   end
 
+  # User Authentication
+  
   # Testing if the user is valid when all mandatory fields: full_name, mobile_phone, email, password are filled
   test 'valid user when all fields are filled' do
     user = users(:user_two)
@@ -33,20 +36,19 @@ class UserUnitTest < ActiveSupport::TestCase
     assert_not user.valid?
   end
 
-  # Testing if the user is valid when the password field have >= 6 char 
-  # Boundary tests
-  test 'valid user if password hit char limit' do
-    user = users(:user_three)
-    user.password = 123456
-    assert user.valid?
-  end
-
-  # Testing if the user is valid when the password field have < 6 char
+  # Testing if the user is invalid when the password field have < 6 char
   # Boundary tests
   test 'invalid user if password do not hit char limit' do
     user = users(:user_three)
     user.password = 12345
     assert_not user.valid?
+  end
+
+  # Testing if the user is valid when the password field have >= 6 char 
+  test 'valid user if password hit char limit' do
+    user = users(:user_three)
+    user.password = 123456
+    assert user.valid?
   end
 
   # Add more tests as needed
