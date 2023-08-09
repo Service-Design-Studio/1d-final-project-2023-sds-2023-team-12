@@ -585,6 +585,14 @@ body{
    color: #F39C12;
 }
 
+.memo{
+   font-size: 14px;
+   font-style: italic;
+   margin-right: 0px;
+   padding-top: 0px;
+   color: #D30001;
+}
+
 /* *************************************** */
 
 

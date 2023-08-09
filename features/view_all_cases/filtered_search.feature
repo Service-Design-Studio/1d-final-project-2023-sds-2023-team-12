@@ -1,4 +1,8 @@
 Feature: Filtered Search
+As a general public user,
+I want to be able to display cases based on certain filters
+So that I can better navigate and browse through missing people cases
+
 
     @happy_path
     Scenario: User has no filters or search queries
