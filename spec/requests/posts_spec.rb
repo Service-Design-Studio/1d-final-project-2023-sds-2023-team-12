@@ -19,6 +19,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it 'return success request' do
+        get :index
         expect(response).to be_successful
       end
       ## front end ##
@@ -285,6 +286,9 @@ RSpec.describe PostsController, type: :controller do
         id: new_post.id
       }
       expect(response).to render_template(:edit)
+      # test front end
+      expect(response).to render_template(:edit)
+      expect(response).to be_successful
     end
   end 
 
@@ -312,6 +316,7 @@ RSpec.describe PostsController, type: :controller do
         }
       }
       expect(response).to render_template(:new)
+       # test front end
     end
 end 
 
@@ -411,6 +416,8 @@ context 'valid input for post' do
           id: new_post.id
         }
         expect(response).to redirect_to(user_posts_path(new_user.id))
+         # test front end
+      
     end
   end 
 
@@ -426,6 +433,9 @@ context 'valid input for post' do
           id: new_post.id  
         }
         expect(response).to be_successful
+         # test front end
+         expect(response).to render_template(:pdetail)
+         expect(response).to be_successful
     end
   end 
 
