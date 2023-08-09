@@ -1,0 +1,8 @@
+1. Before running the tests, ensure that the test database is clean and does not contain any existing user records.
+Enter command 'rails db:reset RAILS_ENV=test'
+
+2. To run Rspec unit test,
+Enter command 'bundle exec rspec spec/models'
+
+3. To run Rspec controller test,
+Enter command 'bundle exec rspec spec/requests'
