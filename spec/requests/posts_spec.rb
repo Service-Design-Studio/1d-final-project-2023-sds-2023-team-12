@@ -34,7 +34,7 @@ RSpec.describe PostsController, type: :controller do
         get :index
 
         # Expect the controller to assign the fetched posts to @posts
-        expect(assigns(:posts).size).to eq(3) # or expect(assigns(:posts).count).to eq(3)
+        expect(assigns(:posts).size).to eq(3) 
         ## test front end
         expect(response).to render_template(:index)
         expect(response).to be_successful
@@ -90,7 +90,6 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it 'sorts by higest rewards' do
-        # Create posts with different missing_time timestamps for ordering test
         user=create(:user)
         low_reward_missing = create(:post, reward: 300 ,user: user)
         high_reward_missing = create(:post, reward: 500 , user: user)
@@ -263,7 +262,6 @@ RSpec.describe PostsController, type: :controller do
 
     context "when user is signed in" do
       it "renders the new post form" do
-        # Create a user and sign them in (Assuming you have Devise or a similar authentication system)
         new_user = FactoryBot.build :user
 
         sign_in new_user

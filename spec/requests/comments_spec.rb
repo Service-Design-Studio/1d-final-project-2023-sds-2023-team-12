@@ -40,6 +40,11 @@ RSpec.describe CommentsController, type: :controller do
             get :new
             expect(response).to render_template(:new)
         end
+
+        it "returns HTTP status 200" do
+            get :index
+            expect(response).to have_http_status(200)
+          end
     end
 
      ############################################################
@@ -108,6 +113,8 @@ RSpec.describe CommentsController, type: :controller do
                     }
 
                     expect(response).to redirect_to(show_post_detail_path(@post.id))
+                         # test front end
+                         expect(response).to have_http_status(302)
                 end
 
                 it 'give successfully comment created notification' do
@@ -120,6 +127,9 @@ RSpec.describe CommentsController, type: :controller do
                     }
 
                     expect(flash[:notice]).to eq("Comment was successfully created.")
+                    # test front end
+                    expect(response).to have_http_status(302)
+
                 end
             end
 
@@ -134,6 +144,8 @@ RSpec.describe CommentsController, type: :controller do
                     }
 
                     expect(response).to redirect_to(show_post_detail_path(@post.id))
+                    # test front end
+                    expect(response).to have_http_status(302)
                 end
 
                 it 'give unsuccessful comment created notification' do
@@ -146,6 +158,8 @@ RSpec.describe CommentsController, type: :controller do
                     }
 
                     expect(flash[:notice]).to eq("Comment can not be empty")
+                    # test front end
+                    expect(response).to have_http_status(302)
                 end
 
                 it 'display alert' do
@@ -158,6 +172,8 @@ RSpec.describe CommentsController, type: :controller do
                     }
 
                     expect(flash[:alert]).to eq("Got alert")
+                    # test front end
+                    expect(response).to have_http_status(302)
                 end
             end
         end
@@ -192,6 +208,11 @@ RSpec.describe CommentsController, type: :controller do
 
         it 'redirected to show all post detail' do
             expect(response).to redirect_to(show_post_detail_path(@post.id))
+        end
+
+        # test front end
+        it 'should have 302 redirect' do
+            expect(response).to have_http_status(302)
         end
 
         it 'show successful notification' do
@@ -248,6 +269,11 @@ end
 
     it 'display notification for succesfull comment destroyed' do
         expect(flash[:notice]).to eq("Comment was successfully destroyed.")
+    end
+
+     # test front end
+     it 'should have 302 redirect' do
+        expect(response).to have_http_status(302)
     end
   end
 
