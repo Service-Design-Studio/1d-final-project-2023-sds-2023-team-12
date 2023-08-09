@@ -12,10 +12,16 @@ RSpec.describe PostsController, type: :controller do
 
     # Test index action of post controller
     describe 'GET #index' do
+      ## Unit testing for front end
       it 'renders the index template' do
         get :index
         expect(response).to render_template(:index)
       end
+
+      it 'return success request' do
+        expect(response).to be_successful
+      end
+      ## front end ##
 
     context 'with no search parameter' do
       it 'fetches all posts' do
@@ -28,6 +34,10 @@ RSpec.describe PostsController, type: :controller do
 
         # Expect the controller to assign the fetched posts to @posts
         expect(assigns(:posts).size).to eq(3) # or expect(assigns(:posts).count).to eq(3)
+        ## test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+
       end
 
       it 'sorts by alphabetical order' do
@@ -41,6 +51,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by full_name in ascending order
         expect(assigns(:posts)).to eq([post_a, post_b])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
       it 'sorts by recently posted' do
@@ -54,6 +67,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by created_at in descending order
         expect(assigns(:posts)).to eq([post_new, post_old])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
       it 'sorts by recently missing' do
@@ -67,6 +83,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by missing_time in descending order
         expect(assigns(:posts)).to eq([post_new_missing, post_old_missing])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
       it 'sorts by higest rewards' do
@@ -80,6 +99,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by missing_time in descending order
         expect(assigns(:posts)).to eq([high_reward_missing, low_reward_missing])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
     end
 
@@ -96,6 +118,9 @@ RSpec.describe PostsController, type: :controller do
         }
 
         expect(assigns(:posts)).to eq([male_post_missing_2, male_post_missing_1])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
     end
 
@@ -112,6 +137,9 @@ RSpec.describe PostsController, type: :controller do
         }
 
         expect(assigns(:posts)).to eq([female_post_missing_2, female_post_missing_1])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
     end
 
@@ -129,11 +157,17 @@ RSpec.describe PostsController, type: :controller do
       it 'search by location of missing person' do
         get :index, params: { search: "A" }
         expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
       it 'search by name of missing person' do
         get :index, params: { search: "Alpha" }
         expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
     end
@@ -153,11 +187,17 @@ RSpec.describe PostsController, type: :controller do
       it 'search by location of missing person' do
         get :index, params: { search: "A" }
         expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+         # test front end
+         expect(response).to render_template(:index)
+         expect(response).to be_successful
       end
 
       it 'search by name of missing person' do
         get :index, params: { search: "Alpha" }
         expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
     end
@@ -179,6 +219,10 @@ RSpec.describe PostsController, type: :controller do
         expect(assigns(:sort_by)).to eq('highest_rewards')
         expect(assigns(:selected_age_categories)).to eq(["18"])
 
+         # test front end
+         expect(response).to render_template(:index)
+         expect(response).to be_successful
+
       end
 
     end
@@ -195,6 +239,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the correct user's posts are fetched
         expect(assigns(:posts)).to eq(user_posts)
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
     end
   end
