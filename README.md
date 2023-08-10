@@ -26,7 +26,7 @@
 
 # Our Mission
 
-Our innovative application, Missing Persons, serves as a comprehensive platform for users to report and seek their missing loved ones by providing detailed information, thereby facilitating the search for other missing individuals. This user-friendly app boasts an array of features, including advanced language detection that enables users to effortlessly fill up forms in their preferred language.
+Our innovative application, Missing Network, serves as a comprehensive platform for users to report and seek their missing loved ones by providing detailed information, thereby facilitating the search for other missing individuals by enlistihng the help of members of the public. This user-friendly app boasts an array of features, including advanced language detection that enables users to effortlessly fill up forms in their preferred language and AI generated prompts to assist users by providing contextually relevant prompts to properly look out for and communicate with the missing individual, improving the effectiveness of the search process.
 
 <!-- Acknewledgment -->
 # Acknowledgments
