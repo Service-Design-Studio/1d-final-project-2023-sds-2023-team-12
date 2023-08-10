@@ -301,7 +301,8 @@ Run fuzzing using Rspec
 bundle exec rspec spec/email_fuzz_spec.rb
 bundle exec rspec spec/password_fuzz_spec.rb
 ```
-
+Testing are defined under [./spec/fuzzing_test](
+https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/fuzzing_test)
 
 
 
