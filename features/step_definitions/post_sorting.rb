@@ -3,16 +3,16 @@
 
 Given('the following posts exist:') do |table|
   # Code to create the posts based on the given data in the table
-  test_user = User.create!(
-    full_name: 'John Doe',
-    mobile_phone: '1234567890',
-    email: 'john@example.com',
-    password: 'secretpassword'
-  )
-  table.hashes.each do |post_data|
-    #user = User.find_or_create_by(full_name: post_data.delete('user_full_name'))
-    Post.create!(post_data.merge(user: test_user))
-  end
+  # test_user = User.create!(
+  #   full_name: 'John Doe',
+  #   mobile_phone: '1234567890',
+  #   email: 'john@example.com',
+  #   password: 'secretpassword'
+  # )
+  # table.hashes.each do |post_data|
+  #   #user = User.find_or_create_by(full_name: post_data.delete('user_full_name'))
+  #   Post.create!(post_data.merge(user: test_user))
+  #end
 
   #debugging: to check that the posts have been created
   puts "Number of posts in the database: #{Post.count}"

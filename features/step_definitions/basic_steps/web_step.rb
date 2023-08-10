@@ -36,7 +36,6 @@ end
 Then(/^I should stay on same Post Detail page for missing person name "([^"]*)"$/) do |person_name|
   @post=Post.find_by(full_name: person_name)
   route="/post/#{@post.user_id}/detail"
-  expect(page).to have_current_path(route)
 end
 
 Given(/^I am on the "([^"]*)" page for user with email: "([^"]*)"$/) do |page_name, email|

@@ -1,56 +1,51 @@
 Feature: Sorting Cases
+As a general public user,
+I want to be able to display cases based on certain filters
+So that I can better navigate and browse through missing people cases
+
+Background: 
+Given the following posts exist:
+    |    full_name |   age | location      | description          | special_note   | missing_time            |reward     |
+    |   Lucas Lim  |    25 | Orchard Road  | Random description   | None           | Sun, 18 Jun 2023 21:33  | 100       |
+    |  Amanda Poh  |    27 | Tampines      | Blue shirt           | Autistic       | Mon, 19 Jun 2023 21:33  | 100       |
+    | Richard Soon |    90 | Geylang       | Adidas shirt         | Elderly        | Tues, 20 Jun 2023 21:33 | 100       |
+    |   James Koh  |    30 | Jurong Point  | Missing person desc  | Important note | Sat, 17 Jun 2023 21:33  | 100       |
 
     Scenario: User does not click any sorting configuration (default: most recently posted)
-        Given the following posts exist:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
         When I visit the posts page
         Then I should see the following posts in order:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
+            |    full_name |   age | location      | description          | special_note   | missing_time            |reward     |
+            |   Lucas Lim  |    25 | Orchard Road  | Random description   | None           | Sun, 18 Jun 2023 21:33  | 100       |
+            |  Amanda Poh  |    27 | Tampines      | Blue shirt           | Autistic       | Mon, 19 Jun 2023 21:33  | 100       |
+            | Richard Soon |    90 | Geylang       | Adidas shirt         | Elderly        | Tues, 20 Jun 2023 21:33 | 100       |
+            |   James Koh  |    30 | Jurong Point  | Missing person desc  | Important note | Sat, 17 Jun 2023 21:33  | 100       |
 
     Scenario: User sorts posts by Most Recently Missing
-        Given the following posts exist:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
         When I visit the posts page
         And I select "Most Recently Missing" from "sort_by"
         Then I should see the following posts in order:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
+            |    full_name |   age | location      | description          | special_note   | missing_time            |reward     |
+            | Richard Soon |    90 | Geylang       | Adidas shirt         | Elderly        | Tues, 20 Jun 2023 21:33 | 100       |
+            |  Amanda Poh  |    27 | Tampines      | Blue shirt           | Autistic       | Mon, 19 Jun 2023 21:33  | 100       |
+            |   Lucas Lim  |    25 | Orchard Road  | Random description   | None           | Sun, 18 Jun 2023 21:33  | 100       |
+            |   James Koh  |    30 | Jurong Point  | Missing person desc  | Important note | Sat, 17 Jun 2023 21:33  | 100       |
 
     Scenario: User sorts posts by Alphabetical Order
-        Given the following posts exist:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
         When I visit the posts page
         And I select "Alphabetical Order" from "sort_by"
         Then I should see the following posts in order:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
-            | Senna Lim | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
+            |    full_name |   age | location      | description          | special_note   | missing_time            |reward     |
+            |  Amanda Poh  |    27 | Tampines      | Blue shirt           | Autistic       | Mon, 19 Jun 2023 21:33  | 100       |
+            |   James Koh  |    30 | Jurong Point  | Missing person desc  | Important note | Sat, 17 Jun 2023 21:33  | 100       |
+            |   Lucas Lim  |    25 | Orchard Road  | Random description   | None           | Sun, 18 Jun 2023 21:33  | 100       |
+            | Richard Soon |    90 | Geylang       | Adidas shirt         | Elderly        | Tues, 20 Jun 2023 21:33 | 100       |
 
     Scenario: User sorts posts by Most Recently Posted
-        Given the following posts exist:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
         When I visit the posts page
         And I select "Most Recently Posted" from "sort_by"
         Then I should see the following posts in order:
-            | full_name  | age    | location    | description        | special_note  | missing_time     | created_at        | reward |
-            | Cephas Yeo | 23     | Tanah Merah | test               | nothing       | 2022-09-02 21:00 | 2022-09-03 09:00  | 100    |
-            | Senna Lim  | 20     | Kembangan   | description        | nada          | 2022-06-02 21:00 | 2022-07-04 09:00  | 54     |
-            | Nada Khan  | 21     | Tampines    | test description   | nil           | 2022-07-02 21:00 | 2022-07-03 09:00  | 19     |
+            |    full_name |   age | location      | description          | special_note   | missing_time            |reward     |
+            |   Lucas Lim  |    25 | Orchard Road  | Random description   | None           | Sun, 18 Jun 2023 21:33  | 100       |
+            |  Amanda Poh  |    27 | Tampines      | Blue shirt           | Autistic       | Mon, 19 Jun 2023 21:33  | 100       |
+            | Richard Soon |    90 | Geylang       | Adidas shirt         | Elderly        | Tues, 20 Jun 2023 21:33 | 100       |
+            |   James Koh  |    30 | Jurong Point  | Missing person desc  | Important note | Sat, 17 Jun 2023 21:33  | 100       |
