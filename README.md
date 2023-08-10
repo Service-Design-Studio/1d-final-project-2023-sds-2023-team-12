@@ -292,6 +292,15 @@ Run unit testing using Rspec
 rspec
 ```
 
++ 2.3 Fuzzing Using Rspec
+
+Test for grammar in email and password field using Rspec
+Run fuzzing using Rspec
+
+```
+bundle exec rspec spec/email_fuzz_spec.rb
+bundle exec rspec spec/password_fuzz_spec.rb
+```
 
 
 
