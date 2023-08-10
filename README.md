@@ -32,7 +32,7 @@ Our innovative application, Missing Persons, serves as a comprehensive platform 
 # Acknowledgments
 
 1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
-2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee [@nadakhn](https://github.com/nadakhn)   (Deputy Project Manager + Product Designer + Frontend engineer)
+2. Nada Khan Suratee [@nadakhn](https://github.com/nadakhn)   (Deputy Project Manager + Product Designer + Frontend engineer)
 3. Cephas Yeo Zhi Hao [@cephasyeo](https://github.com/cephasyeo) (ML/AI Engineer + QA Engineer) 
 4. Saw Yi Xuan  [@yixuansaw](https://github.com/yixuansaw) (QA Engineer + Testing Engineer + Product Management)
 5. Ayu Permata Halim Mendoza [@ayupermhm](https://github.com/ayupermhm) (Frontend Engineer + Product Management)
