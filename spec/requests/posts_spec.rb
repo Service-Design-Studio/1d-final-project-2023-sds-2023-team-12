@@ -68,7 +68,122 @@ RSpec.describe PostsController, type: :controller do
         # Ensure the posts are ordered by missing_time in descending order
         expect(assigns(:posts)).to eq([post_new_missing, post_old_missing])
       end
+
+      it 'sorts by higest rewards' do
+        # Create posts with different missing_time timestamps for ordering test
+        user=create(:user)
+        low_reward_missing = create(:post, reward: 300 ,user: user)
+        high_reward_missing = create(:post, reward: 500 , user: user)
+
+        # Send the request with sort_by parameter set to 'recently_missing'
+        get :index, params: { sort_by: 'highest_rewards' }
+
+        # Ensure the posts are ordered by missing_time in descending order
+        expect(assigns(:posts)).to eq([high_reward_missing, low_reward_missing])
+      end
     end
+
+    context 'sort by gender - by male' do
+      it 'sort by gender' do
+        user=create(:user)
+        male_post_missing_1=create(:post,gender: "Male",user: user)
+        male_post_missing_2=create(:post,gender: "Male",user: user)
+        female_post_missing_1=create(:post,gender: "Female",user: user)
+        female_post_missing_2=create(:post,gender: "Female",user: user)
+
+        get :index, params: {
+          genders: "Male"
+        }
+
+        expect(assigns(:posts)).to eq([male_post_missing_2, male_post_missing_1])
+      end
+    end
+
+    context 'sort by gender - by female' do
+      it 'sort by gender - by female' do
+        user=create(:user)
+        male_post_missing_1=create(:post,gender: "Male",user: user)
+        male_post_missing_2=create(:post,gender: "Male",user: user)
+        female_post_missing_1=create(:post,gender: "Female",user: user)
+        female_post_missing_2=create(:post,gender: "Female",user: user)
+
+        get :index, params: {
+          genders: "Female"
+        }
+
+        expect(assigns(:posts)).to eq([female_post_missing_2, female_post_missing_1])
+      end
+    end
+
+    ##### test searching function 
+    context 'testing searching functionality of post controller index action' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'search by location of missing person' do
+        get :index, params: { search: "A" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+      end
+
+      it 'search by name of missing person' do
+        get :index, params: { search: "Alpha" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+      end
+
+    end
+
+
+     ##### test searching function 
+     context 'testing filering posts using age_categories' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'search by location of missing person' do
+        get :index, params: { search: "A" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+      end
+
+      it 'search by name of missing person' do
+        get :index, params: { search: "Alpha" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+      end
+
+    end
+
+    # // Checking for consistent state 
+    context 'testing filering posts using age_categories' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'maintain state' do
+        get :index, params: { age_categories: [18], genders: ['Male'], sort_by: 'highest_rewards' }
+        expect(assigns(:selected_genders)).to eq(['Male'])
+        expect(assigns(:sort_by)).to eq('highest_rewards')
+        expect(assigns(:selected_age_categories)).to eq(["18"])
+
+      end
+
+    end
+
+
 
     context 'with user_id parameter' do
       it 'fetches posts for the given user' do
@@ -83,6 +198,9 @@ RSpec.describe PostsController, type: :controller do
       end
     end
   end
+
+
+
 
     # Test new action of post controller
     describe "GET #new" do
@@ -232,6 +350,8 @@ context 'valid input for post' do
           
     # end
 
+
+
   # destroy post 
   describe 'destroy an existing post in the database' do
     it 'sucessfully remove a new post' do
@@ -246,6 +366,8 @@ context 'valid input for post' do
         expect(response).to redirect_to(user_posts_path(new_user.id))
     end
   end 
+
+
 
   # post detail
   describe 'show detail of post' do

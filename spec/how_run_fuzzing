@@ -1,0 +1,8 @@
+1. Before running the tests, ensure that the test database is clean and does not contain any existing user records.
+Enter command 'rails db:reset RAILS_ENV=test'
+
+2. To run email fuzzing test,
+Enter command 'bundle exec rspec spec/email_fuzz.rb'
+
+3. To run password fuzzing test,
+Enter command 'bundle exec rspec spec/password_fuzz.rb'

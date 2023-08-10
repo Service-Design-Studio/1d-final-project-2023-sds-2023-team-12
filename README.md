@@ -32,11 +32,11 @@ Our innovative application, Missing Persons, serves as a comprehensive platform 
 # Acknowledgments
 
 1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
-2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee  (Deputy Project Manager + Product Designer + Frontend engineer)
-3. Cephas Yeo Zhi Hao (ML/AI Engineer + QA Engineer)
-4. Saw Yi Xuan - Software (QA Engineer + Product Management)
-5. Ayu Permata Halim Mendoza (Frontend Engineer + Product Management)
-6. Senna Lin Tan (Graphic Design + Frontend Engineer) 
+2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee [@nadakhn](https://github.com/nadakhn)   (Deputy Project Manager + Product Designer + Frontend engineer)
+3. Cephas Yeo Zhi Hao [@cephasyeo](https://github.com/cephasyeo) (ML/AI Engineer + QA Engineer) 
+4. Saw Yi Xuan  [@yixuansaw](https://github.com/yixuansaw) (QA Engineer + Testing Engineer + Product Management)
+5. Ayu Permata Halim Mendoza [@ayupermhm](https://github.com/ayupermhm) (Frontend Engineer + Product Management)
+6. Senna Lin Tan [@sennshine](https://github.com/ayupermhm) (Graphic Design + Frontend Engineer) 
 
 <!-- Getting started -->
 
@@ -158,6 +158,19 @@ set API_KEY=<your API key>
 rails server
 ```
 
+### 2. Run Flask application
+
+1. Ensure that you are in the vertexai directory!
+
+```
+cd vertexai
+```
+2. Deploy the Flask application which calls the text-bison-001 model from VertexAI
+
+```python
+python main.py
+```
+
 ## Troubleshooting
 
 ### 1. Inspect development database
@@ -271,6 +284,7 @@ rails test
 ```
 
 + 2.2 Using Rspec
+  
 Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
 
 Run unit testing using Rspec 
