@@ -286,7 +286,8 @@ rails test
 + 2.2 Using Rspec
   
 Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
-Model Unit Testing [./spec]([https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/models))
+Model Unit Testing [./spec/models](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/models)
+Controllers Unit Testing [./spec/requests](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/request)
 
 
 Run unit testing using Rspec 
