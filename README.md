@@ -26,13 +26,13 @@
 
 # Our Mission
 
-Our innovative application, Missing Persons, serves as a comprehensive platform for users to report and seek their missing loved ones by providing detailed information, thereby facilitating the search for other missing individuals. This user-friendly app boasts an array of features, including advanced language detection that enables users to effortlessly fill up forms in their preferred language.
+Our innovative application, Missing Network, serves as a comprehensive platform for users to report and seek their missing loved ones by providing detailed information, thereby facilitating the search for other missing individuals by enlistihng the help of members of the public. This user-friendly app boasts an array of features, including advanced language detection that enables users to effortlessly fill up forms in their preferred language and AI generated prompts to assist users by providing contextually relevant prompts to properly look out for and communicate with the missing individual, improving the effectiveness of the search process.
 
 <!-- Acknewledgment -->
 # Acknowledgments
 
 1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
-2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee [@nadakhn](https://github.com/nadakhn)   (Deputy Project Manager + Product Designer + Frontend engineer)
+2. Nada Khan Suratee [@nadakhn](https://github.com/nadakhn)   (Deputy Project Manager + Product Designer + Frontend engineer)
 3. Cephas Yeo Zhi Hao [@cephasyeo](https://github.com/cephasyeo) (ML/AI Engineer + QA Engineer) 
 4. Saw Yi Xuan  [@yixuansaw](https://github.com/yixuansaw) (QA Engineer + Testing Engineer + Product Management)
 5. Ayu Permata Halim Mendoza [@ayupermhm](https://github.com/ayupermhm) (Frontend Engineer + Product Management)
@@ -158,6 +158,19 @@ set API_KEY=<your API key>
 rails server
 ```
 
+### 2. Run Flask application
+
+1. Ensure that you are in the vertexai directory!
+
+```
+cd vertexai
+```
+2. Deploy the Flask application which calls the text-bison-001 model from VertexAI
+
+```python
+python main.py
+```
+
 ## Troubleshooting
 
 ### 1. Inspect development database
@@ -271,6 +284,7 @@ rails test
 ```
 
 + 2.2 Using Rspec
+  
 Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
 
 Run unit testing using Rspec 
@@ -278,6 +292,15 @@ Run unit testing using Rspec
 rspec
 ```
 
++ 2.3 Fuzzing Using Rspec
+
+Test for grammar in email and password field using Rspec
+Run fuzzing using Rspec
+
+```
+bundle exec rspec spec/email_fuzz_spec.rb
+bundle exec rspec spec/password_fuzz_spec.rb
+```
 
 
 

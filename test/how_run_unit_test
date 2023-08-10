@@ -1,5 +1,5 @@
 1. Before running the tests, ensure that the test database is clean and does not contain any existing user records.
-Enter command 'rails db:reset RAILS_ENV=test' and 'rails db:drop db:create db:schema:load'
+Enter command 'rails db:reset RAILS_ENV=test'
 
 2. To run all tests,
 Enter command 'rails test'
