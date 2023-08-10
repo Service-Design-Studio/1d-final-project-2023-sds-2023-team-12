@@ -286,7 +286,9 @@ rails test
 + 2.2 Using Rspec
   
 Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
+
 Model Unit Testing [./spec/models](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/models)
+
 Controllers Unit Testing [./spec/requests](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/request)
 
 
@@ -298,14 +300,18 @@ rspec
 + 2.3 Fuzzing Using Rspec
 
 Test for grammar in email and password field using Rspec
+
+Fuzzing testing are defined under [./spec/fuzzing_test](
+https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/fuzzing_test)
+
+
 Run fuzzing using Rspec
 
 ```
 bundle exec rspec spec/email_fuzz_spec.rb
 bundle exec rspec spec/password_fuzz_spec.rb
 ```
-Testing are defined under [./spec/fuzzing_test](
-https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/fuzzing_test)
+
 
 
 
