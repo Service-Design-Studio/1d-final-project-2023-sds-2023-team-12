@@ -12,10 +12,17 @@ RSpec.describe PostsController, type: :controller do
 
     # Test index action of post controller
     describe 'GET #index' do
+      ## Unit testing for front end
       it 'renders the index template' do
         get :index
         expect(response).to render_template(:index)
       end
+
+      it 'return success request' do
+        get :index
+        expect(response).to be_successful
+      end
+      ## front end ##
 
     context 'with no search parameter' do
       it 'fetches all posts' do
@@ -27,7 +34,11 @@ RSpec.describe PostsController, type: :controller do
         get :index
 
         # Expect the controller to assign the fetched posts to @posts
-        expect(assigns(:posts).size).to eq(3) # or expect(assigns(:posts).count).to eq(3)
+        expect(assigns(:posts).size).to eq(3) 
+        ## test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+
       end
 
       it 'sorts by alphabetical order' do
@@ -41,6 +52,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by full_name in ascending order
         expect(assigns(:posts)).to eq([post_a, post_b])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
       it 'sorts by recently posted' do
@@ -54,6 +68,9 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by created_at in descending order
         expect(assigns(:posts)).to eq([post_new, post_old])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
 
       it 'sorts by recently missing' do
@@ -67,8 +84,150 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the posts are ordered by missing_time in descending order
         expect(assigns(:posts)).to eq([post_new_missing, post_old_missing])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+      end
+
+      it 'sorts by higest rewards' do
+        user=create(:user)
+        low_reward_missing = create(:post, reward: 300 ,user: user)
+        high_reward_missing = create(:post, reward: 500 , user: user)
+
+        # Send the request with sort_by parameter set to 'recently_missing'
+        get :index, params: { sort_by: 'highest_rewards' }
+
+        # Ensure the posts are ordered by missing_time in descending order
+        expect(assigns(:posts)).to eq([high_reward_missing, low_reward_missing])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
     end
+
+    context 'sort by gender - by male' do
+      it 'sort by gender' do
+        user=create(:user)
+        male_post_missing_1=create(:post,gender: "Male",user: user)
+        male_post_missing_2=create(:post,gender: "Male",user: user)
+        female_post_missing_1=create(:post,gender: "Female",user: user)
+        female_post_missing_2=create(:post,gender: "Female",user: user)
+
+        get :index, params: {
+          genders: "Male"
+        }
+
+        expect(assigns(:posts)).to eq([male_post_missing_2, male_post_missing_1])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+      end
+    end
+
+    context 'sort by gender - by female' do
+      it 'sort by gender - by female' do
+        user=create(:user)
+        male_post_missing_1=create(:post,gender: "Male",user: user)
+        male_post_missing_2=create(:post,gender: "Male",user: user)
+        female_post_missing_1=create(:post,gender: "Female",user: user)
+        female_post_missing_2=create(:post,gender: "Female",user: user)
+
+        get :index, params: {
+          genders: "Female"
+        }
+
+        expect(assigns(:posts)).to eq([female_post_missing_2, female_post_missing_1])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+      end
+    end
+
+    ##### test searching function 
+    context 'testing searching functionality of post controller index action' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'search by location of missing person' do
+        get :index, params: { search: "A" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+      end
+
+      it 'search by name of missing person' do
+        get :index, params: { search: "Alpha" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+      end
+
+    end
+
+
+     ##### test searching function 
+     context 'testing filering posts using age_categories' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'search by location of missing person' do
+        get :index, params: { search: "A" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three,@post_four])
+         # test front end
+         expect(response).to render_template(:index)
+         expect(response).to be_successful
+      end
+
+      it 'search by name of missing person' do
+        get :index, params: { search: "Alpha" }
+        expect(assigns(:posts)).to eq([@post_one,@post_two,@post_three])
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
+      end
+
+    end
+
+    # // Checking for consistent state 
+    context 'testing filering posts using age_categories' do
+      before do
+        user=create(:user)
+        @post_four=create(:post,full_name: "Test",location: "A",user: user)
+        @post_three=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_two=create(:post,full_name: "Alpha",location: "A",user: user)
+        @post_one=create(:post,full_name: "Alpha",location: "A",user: user)
+
+      end
+
+      it 'maintain state' do
+        get :index, params: { age_categories: [18], genders: ['Male'], sort_by: 'highest_rewards' }
+        expect(assigns(:selected_genders)).to eq(['Male'])
+        expect(assigns(:sort_by)).to eq('highest_rewards')
+        expect(assigns(:selected_age_categories)).to eq(["18"])
+
+         # test front end
+         expect(response).to render_template(:index)
+         expect(response).to be_successful
+
+      end
+
+    end
+
+
 
     context 'with user_id parameter' do
       it 'fetches posts for the given user' do
@@ -80,9 +239,15 @@ RSpec.describe PostsController, type: :controller do
 
         # Ensure the correct user's posts are fetched
         expect(assigns(:posts)).to eq(user_posts)
+        # test front end
+        expect(response).to render_template(:index)
+        expect(response).to be_successful
       end
     end
   end
+
+
+
 
     # Test new action of post controller
     describe "GET #new" do
@@ -97,7 +262,6 @@ RSpec.describe PostsController, type: :controller do
 
     context "when user is signed in" do
       it "renders the new post form" do
-        # Create a user and sign them in (Assuming you have Devise or a similar authentication system)
         new_user = FactoryBot.build :user
 
         sign_in new_user
@@ -120,6 +284,9 @@ RSpec.describe PostsController, type: :controller do
         id: new_post.id
       }
       expect(response).to render_template(:edit)
+      # test front end
+      expect(response).to render_template(:edit)
+      expect(response).to be_successful
     end
   end 
 
@@ -147,6 +314,7 @@ RSpec.describe PostsController, type: :controller do
         }
       }
       expect(response).to render_template(:new)
+       # test front end
     end
 end 
 
@@ -232,6 +400,8 @@ context 'valid input for post' do
           
     # end
 
+
+
   # destroy post 
   describe 'destroy an existing post in the database' do
     it 'sucessfully remove a new post' do
@@ -244,8 +414,12 @@ context 'valid input for post' do
           id: new_post.id
         }
         expect(response).to redirect_to(user_posts_path(new_user.id))
+         # test front end
+      
     end
   end 
+
+
 
   # post detail
   describe 'show detail of post' do
@@ -257,6 +431,9 @@ context 'valid input for post' do
           id: new_post.id  
         }
         expect(response).to be_successful
+         # test front end
+         expect(response).to render_template(:pdetail)
+         expect(response).to be_successful
     end
   end 
 

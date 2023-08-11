@@ -26,17 +26,17 @@
 
 # Our Mission
 
-As an information portal, AMADEUS allows admin users to upload important articles, which are tagged, categorised and summarised by varying forms of artificial intelligence. Making use of Google's Cloud APIs, AMADEUS is able to effectively tackle the large diversity and high volumes of relevant information for its users.
+Our innovative application, Missing Network, serves as a comprehensive platform for users to report and seek their missing loved ones by providing detailed information, thereby facilitating the search for other missing individuals by enlistihng the help of members of the public. This user-friendly app boasts an array of features, including advanced language detection that enables users to effortlessly fill up forms in their preferred language and AI generated prompts to assist users by providing contextually relevant prompts to properly look out for and communicate with the missing individual, improving the effectiveness of the search process.
 
 <!-- Acknewledgment -->
 # Acknowledgments
 
 1. Tran Cong Nam Anh Louis [@LouisAnhTran](https://github.com/LouisAnhTran?tab=repositories) (Project Manager + Technical Lead + Fullstack Developer + QA Engineer)
-2. Nada Khan Suratee Binte Abdul Rahim Khan Suratee  (Deputy Project Manager + Product Designer + Frontend engineer)
-3. Cephas Yeo Zhi Hao (ML/AI Engineer + QA Engineer)  
-4. Saw Yi Xuan - Software (QA Engineer)
-5. Ayu Permata Halim Mendoza (Frontend Engineer + Product Management)
-6. Senna Lin Tan (Graphic Design + Frontend Engineer) 
+2. Nada Khan Suratee [@nadakhn](https://github.com/nadakhn)   (Deputy Project Manager + Product Designer + Frontend engineer)
+3. Cephas Yeo Zhi Hao [@cephasyeo](https://github.com/cephasyeo) (ML/AI Engineer + QA Engineer) 
+4. Saw Yi Xuan  [@yixuansaw](https://github.com/yixuansaw) (QA Engineer + Testing Engineer + Product Management)
+5. Ayu Permata Halim Mendoza [@ayupermhm](https://github.com/ayupermhm) (Frontend Engineer + Product Management)
+6. Senna Lin Tan [@sennshine](https://github.com/ayupermhm) (Graphic Design + Frontend Engineer) 
 
 <!-- Getting started -->
 
@@ -158,6 +158,19 @@ set API_KEY=<your API key>
 rails server
 ```
 
+### 2. Run Flask application
+
+1. Ensure that you are in the vertexai directory!
+
+```
+cd vertexai
+```
+2. Deploy the Flask application which calls the text-bison-001 model from VertexAI
+
+```python
+python main.py
+```
+
 ## Troubleshooting
 
 ### 1. Inspect development database
@@ -267,17 +280,37 @@ Testing are defined under [./test](https://github.com/Service-Design-Studio/1d-f
 
 Run unit testing using Minitest
 ```
-bundle exec cucumber
+rails test
 ```
 
 + 2.2 Using Rspec
+  
 Testing are defined under [./spec](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec)
+
+Model Unit Testing [./spec/models](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/models)
+
+Controllers Unit Testing [./spec/requests](https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/request)
+
 
 Run unit testing using Rspec 
 ```
 rspec
 ```
 
++ 2.3 Fuzzing Using Rspec
+
+Test for grammar in email and password field using Rspec
+
+Fuzzing testing are defined under [./spec/fuzzing_test](
+https://github.com/Service-Design-Studio/1d-final-project-2023-sds-2023-team-12/tree/main/spec/fuzzing_test)
+
+
+Run fuzzing using Rspec
+
+```
+bundle exec rspec spec/email_fuzz_spec.rb
+bundle exec rspec spec/password_fuzz_spec.rb
+```
 
 
 

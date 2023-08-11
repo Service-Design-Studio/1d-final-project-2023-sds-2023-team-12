@@ -82,6 +82,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
   gem 'sqlite3'
+  gem 'minitest-reporters', '~> 1.4', require: false
+  gem 'guard', '~> 2.16', require: false
+  gem 'guard-minitest', '~> 2.4', require: false
 
   gem 'faker'
   gem 'rails-controller-testing'  

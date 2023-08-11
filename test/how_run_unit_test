@@ -1,0 +1,12 @@
+1. Before running the tests, ensure that the test database is clean and does not contain any existing user records.
+Enter command 'rails db:reset RAILS_ENV=test'
+
+2. To run all tests,
+Enter command 'rails test'
+
+3. To run a particular test,
+Enter command 'rails test {path to file}'
+Change {path to file} to actual path to that test file 
+(e.g.test/models/user_test.rb)
+
+

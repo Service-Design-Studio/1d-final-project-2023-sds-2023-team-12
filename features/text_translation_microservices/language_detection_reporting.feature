@@ -11,8 +11,8 @@ Background: I want to report a missing case when i am already logged in
   Then I should see "Report A Case"
 
 @happy_path
-Scenario: Report a new case with description and special note fully filled by English 
-  Given I am on the "Report" page for user with email: "test@example.com"
+Scenario: Report a new case with description and special note fully filled in English 
+  Given I am on the "Report Case" page for user with email: "test@example.com"
   Then I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar
   When I fill in "Full name" field with "David"
   And I fill in "Age" field with "34"
@@ -42,8 +42,8 @@ Scenario: Report a new case with the description provided in a non-English langu
   And I should see notification "Post was successfully created, click on show cases to see your case"
   And I should see notification "Description has been translated from Vietnamese to English"
 
-Scenario: Report a new case with the description provided in a non-English language
-  Given I am on the "Report" page for user with email: "test@example.com"
+Scenario: Report a new case with the description and special note in a non-English language
+  Given I am on the "Report Case" page for user with email: "test@example.com"
   And I should see the "Post" form with the following fields: full_name, age, location, description, special_note, missing_time, avatar
   When I fill in "Full name" field with "David"
   And I fill in "Age" field with "34"
