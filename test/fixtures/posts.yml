@@ -1,45 +1,45 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-post_one:
-  full_name: James Koh
-  age: 30
-  location: Jurong Point
-  description: Missing person description
-  special_note: Important note
-  missing_time: Sat, 17 Jun 2023 21:33:00 +0000
-  reward: 100
-  user: user_one
-  user_id: 1
+  post_one:
+    full_name: James Koh
+    age: 30
+    location: Jurong Point
+    description: Missing person description
+    special_note: Important note
+    missing_time: Sat, 17 Jun 2023 21:33:00 +0000
+    reward: 100
+    user: user_one
+    user_id: 1
 
-post_two:
-  full_name: Lucas Lim
-  age: 25
-  location: Orchard Road
-  description: Random description
-  special_note: None
-  missing_time: Sun, 18 Jun 2023 21:33:00 +0000
-  reward: 100
-  user: user_two
-  user_id: 2
+  post_two:
+    full_name: Lucas Lim
+    age: 25
+    location: Orchard Road
+    description: Random description
+    special_note: None
+    missing_time: Sun, 18 Jun 2023 21:33:00 +0000
+    reward: 100
+    user: user_two
+    user_id: 2
 
-post_three:
-  full_name: Amanda Poh
-  age: 27
-  location: Tampines
-  description: Blue shirt
-  special_note: Autistic
-  missing_time: Mon, 19 Jun 2023 21:33:00 +0000
-  reward: 100
-  user: user_three
-  user_id: 3
+  post_three:
+    full_name: Amanda Poh
+    age: 27
+    location: Tampines
+    description: Blue shirt
+    special_note: Autistic
+    missing_time: Mon, 19 Jun 2023 21:33:00 +0000
+    reward: 100
+    user: user_three
+    user_id: 3
 
-post_four:
-  full_name: Richard Soon
-  age: 90
-  location: Geylang
-  description: Adidas shirt
-  special_note: Elderly
-  missing_time: Tues, 20 Jun 2023 21:33:00 +0000
-  reward: 100
-  user: user_four
-  user_id: 4
+  post_four:
+    full_name: Richard Soon
+    age: 90
+    location: Geylang
+    description: Adidas shirt
+    special_note: Elderly
+    missing_time: Tues, 20 Jun 2023 21:33:00 +0000
+    reward: 100
+    user: user_four
+    user_id: 4
